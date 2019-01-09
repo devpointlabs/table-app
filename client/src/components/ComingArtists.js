@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Grid, Image } from 'semantic-ui-react';
+import { Card, Image, Header, Divider } from 'semantic-ui-react';
 import '../styles/comingArtist.css';
 
 class ComingArtists extends React.Component {
@@ -14,6 +14,8 @@ class ComingArtists extends React.Component {
     const { artists } = this.state;
     return(
       <div class="body">
+        <Header as="h1" inverted textAlign="center">Coming Artists</Header>
+        <Divider inverted />
         <Card.Group centered itemsPerRow={3}>
           { artists.map( artist =>
             <Card key={artist.id}>
