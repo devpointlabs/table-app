@@ -18,7 +18,7 @@ class ComingArtists extends React.Component {
         <Divider inverted />
         <Card.Group centered itemsPerRow={3}>
           { artists.map( artist =>
-            <Card key={artist.id}>
+            <Card key={artist.id} style={{ maxWidth: '300px' }}>
               <Image src={artist.image} />
             </Card>
           )}
