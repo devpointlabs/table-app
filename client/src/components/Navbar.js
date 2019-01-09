@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Link, withRouter, } from 'react-router-dom'
-import '../app.css'
+import '../App.css'
 
 class Navbar extends React.Component {
 
