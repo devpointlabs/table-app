@@ -1,0 +1,2 @@
+class TableGroup < ApplicationRecord
+end
