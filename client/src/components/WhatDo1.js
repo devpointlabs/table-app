@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 // import { Link, } from 'react-router-dom';
 import { Header, Segment, Image, Divider, Grid} from 'semantic-ui-react';
 
 const WhatDo = () => (
-  <Fragment>
+  <>
     <Header as="h3" textAlign="center">
       What We Do
     </Header>
@@ -42,7 +42,7 @@ const WhatDo = () => (
         </Grid.Column>
       </Grid.Row>
     </Grid>
-  </Fragment>
+  </>
 )
 
 export default WhatDo;

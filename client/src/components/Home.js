@@ -1,13 +1,13 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { Header, } from 'semantic-ui-react';
 import WhatDo1 from './WhatDo1'
 
 const Home = () => (
-  <Fragment>
-  <Header as="h3" textAlign="center">Table App</Header>
+  <>
+    <Header as="h3" textAlign="center">Table App</Header>
 
-  <WhatDo1/>
-  </Fragment>
+    <WhatDo1/>
+  </>
 )
 
 export default Home;
