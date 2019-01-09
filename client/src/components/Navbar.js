@@ -12,7 +12,7 @@ class Navbar extends React.Component {
     if (user.admin) {
       return(
       <Dropdown.Item>
-        <Link to = ''>Admin</Link>
+        <Link to = ''>ADMIN</Link>
       </Dropdown.Item>
       )
     }
@@ -39,10 +39,10 @@ class Navbar extends React.Component {
       return (
         <>
           <Menu.Item link>
-          <Link to = '/login' class = 'navLink'>LOGIN</Link>
+          <Link to = '/login' class = ''>LOGIN</Link>
           </Menu.Item>
           <Menu.Item link>
-          <Link to = '/register' class = 'navLink'>REGISTER</Link>
+          <Link to = '/register' class = ''>REGISTER</Link>
           </Menu.Item>
         </>
       )
@@ -55,13 +55,13 @@ class Navbar extends React.Component {
         { this.leftNavItems() }
         <Menu.Menu position="right">
           <Menu.Item link>
-            <Link to = '/' class = 'navLink'>WORK</Link>
+            <Link to = '/' class = ''>WORK</Link>
           </Menu.Item>
           <Menu.Item link>
-            <Link to = '/' class = 'navLink'>PAGES</Link>
+            <Link to = '/' class = ''>PAGES</Link>
           </Menu.Item>
           <Menu.Item link>
-            <Link to = '/' class = 'navLink'>HOME</Link>
+            <Link to = '/' class = ''>HOME</Link>
           </Menu.Item>
         </Menu.Menu>
       </Menu>
