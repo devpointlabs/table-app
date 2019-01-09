@@ -1,34 +1,57 @@
 import React, { Fragment } from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Link, withRouter, } from 'react-router-dom'
+import { Menu } from 'semantic-ui-react';
 import '../App.css'
+import { StyledItem, StyledMenu } from '../styles/navBar';
 
 class Navbar extends React.Component {
 
   rightNavItems = () => {
-    const { auth: { user, handleLogout, }, location, } = this.props;
-
+    const { auth: { user, handleLogout, }, location: { pathname, }, history, } = this.props;
     if (user) {
       return (
-        <Link to = '' class = 'navLink' onClick = {() => handleLogout(this.props.history)}>LOGOUT</Link>
+        <Menu.Menu position="right">
+          <StyledItem 
+            name="LOGOUT"
+            onClick={() => handleLogout(history)}
+            />
+        </Menu.Menu>
       )
     } else {
       return (
-        <Fragment>
-          <Link to = '/login' class = 'navLink'>LOGIN</Link>
-          <Link to = '/register' class = 'navLink'>REGISTER</Link>
-        </Fragment>
+        <Menu.Menu position="right">
+          <Link to="/login">
+            <StyledItem
+              name="LOGIN"
+              id="login"
+              active={pathname === "/login"}
+            />
+          </Link>
+          <Link to="/register">
+            <StyledItem
+              name="REGISTER"
+              id="register"
+              active={pathname === "/register"}
+            />
+          </Link>
+        </Menu.Menu>
       )
     }
   }
-
-  render() {
+  
+  render() {  
     return (
-      <div class = 'navBar'>      
-        <Link to = '/' class = 'navLink'>WORK</Link>
-        <Link to = '/' class = 'navLink'>PAGES</Link>
-        <Link to = '/' class = 'active navLink'>HOME</Link>
-      </div>
+      <StyledMenu pointing secondary>
+        <Link to="/">
+          <StyledItem
+            name="HOME"
+            id="home"
+            active={this.props.location.pathname === "/"}
+            />
+        </Link>          
+        { this.rightNavItems() }
+      </StyledMenu>
     )
   }
 }
