@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Menu, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
+import '../App.css'
 
 class Navbar extends React.Component {
 
@@ -10,48 +10,24 @@ class Navbar extends React.Component {
 
     if (user) {
       return (
-        <Menu.Menu position='right'>
-          <Menu.Item
-            name='logout'
-            onClick={() => handleLogout(this.props.history)}
-          />
-        </Menu.Menu>
+        <Link to = '' class = 'navLink' onClick = {() => handleLogout(this.props.history)}>LOGOUT</Link>
       )
     } else {
       return (
-        <Menu.Menu position='right'>
-          <Link to='/login'>
-            <Menu.Item
-              id='login'
-              name='login'
-              active={location.pathname === '/login'}
-            />
-          </Link>
-          <Link to='/register'>
-            <Menu.Item
-              id='register'
-              name='register'
-              active={location.pathname === '/register'}
-            />
-          </Link>
-        </Menu.Menu>
+        <Fragment>
+          <Link to = '/login' class = 'navLink'>LOGIN</Link>
+          <Link to = '/register' class = 'navLink'>REGISTER</Link>
+        </Fragment>
       )
     }
   }
 
   render() {
     return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-            />
-          </Link> 
-          { this.rightNavItems() }
-        </Menu>
+      <div class = 'navBar'>      
+        <Link to = '/' class = 'navLink'>WORK</Link>
+        <Link to = '/' class = 'navLink'>PAGES</Link>
+        <Link to = '/' class = 'active navLink'>HOME</Link>
       </div>
     )
   }
