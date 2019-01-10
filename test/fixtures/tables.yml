@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  table_group_id: 1
+  table_group: one
 
 two:
   name: MyString
-  table_group_id: 1
+  table_group: two
