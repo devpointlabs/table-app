@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_222546) do
   create_table "table_groups", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "max_seats"
+    t.integer "max_seats", default: 15
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
