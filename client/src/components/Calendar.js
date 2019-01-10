@@ -1,37 +1,121 @@
 import React from 'react';
-import { Card, Image, Header, Button } from 'semantic-ui-react';
-import { Link, } from 'react-router-dom';
+import '../styles/Calendar.css'
+import dateFns from "date-fns";
+import CalendarCards from './CalendarCards'
 
 class Calendar extends React.Component {
-  state = { events: [
-    {id: 1, host: "Midnight Tyrannosaurus", image_url: "https://nightout.s3.amazonaws.com/media/posters/53148/medium-f06b089f1db1cf56.jpg?1546886793", event_date: "Tuesday, Feb 10th, 2019"},
-    {id: 2, host: "Swamplex", image_url: "https://nightout.s3.amazonaws.com/media/posters/51313/medium-6a93586c65233c02.jpg?1541612333", event_date: "Wednesday, Feb 11th, 2019"},
-    {id: 3, host: "Up in Smoke Tour", image_url: "https://nightout.s3.amazonaws.com/media/posters/52756/medium-4a8354aea91d32c3.jpg?1545238001", event_date: "Thursday, Feb 12th, 2019"}
-  ],
+  state = {
+    currentMonth: new Date(),
+    selectedDate: new Date()
+  };
+
+  renderHeader() {
+    const dateFormat = "MMMM YYYY";
+
+    return (
+      <div className="header row flex-middle">
+        <div className="col col-start">
+          <div className="icon" onClick={this.prevMonth}>
+            chevron_left
+          </div>
+        </div>
+        <div className="col col-center">
+          <span>{dateFns.format(this.state.currentMonth, dateFormat)}</span>
+        </div>
+        <div className="col col-end" onClick={this.nextMonth}>
+          <div className="icon">chevron_right</div>
+        </div>
+      </div>
+    );
+  }
+
+  renderDays() {
+    const dateFormat = "dddd";
+    const days = [];
+
+    let startDate = dateFns.startOfWeek(this.state.currentMonth);
+
+    for (let i = 0; i < 7; i++) {
+      days.push(
+        <div className="col col-center" key={i}>
+          {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
+        </div>
+      );
+    }
+
+    return <div className="days row">{days}</div>;
+  }
+
+  renderCells() {
+    const { currentMonth, selectedDate } = this.state;
+    const monthStart = dateFns.startOfMonth(currentMonth);
+    const monthEnd = dateFns.endOfMonth(monthStart);
+    const startDate = dateFns.startOfWeek(monthStart);
+    const endDate = dateFns.endOfWeek(monthEnd);
+
+    const dateFormat = "D";
+    const rows = [];
+
+    let days = [];
+    let day = startDate;
+    let formattedDate = "";
+
+    while (day <= endDate) {
+      for (let i = 0; i < 7; i++) {
+        formattedDate = dateFns.format(day, dateFormat);
+        const cloneDay = day;
+        days.push(
+          <div
+            className={`col cell ${
+              !dateFns.isSameMonth(day, monthStart)
+                ? "disabled"
+                : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
+            }`}
+            key={day}
+            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+          >
+            <span className="number">{formattedDate}</span>
+            <CalendarCards day={day} />
+          </div>
+        );
+        day = dateFns.addDays(day, 1);
+      }
+      rows.push(
+        <div className="row" key={day}>
+          {days}
+        </div>
+      );
+      days = [];
+    }
+    return <div className="body">{rows}</div>;
+  }
+
+  onDateClick = day => {
+    this.setState({
+      selectedDate: day
+    });
+  };
+
+  nextMonth = () => {
+    this.setState({
+      currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
+    });
+  };
+
+  prevMonth = () => {
+    this.setState({
+      currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
+    });
   };
 
   render() {
-    const { events } = this.state;
-    return(
-      <div>
-        <Header as='h1' textAlign='center'>Calendar</Header>
-        <Card.Group>
-          { events.map( event =>
-              <Card key={event.id} style={{ maxWidth: '150px' }}>
-                <Image src={event.image_url} />
-                <Card.Content>
-                  <Card.Header as={Link} to={`/events/${event.id}`}>{event.host}</Card.Header>
-                  {event.event_date}
-                </Card.Content>
-                <Card.Content extra>
-                  <Button as={Link} to={`/events/${event.id}`} fluid inverted color='blue'>Tables</Button>
-                  <Button as={Link} to={`/events/${event.id}`} fluid color='blue'>Tickets</Button>
-                </Card.Content>
-              </Card>
-          )}
-        </Card.Group>
+    return (
+      <div className="calendar">
+        {this.renderHeader()}
+        {this.renderDays()}
+        {this.renderCells()}
       </div>
-    )
+    );
   }
 }
 

@@ -13,7 +13,7 @@ class ComingArtists extends React.Component {
   render() {
     const { artists } = this.state;
     return(
-      <div class="body">
+      <div class="bodyArtists">
         <Header as="h1" inverted textAlign="center">Coming Artists</Header>
         <Divider inverted />
         <Card.Group centered itemsPerRow={3}>
