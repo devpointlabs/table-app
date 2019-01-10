@@ -12,12 +12,27 @@
 
 ActiveRecord::Schema.define(version: 2019_01_09_222702) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tables", force: :cascade do |t|
     t.string "name"
     t.integer "table_group_id"
+
+  create_table "events", force: :cascade do |t|
+    t.string "host", null: false
+    t.text "image_url"
+    t.datetime "event_date", null: false
+    t.string "dress_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "table_groups", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "max_seats", default: 15
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
