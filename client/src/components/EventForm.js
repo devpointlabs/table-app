@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import { Form, Header, Container, TextArea, } from 'semantic-ui-react'
+import { Form, Header, Container, } from 'semantic-ui-react'
 
 class EventForm extends React.Component {
   initialState = {
@@ -90,7 +90,6 @@ class EventForm extends React.Component {
             onChange={this.handleChange}
           />
           <Form.Input
-            as={TextArea}
             name="description"
             label="Description"
             value={description}
