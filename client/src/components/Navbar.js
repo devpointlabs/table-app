@@ -66,6 +66,9 @@ class Navbar extends React.Component {
           <Menu.Item link>
             <Link to = '/ticketing' className = ''>TICKETS</Link>
           </Menu.Item>
+          <Menu.Item link>
+            <Link to = '/ticketing' class = ''>TICKETING</Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
     )
