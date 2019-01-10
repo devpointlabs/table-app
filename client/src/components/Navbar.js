@@ -26,6 +26,9 @@ class Navbar extends React.Component {
           <Dropdown item text={user.email}>
             <Dropdown.Menu>
               <Dropdown.Item>
+                <Link to = '/profile' >PROFILE</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
                 <Link to = ''>DASHBOARD</Link>
               </Dropdown.Item>
                 {this.admin()}
@@ -39,10 +42,10 @@ class Navbar extends React.Component {
       return (
         <>
           <Menu.Item link>
-          <Link to = '/login' class = ''>LOGIN</Link>
+            <Link to = '/login' class = ''>LOGIN</Link>
           </Menu.Item>
           <Menu.Item link>
-          <Link to = '/register' class = ''>REGISTER</Link>
+            <Link to = '/register' class = ''>REGISTER</Link>
           </Menu.Item>
         </>
       )
