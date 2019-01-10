@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
+import Ticketing from './components/Ticketing';
 
 const App = () => (
   <Fragment>
@@ -17,6 +18,7 @@ const App = () => (
       {/* <Container> */}
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path='/ticketing' component={Ticketing} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
