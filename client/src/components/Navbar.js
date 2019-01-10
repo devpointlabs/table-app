@@ -42,10 +42,10 @@ class Navbar extends React.Component {
       return (
         <>
           <Menu.Item link>
-            <Link to = '/login' class = ''>LOGIN</Link>
+            <Link to = '/login' className = ''>LOGIN</Link>
           </Menu.Item>
           <Menu.Item link>
-            <Link to = '/register' class = ''>REGISTER</Link>
+            <Link to = '/register' className = ''>REGISTER</Link>
           </Menu.Item>
         </>
       )
@@ -58,13 +58,13 @@ class Navbar extends React.Component {
         { this.leftNavItems() }
         <Menu.Menu position="right">
           <Menu.Item link>
-            <Link to = '/' class = ''>WORK</Link>
+            <Link to = '/' className = ''>PRIVATE EVENTS</Link>
           </Menu.Item>
           <Menu.Item link>
-            <Link to = '/' class = ''>PAGES</Link>
+            <Link to = '/' className = ''>VIP TABLES</Link>
           </Menu.Item>
           <Menu.Item link>
-            <Link to = '/' class = ''>HOME</Link>
+            <Link to = '/ticketing' className = ''>TICKETS</Link>
           </Menu.Item>
         </Menu.Menu>
       </Menu>
