@@ -5,7 +5,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
-import Profile from "./components/UserProfile"
+import Calendar from './components/Calendar';
+import Profile from "./components/UserProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
@@ -23,6 +24,7 @@ const App = () => (
           <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path='/calendar' component={Calendar} />
           <Route component={NoMatch} />
         </Switch>
       {/* </Container> */}
