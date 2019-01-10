@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_061324) do
     t.string "dress_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "table_groups", force: :cascade do |t|
