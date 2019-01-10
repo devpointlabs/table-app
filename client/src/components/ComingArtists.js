@@ -16,7 +16,7 @@ class ComingArtists extends React.Component {
       <div class="bodyArtists">
         <Header as="h1" inverted textAlign="center">Coming Artists</Header>
         <Divider inverted />
-        <Card.Group centered itemsPerRow={3}>
+        <Card.Group stackable centered itemsPerRow={3}>
           { artists.map( artist =>
             <Card key={artist.id} style={{ maxWidth: '300px' }}>
               <Image src={artist.image} />
