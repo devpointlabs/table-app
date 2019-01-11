@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_01_09_222702) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_01_09_222702) do
     t.string "dress_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "event_time"
   end
 
   create_table "table_groups", force: :cascade do |t|
