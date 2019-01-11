@@ -20,7 +20,8 @@ class Login extends React.Component {
     const { email, password, } = this.state;
 
     return (
-      <Segment basic>
+      // paddingTop needed to navbar doesnt overlap content
+      <Segment basic style = {{paddingTop: '165px'}}>
         <Header as='h1' textAlign='center'>Login</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input

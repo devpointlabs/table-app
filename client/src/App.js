@@ -19,7 +19,7 @@ const App = () => (
     <Navbar />
     <FetchUser>
       {/* <Container> */}
-        <Switch>
+        <Switch >
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
