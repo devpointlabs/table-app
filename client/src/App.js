@@ -20,6 +20,7 @@ const App = () => (
     <Navbar />
     <FetchUser>
       {/* <Container> */}
+      <div style={styles.body}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
@@ -30,10 +31,23 @@ const App = () => (
           <Route exact path='/calendar' component={Calendar} />
           <Route component={NoMatch} />
         </Switch>
+      </div>
       {/* </Container> */}
     </FetchUser>
-    <Footer />
+    <Footer style={styles.footer} />
   </Fragment>
 )
+
+const styles = {
+  body: { 
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+  },
+  footer: {
+    margin: 0,
+    top: 0,
+  }
+};
 
 export default App;
