@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header, } from 'semantic-ui-react';
 import ComingArtists from './ComingArtists';
+import Map from './Map';
 import rave from './rave.jpg';
 import styled from 'styled-components';
 import WhatDo1 from './WhatDo1';
