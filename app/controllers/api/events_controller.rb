@@ -10,7 +10,19 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(event_params)
+    event = Event.new(event_params)
+    image_url = params[:image_url]
+    
+    if image_url
+      begin
+        ext = File.extname(image_url.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(image_url, public_id: image_url.original_filename, secure: true)
+        event.image_url = cloud_image['secure_url']
+      rescue => e
+        render json: { errors: e }, status: 422 and return
+      end
+    end
+    
     if event.save
       render json: event
     else
@@ -36,7 +48,7 @@ class Api::EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:host, :image_url, :event_date, :event_time, :description, :dress_code)
+      params.permit(:host, :image_url, :event_date, :event_time, :description, :dress_code)
     end
 
 end
