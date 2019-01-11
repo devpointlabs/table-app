@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
+import EventForm from './components/EventForm';
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
@@ -27,6 +28,7 @@ const App = () => (
           <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/newevent" component={EventForm} />
           <Route exact path='/event' component={EventDetails} />
           <Route exact path='/calendar' component={Calendar} />
           <Route component={NoMatch} />
