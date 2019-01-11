@@ -16,7 +16,7 @@ class Ticketing extends React.Component {
       
       <GridText small>
           <Grid stackable>
-            <Grid.Column width={6}>
+            <Grid.Column verticalAlign="middle" width={6}>
               <Image size="medium" centered src={Butterfly} />
             </Grid.Column>
             <Grid.Column width={8}>
@@ -53,7 +53,7 @@ class Ticketing extends React.Component {
                   <Grid.Column mobile={4} computer={4}>Pre-Sale Gen.ADM</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>$25</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>
-                    <Select fluid placeholder='0' options={gen(300)} />
+                    <Select compact placeholder='0' defaultValue={0} options={gen(300)} />
                   </Grid.Column>
                   <Grid.Column mobile={4} computer={4}>Add to cart button</Grid.Column>
                 </Grid.Row>
@@ -61,7 +61,7 @@ class Ticketing extends React.Component {
                   <Grid.Column mobile={4} computer={4}>Pre-Sale Tier 2 Gen-ADM</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>$35</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>
-                    <Select fluid placeholder='0' options={gen(150)} />
+                    <Select compact placeholder='0' defaultValue={0} options={gen(150)} />
                   </Grid.Column>
                   <Grid.Column mobile={4} computer={4}>Add to cart button</Grid.Column>
                 </Grid.Row>
@@ -69,7 +69,7 @@ class Ticketing extends React.Component {
                   <Grid.Column mobile={4} computer={4}>VIP Bar Card Package wit $50 Bar Card</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>$60</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>
-                    <Select fluid placeholder='0' options={gen(25)} />
+                    <Select compact placeholder='0' defaultValue={0} options={gen(25)} />
                   </Grid.Column>
                   <Grid.Column mobile={4} computer={4}>Add to cart button</Grid.Column>
                 </Grid.Row>
@@ -77,7 +77,7 @@ class Ticketing extends React.Component {
                   <Grid.Column mobile={4} computer={4}>Day Of Show General Admission</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>$40</Grid.Column>
                   <Grid.Column mobile={4} computer={4}>
-                    <Select fluid placeholder='0' options={gen(200)} />
+                    <Select compact placeholder='0' defaultValue={0} options={gen(200)} />
                   </Grid.Column>
                   <Grid.Column mobile={4} computer={4}>Add to cart button</Grid.Column>
                 </Grid.Row>
