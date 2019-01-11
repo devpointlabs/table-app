@@ -5,6 +5,7 @@ import Map from './Map';
 import rave from './rave.jpg';
 import styled from 'styled-components';
 import WhatDo1 from './WhatDo1';
+import SampleMap from './SampleMap';
 
 const Home = () => (
   <>
@@ -13,7 +14,9 @@ const Home = () => (
     </HeroImage>
     <WhatDo1/>
     <ComingArtists />
-    <Map />
+    <div>
+      <SampleMap />
+    </div>
   </>
 )
 

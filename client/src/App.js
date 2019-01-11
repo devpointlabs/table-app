@@ -10,6 +10,7 @@ import EventForm from './components/EventForm';
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
+import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
@@ -33,6 +34,7 @@ const App = () => (
           <Route exact path="/newevent" component={EventForm} />
           <Route exact path='/event' component={EventDetails} />
           <Route exact path='/calendar' component={Calendar} />
+          <Route exact path="/newevent" component={EventForm} />
           <Route component={NoMatch} />
         </Switch>
       </div>
