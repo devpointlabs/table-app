@@ -10,12 +10,15 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 # Authentication
 gem "devise_token_auth"
+# Image Upload
+gem 'cloudinary'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   # Seed Databases
   gem "faker"
+  gem 'dotenv-rails'
 end
 
 group :development do

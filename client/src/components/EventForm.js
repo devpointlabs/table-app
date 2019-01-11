@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Form, Header, Container, } from 'semantic-ui-react'
+import Dropzone from 'react-dropzone';
 
 class EventForm extends React.Component {
   initialState = {
@@ -19,19 +20,29 @@ class EventForm extends React.Component {
       this.setState({ ...this.props, });
   }
 
+  onDrop = (files) => {
+    this.setState({ ...this.state, image_url: files[0], });
+  }
+
   handleChange = (e) => {
     const { name, value, } = e.target;
     this.setState({ [name]: value, });
   }
 
   handleSubmit = (e) => {
-    const events = this.state;
+    let data = new FormData();
+    data.append("image_url", this.state.image_url)
+    data.append("host", this.state.host)
+    data.append("event_date", this.state.event_date)
+    data.append("event_time", this.state.event_time)
+    data.append("dress_code", this.state.dress_code)
+    data.append("description", this.state.description)
     e.preventDefault();
     if (this.props.id) {
-      axios.put(`/api/events/${this.props.id}`, events)
+      axios.put(`/api/events/${this.props.id}`, data)
         .then( res => this.props.history.push(`/events/${res.data.id}`))
     } else {
-      axios.post(`/api/events`, events)
+      axios.post(`/api/events`, data)
         .then( res => this.props.history.push(`/events/${res.data.id}`))
     }
   }
@@ -73,14 +84,27 @@ class EventForm extends React.Component {
               onChange={this.handleChange}
               />
           </Form.Group>
-          <Form.Input
-            name="image_url"
-            label="Image Upload"
-            placeholder="Pretend this is an Image Uploader"
-            required
-            value={image_url}
-            onChange={this.handleChange}
-          />
+          <Dropzone
+          onDrop={this.onDrop}
+          multiple={false}
+          >
+          {({ getRootProps, getInputProps, isDragActive }) => {
+            return (
+              <div
+                {...getRootProps()}
+                style={styles.dropzone}
+              >
+                <input {...getInputProps()} />
+                {
+                  isDragActive ?
+                    <p>Drop files here...</p> 
+                  :
+                    <p>Try dropping some files here, or click to select files to upload.</p>
+                }
+              </div>
+            )
+          }}
+          </Dropzone>
           <Form.Input
             name="dress_code"
             label="Dress Code"
@@ -105,6 +129,19 @@ class EventForm extends React.Component {
     )
   }
 
+}
+
+const styles = {
+  dropzone: {
+    height: "150px",
+    width: "150px",
+    border: "1px dashed black",
+    borderRadius: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "top",
+    padding: "10px"
+  }
 }
 
 export default EventForm;
