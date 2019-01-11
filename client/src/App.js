@@ -1,6 +1,7 @@
 import React, { Fragment, } from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Footer from './components/Footer';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
@@ -31,6 +32,7 @@ const App = () => (
         </Switch>
       {/* </Container> */}
     </FetchUser>
+    <Footer />
   </Fragment>
 )
 
