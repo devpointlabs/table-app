@@ -25,7 +25,8 @@ class Register extends React.Component {
     const { email, password, passwordConfirmation, } = this.state;
 
     return (
-      <Segment basic>
+      // paddingTop needed to navbar doesnt overlap content
+      <Segment basic style = {{paddingTop: '165px'}}>
         <Header as='h1' textAlign='center'>Register</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
