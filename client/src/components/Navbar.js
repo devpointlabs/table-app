@@ -13,7 +13,7 @@ class Navbar extends React.Component {
     if (user.admin) {
       return(
       <Dropdown.Item>
-        <Link to = ''>ADMIN</Link>
+        <Link to = '/admin-dashboard'>ADMIN DASHBOARD</Link>
       </Dropdown.Item>
       )
     }

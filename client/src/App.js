@@ -14,13 +14,15 @@ import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
+import AdminDashboard from './components/AdminDashboard';
 
 const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
       {/* <Container> */}
-        <Switch >
+        <Switch>
+          <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
