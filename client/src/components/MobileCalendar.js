@@ -25,12 +25,12 @@ class MobileCalendar extends React.Component {
     return (
         <Segment.Group horizontal fluid basic as={Segment}>
           <Segment basic>
-            <StyledButton icon onClick={this.prevMonth}>
+            <StyledButton icon onClick={this.prevMonth} floated="left">
               <Icon name='chevron left' />
             </StyledButton>
           </Segment>
         <Segment basic>
-          <StyledHeader textAlign='center' floated>
+          <StyledHeader textAlign='center'>
             {dateFns.format(this.state.currentMonth, dateFormat)}
           </StyledHeader>
         </Segment>
