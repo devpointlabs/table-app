@@ -4,7 +4,7 @@ import map from './gmaps_head.png';
 
 const Footer = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Grid style={{ background: '#1f1f1f'}}>
+    <Grid style={{ background: '#000000' }}>
       <Grid.Column width={3}>
         <Grid.Row>
           <Header inverted style={{ fontSize: '80%', display: "flex", justifyContent: "center", paddingTop: '30px' }} textAlign="center">Lounge<Icon name='star' size='mini' />Events<Icon name='star' size='mini' />Patio</Header>

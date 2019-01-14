@@ -1,19 +1,17 @@
 import React from 'react';
-import { Header, } from 'semantic-ui-react';
 import ComingArtists from './ComingArtists';
-import Map from './Map';
-import rave from './rave.jpg';
+import hero from '../images/Hero Images/Sky_SLC_Landing.JPG';
 import styled from 'styled-components';
-import WhatDo1 from './WhatDo1';
+// import WhatDo1 from './WhatDo1';
 import SampleMap from './SampleMap';
 import ContactUs from './ContactUs';
 
 const Home = () => (
   <>
     <HeroImage>
-      <Img src={rave}/>
+      <Img src={hero}/>
     </HeroImage>
-    <WhatDo1/>
+    {/* <WhatDo1/> */}
     <ComingArtists />
     <ContactUs />
     <SampleMap />

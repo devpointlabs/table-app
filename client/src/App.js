@@ -16,20 +16,23 @@ import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
+import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
+import EventForm from "./components/EventForm"
 
 const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      {/* <Container> */}
-      <div style={styles.body}>
-        <Switch>
+      <Container fluid textAlign="center">
+        <Switch >
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
+          <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/newevent" component={EventForm} />
@@ -38,8 +41,7 @@ const App = () => (
           <Route exact path="/newevent" component={EventForm} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
-      {/* </Container> */}
+      </Container>
     </FetchUser>
     <Footer style={styles.footer} />
   </Fragment>
