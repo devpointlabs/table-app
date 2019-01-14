@@ -24,13 +24,13 @@ const Footer = () => (
       </Grid.Column>
       <Grid.Column width={3}>
         <Grid.Row style={{ paddingTop: '20px'}}>
-          <a href='https://www.facebook.com/skysaltlakecity' target="_blank">
+          <a href='https://www.facebook.com/skysaltlakecity' target="_blank" rel="noopener noreferrer">
             <Icon inverted name="facebook official" size='big' />
           </a>
-          <a href='https://twitter.com/SkyVenueSLC' target="_blank">
+          <a href='https://twitter.com/SkyVenueSLC' target="_blank" rel="noopener noreferrer">
             <Icon inverted name="twitter square" size='big' />
           </a>
-          <a href='https://www.instagram.com/SKYSLC/' target="_blank">
+          <a href='https://www.instagram.com/SKYSLC/' target="_blank" rel="noopener noreferrer">
             <Icon inverted name="instagram" size='big' />
           </a>
         </Grid.Row>

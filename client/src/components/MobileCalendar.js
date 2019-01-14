@@ -1,6 +1,6 @@
 import React from 'react';
 import dateFns from 'date-fns';
-import { Container, Icon, Segment, Header, Button} from 'semantic-ui-react';
+import { Container, Icon, Segment, } from 'semantic-ui-react';
 import { StyledHeader, StyledButton } from '../styles/generalitems';
 
 class MobileCalendar extends React.Component {

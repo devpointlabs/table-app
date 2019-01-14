@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Grid, Image, Header, Divider } from 'semantic-ui-react';
+import { Grid, Image, Header, } from 'semantic-ui-react';
 import '../styles/comingArtist.css';
 
 class UserProfile extends React.Component {
