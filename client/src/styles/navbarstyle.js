@@ -17,6 +17,13 @@ export const StyledItem = styled(Menu.Item)`
   font-size: 15px;
   border: 3px solid #b29d72;
   margin: 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #606060 !important;
+    transition: background 0.2s ease;
+  }
 `; 
 
 export const StyledLink = styled(Link)`
