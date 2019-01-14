@@ -10,6 +10,14 @@ export const StyledButton = styled(Button)`
   margin: 5px;
 `; 
 
+export const StyledButton2 = styled(Button)`
+  color: white !important;
+  background-color: #c1a25c !important;
+  font-size: 15px !important;
+  margin: 5px;
+
+`;
+
 export const StyledHeader = styled(Header)`
   color: white !important;
   font-size: 30px !important;
@@ -26,6 +34,11 @@ export const StyledSubHeader = styled(Header)`
   font-size: 20px !important;
 `; 
 
+export const StyledSubHeader2 = styled(Header)`
+  color: white !important;
+  font-size: 15px !important;
+`; 
+
 export const StyledMainText = styled(Header)`
   color: white !important;
   font-size: 15px !important;
@@ -40,6 +53,14 @@ export const StyledSegment = styled(Segment)`
   margin: 5%;
   padding: 5%;
   background-color: #000000 !important;
+`;
+
+export const StyledSegment2 = styled(Segment)`
+  margin: auto !important;
+  margin-bottom: 10px !important;
+  padding: 5%;
+  background-color: #000000 !important;
+  border: 3px solid #b29d72 !important;
 `;
 
 export const StyledDivider = styled(Divider)`

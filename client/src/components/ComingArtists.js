@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { StyledSegment, StyledHeader2, StyledDivider, StyledComingImage, } from '../styles/generalitems';
+// Delete these when Database is working
 import Audien from '../images/Artists/Audien.jpg';
 import Cesqeaux from '../images/Artists/Cesqeaux.jpg';
 import DirtyDave from '../images/Artists/DirtyDave.jpg';
