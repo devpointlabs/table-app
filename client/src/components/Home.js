@@ -4,7 +4,7 @@ import ComingArtists from './ComingArtists';
 import Map from './Map';
 import rave from './rave.jpg';
 import styled from 'styled-components';
-import WhatDo1 from './WhatDo1';
+// import WhatDo1 from './WhatDo1';
 import SampleMap from './SampleMap';
 import ContactUs from './ContactUs';
 
@@ -13,7 +13,7 @@ const Home = () => (
     <HeroImage>
       <Img src={rave}/>
     </HeroImage>
-    <WhatDo1/>
+    {/* <WhatDo1/> */}
     <ComingArtists />
     <ContactUs />
     <SampleMap />
