@@ -19,7 +19,7 @@ class Navbar extends React.Component {
     }
   }
 
-  leftNavItems = () => {
+  NavItems = () => {
     const { user, handleLogout, } = this.props.auth;
 
     if (user) {
@@ -30,7 +30,7 @@ class Navbar extends React.Component {
             <StyledLink black to = '/profile'>PROFILE</StyledLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <StyledLink black to = ''>DASHBOARD</StyledLink>
+            <StyledLink black to = '/userdash'>DASHBOARD</StyledLink>
           </Dropdown.Item>
             {this.admin()}
           <Dropdown.Item>
@@ -58,8 +58,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <StyledMenu borderless >
-        { this.leftNavItems() }
+      <StyledMenu borderless position>
         <Menu.Menu position="right">
           <StyledItem StyledLink>
             <StyledLink to = '/' className = ''>PRIVATE EVENTS</StyledLink>
@@ -70,6 +69,7 @@ class Navbar extends React.Component {
           <StyledItem>
             <StyledLink to = '/ticketing' className = ''>TICKETS</StyledLink>
           </StyledItem>
+        { this.NavItems() }
         </Menu.Menu>
       </StyledMenu>
     )
