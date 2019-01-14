@@ -8,8 +8,9 @@ export const StyledImg = styled.img`
 
 export const StyledMenu = styled(Menu)`
   z-index: 1;
-  background-color: #222222 !important;
-  opacity: .93;
+  border-top: 1px solid grey !important
+  border-bottom: 1px solid grey !important
+  background-color: rgba(85,85,85,0.5) !important;
   position: fixed;
   width: 100%;
   margin-top: 0px;
