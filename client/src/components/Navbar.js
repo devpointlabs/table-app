@@ -17,11 +17,7 @@ class Navbar extends React.Component {
       )
     }
   }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> add logo
   NavItems = () => {
     const { user, handleLogout, } = this.props.auth;
     
@@ -61,12 +57,8 @@ class Navbar extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <StyledMenu borderless position>
-=======
       <StyledMenu borderless >
-      <StyledImg src={Sky_SLC}/>
->>>>>>> add logo
+        <StyledImg src={Sky_SLC}/>
         <Menu.Menu position="right">
           <StyledItem StyledLink>
             <StyledLink to = '/' className = ''>PRIVATE EVENTS</StyledLink>
