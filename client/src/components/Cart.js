@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table, Grid, Divider, Button, Icon, Segment, Header, Container } from 'semantic-ui-react';
+import { StyledSegment } from '../styles/AdminDashboardStyle'
+
 
 class Cart extends React.Component {
 
@@ -41,7 +43,7 @@ class Cart extends React.Component {
     })
 
     return(
-      <>
+      <StyledSegment basic>
         <Segment inverted basic>
           <Button inverted color="yellow">
             <Icon name="shopping cart" />
@@ -99,7 +101,7 @@ class Cart extends React.Component {
           <Icon inverted name="check"/> Checkout
         </Button>
         </Container>
-      </>
+      </StyledSegment>
     )
   }
 };

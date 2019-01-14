@@ -9,6 +9,7 @@ export const StyledMenu = styled(Menu)`
   position: fixed;
   width: 100%;
   margin-top: 0px;
+  top: 0px;
 `;
 
 export const StyledItem = styled(Menu.Item)`
