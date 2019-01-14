@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Image, Grid, Container, Button } from 'semantic-ui-react';
+import { Header, Image, Grid, Container, Button} from 'semantic-ui-react';
+import { StyledButton, StyledHeader, StyledSubHeader, StyledImage, StyledMainText } from '../styles/generalitems';
  
 class EventDetails extends React.Component {
   state = { event: 
@@ -9,20 +10,18 @@ class EventDetails extends React.Component {
   render() {
     const { event } = this.state;
     return(
-      <Grid >
+      <Grid style={{ marginTop: '100px', }}>
         <Grid.Column width={6}>
-          <Image size="large" rounded centered src={event.image_url} />
+          <StyledImage size="large" rounded centered src={event.image_url} />
         </Grid.Column>
         <Grid.Column width={8}>
-          <Container>
-            <Header as='h1'>{event.host}</Header>
-            {event.event_date}
-            <Header as='h3'>{event.description}</Header>
-            <Button.Group centered size='massive'>
-              <Button color='blue' inverted>Dress Code</Button>
-              <Button color='blue' inverted>VIP Tables</Button>
-              <Button color='blue' inverted>Tickets</Button>
-            </Button.Group>
+          <Container style={{paddingTop: '150px'}}>
+            <StyledHeader>{event.host}</StyledHeader>
+            <StyledSubHeader>{event.event_date}</StyledSubHeader>
+            <StyledMainText as='h3'>{event.description}</StyledMainText>
+              <StyledButton>Dress Code</StyledButton>
+              <StyledButton>VIP Tables</StyledButton>
+              <StyledButton>Tickets</StyledButton>
           </Container>
         </Grid.Column>
       </Grid>
