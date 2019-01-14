@@ -1,21 +1,21 @@
 import React from 'react';
 // import { Link, } from 'react-router-dom';
-import { Header, Segment, Image, Divider, Grid} from 'semantic-ui-react';
+import {Segment, Image, Divider, Grid} from 'semantic-ui-react';
 
 const WhatDo = () => (
   <>
-    <Header as="h3" textAlign="center">
+    <h1>
       What We Do
-    </Header>
+    </h1>
     <Divider/>
     <Grid stackable textAlign="center" columns={3}>
       <Grid.Row>
         <Grid.Column>
           <Segment placeholder basic>
             <Image centered circular size="small" src="https://i.imgur.com/r3O9xjLb.jpg" />
-            <Header>
+            <h2>
               Bottle Service
-            </Header>
+            </h2>
               <br/>
             Wondering What's going on this weekend? SkySLC has a host of artists coming to Salt Lake City
           </Segment>
@@ -23,9 +23,9 @@ const WhatDo = () => (
         <Grid.Column>
           <Segment placeholder basic>
               <Image centered size="small" circular src="https://i.imgur.com/C37kKeDb.jpg" />
-              <Header>
+              <h2>
                 Tickets  Guestlist
-              </Header>
+              </h2>
                 <br/>
               Wondering What's going on this weekend? SkySLC has a host of artists coming to Salt Lake City
             </Segment>
@@ -33,9 +33,9 @@ const WhatDo = () => (
         <Grid.Column>
           <Segment placeholder basic>
               <Image centered size="small" circular src="https://i.imgur.com/NJvOWVdb.jpg" />
-              <Header>
+              <h2>
                 Online Table Reservations
-              </Header>
+              </h2>
                 <br/>
               Wondering What's going on this weekend? SkySLC has a host of artists coming to Salt Lake City
             </Segment>

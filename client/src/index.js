@@ -9,10 +9,21 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import * as serviceWorker from './serviceWorker';
 import { initMiddleware, } from "devise-axios";
 
+import { createGlobalStyle } from "styled-components"
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #1f1f1f !important;
+    color: white !important;
+
+  }
+`
+
 initMiddleware();
 
 ReactDOM.render(
   <AuthProvider>
+    <GlobalStyle />
     <BrowserRouter>
       <App />
     </BrowserRouter>

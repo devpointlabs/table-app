@@ -1,7 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Link, withRouter, } from 'react-router-dom'
+import { withRouter, Link, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
+import { StyledMenu, StyledItem, StyledLink, StyledDrop } from '../styles/navbarstyle';
 
 import '../App.css'
 
@@ -12,7 +13,7 @@ class Navbar extends React.Component {
     if (user.admin) {
       return(
       <Dropdown.Item>
-        <Link to = ''>ADMIN</Link>
+        <Link to = '/admin-dashboard'>ADMIN DASHBOARD</Link>
       </Dropdown.Item>
       )
     }
@@ -23,30 +24,33 @@ class Navbar extends React.Component {
 
     if (user) {
       return (
-          <Dropdown item text={user.email}>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <Link to = '/profile' >PROFILE</Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to = ''>DASHBOARD</Link>
-              </Dropdown.Item>
-                {this.admin()}
-              <Dropdown.Item>
-                <Link to = '' onClick = {() => handleLogout(this.props.history)}>LOGOUT</Link>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+      <StyledDrop item text={user.email}>
+        <Dropdown.Menu style = {{zIndex: '10'}}>
+          <Dropdown.Item>
+            <StyledLink black to = '/profile'>PROFILE</StyledLink>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <StyledLink black to = ''>DASHBOARD</StyledLink>
+          </Dropdown.Item>
+            {this.admin()}
+          <Dropdown.Item>
+            <StyledLink black to = '' onClick = {() => handleLogout(this.props.history)}>LOGOUT</StyledLink>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <StyledLink black to = '/'>HOME</StyledLink>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </StyledDrop>
       )
     } else {
       return (
         <>
-          <Menu.Item link>
-            <Link to = '/login' className = ''>LOGIN</Link>
-          </Menu.Item>
-          <Menu.Item link>
-            <Link to = '/register' className = ''>REGISTER</Link>
-          </Menu.Item>
+          <StyledItem link>
+            <StyledLink to = '/login' className = ''>LOGIN</StyledLink>
+          </StyledItem>
+          <StyledItem link>
+            <StyledLink to = '/register' className = ''>REGISTER</StyledLink>
+          </StyledItem>
         </>
       )
     }
@@ -54,23 +58,20 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Menu borderless >
+      <StyledMenu borderless >
         { this.leftNavItems() }
         <Menu.Menu position="right">
-          <Menu.Item link>
-            <Link to = '/' className = ''>PRIVATE EVENTS</Link>
-          </Menu.Item>
-          <Menu.Item link>
-            <Link to = '/' className = ''>VIP TABLES</Link>
-          </Menu.Item>
-          <Menu.Item link>
-            <Link to = '/ticketing' className = ''>TICKETS</Link>
-          </Menu.Item>
-          <Menu.Item link>
-            <Link to = '/ticketing' class = ''>TICKETING</Link>
-          </Menu.Item>
+          <StyledItem StyledLink>
+            <StyledLink to = '/' className = ''>PRIVATE EVENTS</StyledLink>
+          </StyledItem>
+          <StyledItem StyledLink>
+            <StyledLink to = '/' className = ''>VIP TABLES</StyledLink>
+          </StyledItem>
+          <StyledItem>
+            <StyledLink to = '/ticketing' className = ''>TICKETS</StyledLink>
+          </StyledItem>
         </Menu.Menu>
-      </Menu>
+      </StyledMenu>
     )
   }
 }

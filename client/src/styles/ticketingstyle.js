@@ -20,10 +20,9 @@ export const GridRow = styled(Grid.Row)`
 // use for all text besides HeaderText, ex. <Grid.Column width={4}><GridText small>Pre-Sale <br/> Gen.ADM</GridText></Grid.Column>
 // small and large text size props, as well as a the gold text prop
 export const GridText = styled.p`
-  font-size: ${props => props.large ? '25px' : props => props.small ? '11px' : '18px'} !important;
+  font-size: ${props => props.large ? '25px' : props => props.small ? '15px' : '18px'} !important;
   color: ${props => props.gold ? '#b29d72' : 'white'};
   font-family: futura;
-  background-color: ${props => props.gray ? '#222222' : 'black'} !important;
   text-align: center;
   padding: 5px;
 `;
@@ -32,7 +31,7 @@ export const GridText = styled.p`
 export const HeaderRow = styled(Grid.Row)`
   display: flex;
   justify-content: space-between;
-  background-color: #222222 !important;
+  background-color: #313131 !important;
 `;
 
 // use for the text inside of the HeaderRow
