@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
-import { Container } from 'semantic-ui-react';
-import '../styles/MobileCalendar.css';
+import { Container, Icon, Segment, Header, Button} from 'semantic-ui-react';
+import { StyledHeader, StyledButton } from '../styles/generalitems';
 
 class MobileCalendar extends React.Component {
   state = { 
@@ -23,21 +23,23 @@ class MobileCalendar extends React.Component {
   renderHeader = () => {
     const dateFormat = "MMMM YYYY";
     return (
-      <div className="header row flex-middle">
-        <div className="col col-start">
-          <div className="icon" onClick={this.prevMonth}>
-            chevron_left
-          </div>
-        </div>
-        <div className="col col-center">
-          <span>
+        <Segment.Group horizontal fluid basic as={Segment}>
+          <Segment basic>
+            <StyledButton icon onClick={this.prevMonth}>
+              <Icon name='chevron left' />
+            </StyledButton>
+          </Segment>
+        <Segment basic>
+          <StyledHeader textAlign='center' floated>
             {dateFns.format(this.state.currentMonth, dateFormat)}
-          </span>
-        </div>
-        <div className="col col-end" onClick={this.nextMonth}>
-          <div className="icon">chevron_right</div>
-        </div>
-      </div>
+          </StyledHeader>
+        </Segment>
+        <Segment basic>
+          <StyledButton icon onClick={this.nextMonth} floated="right">
+            <Icon name='chevron right' />
+          </StyledButton>
+        </Segment>
+        </Segment.Group>
     );
   }
 
