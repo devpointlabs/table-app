@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Image, Form, Button, Input, Select, Header } from 'semantic-ui-react';
 import Butterfly from './butterfly.jpg';
-import {GridWrapper, GridText, HeaderRow, HeaderText} from "../styles/ticketingstyle"
+import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 
 
 const gen = (v) => {
@@ -13,7 +13,6 @@ class Ticketing extends React.Component {
 
   render () {
     return(
-      
       <GridText small>
           <Grid stackable>
             <Grid.Column verticalAlign="middle" width={6}>

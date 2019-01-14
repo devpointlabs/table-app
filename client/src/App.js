@@ -20,7 +20,7 @@ const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      {/* <Container> */}
+      <Container fluid textAlign="center">
         <Switch >
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
@@ -33,7 +33,7 @@ const App = () => (
           <Route exact path='/calendar' component={Calendar} />
           <Route component={NoMatch} />
         </Switch>
-      {/* </Container> */}
+      </Container>
     </FetchUser>
   </Fragment>
 )

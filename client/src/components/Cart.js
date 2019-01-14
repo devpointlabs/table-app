@@ -67,14 +67,32 @@ class Cart extends React.Component {
             {this.rendertickets()}
           </Table.Body>
         </Table>
-        <Grid columns={6}>
-          <Grid.Row>
-            <Grid.Column></Grid.Column>
-            <Grid.Column></Grid.Column>
-            <Grid.Column></Grid.Column>
-            <Grid.Column></Grid.Column>
-            <Grid.Column></Grid.Column>
-            <Grid.Column></Grid.Column>
+        <Grid columns={6} divided="inverted">
+          <Grid.Row > 
+            <Grid.Column textAlign="center">
+              <h4>Subtotal:</h4>
+              <h4>$0.00</h4>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <h4>Surcharge:</h4>
+              <h4>$0.00</h4>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <h4>Inc. Ent. Tax:</h4>
+              <h4>$0.00</h4>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <h4>Sales Tax:</h4>
+              <h4>$0.00</h4>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <h4>Venue Fee:</h4>
+              <h4>$0.00</h4>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <h3>Total:</h3>
+              <h3>$0.00</h3>
+            </Grid.Column>
           </Grid.Row>
         </Grid>
         <Button fluid inverted color="yellow">
