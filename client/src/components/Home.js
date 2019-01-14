@@ -10,7 +10,7 @@ import { Image } from 'semantic-ui-react';
 
 const Home = () => (
   <>
-      <Image fluid src={hero}/>
+      <Image bordered fluid src={hero}/>
     {/* <WhatDo1/> */}
     <ComingArtists />
     <ContactUs />

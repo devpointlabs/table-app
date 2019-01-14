@@ -24,6 +24,25 @@ export const StyledItem = styled(Menu.Item)`
   margin: auto 5px;
   transition: background 0.2s ease;
   cursor: pointer;
+  animation-name: glowing-border;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  @keyframes glowing-border {
+    from {
+      border: 3px solid #b29d72 ;
+          
+     
+       }
+    
+    to {
+      outline: none;
+      border: 3px solid cyan;
+      box-shadow: 1px 1px 10px cyan;
+      
+    }
+  }
 
   &:hover {
     background: #606060 !important;
