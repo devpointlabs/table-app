@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image, Grid, Header, Icon, } from 'semantic-ui-react';
-import map from './gmaps_head.png';
+import { Grid, Header, Icon, } from 'semantic-ui-react';
 
 const Footer = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>

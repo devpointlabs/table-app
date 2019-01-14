@@ -7,7 +7,7 @@ import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
-import Calendar from './components/Calendar';
+// import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
@@ -17,6 +17,7 @@ import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
 import MobileCalendar from './components/MobileCalendar';
+import EventForm from './components/EventForm';
 
 const App = () => (
   <Fragment>
