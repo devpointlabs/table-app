@@ -1,8 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { withRouter, Link, } from 'react-router-dom'
+import { withRouter, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
-import { StyledMenu, StyledItem, StyledLink, StyledDrop, StyledImg } from '../styles/navbarstyle';
+import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
 import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC.png';
 import '../App.css'
 class Navbar extends React.Component {

@@ -37,6 +37,7 @@ export const StyledLink = styled(Link)`
 export const StyledDrop = styled(Dropdown)`
   z-index: 2;
   position: relative;
+  font-size: 15px;
   border: 3px solid #b29d72;
   background-color: #383838 !important;
   color: white !important;
