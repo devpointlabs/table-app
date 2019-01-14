@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Calendar.css'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import CalendarCards from './CalendarCards';

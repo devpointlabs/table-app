@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 
 
 export const StyledButton = styled(Button)`
