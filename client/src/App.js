@@ -9,6 +9,8 @@ import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
+import UserDash from './components/UserDash';
+import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
@@ -29,6 +31,7 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
