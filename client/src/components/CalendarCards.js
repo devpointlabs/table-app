@@ -2,10 +2,35 @@ import React from 'react';
 import { Image, Button, Grid, Segment } from 'semantic-ui-react';
 import { StyledButton, StyledButton2, StyledHeader, StyledSubHeader2, StyledComingImage, StyledSegment2 } from '../styles/generalitems';
 import { Link, } from 'react-router-dom';
+import { format } from 'date-fns';
 
 class CalendarCards extends React.Component {
+  state = { date: [], time: [],  }
+
+  componentDidMount() {
+    this.dateFormat();
+    this.timeFormat();
+  }
+
+  dateFormat = () => {
+    var result = format(
+      new Date(this.props.event_date),
+      'dddd MMMM Do YYYY'
+    )
+    this.setState({ date: result, })
+  }
+
+  timeFormat = () => {
+    var tresult = format(
+      new Date(this.props.event_time),
+      'h:mm A'
+    )
+    this.setState({ time: tresult, })
+  }
+
   render() {
     const { id, host, image_url, event_date, event_time, description } = this.props;
+    const { date, time } = this.state;
     return(
       <StyledSegment2 style={{maxWidth: "700px"}} >
         <Grid columns={2} stackable>
@@ -17,11 +42,12 @@ class CalendarCards extends React.Component {
                 <StyledHeader>{host}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledSubHeader2>{event_date}</StyledSubHeader2>
+                <StyledSubHeader2>{this.state.date}</StyledSubHeader2>
               </Grid.Row>
               <Grid.Row>
                 <StyledSubHeader2>{event_time}</StyledSubHeader2>
               </Grid.Row>
+              <br />
               <Grid.Row>
                 <Link to={`/events/${id}`}>
                 <StyledButton fluid>Tables</StyledButton>
