@@ -16,7 +16,7 @@ import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
-import EventForm from "./components/EventForm"
+import MobileCalendar from './components/MobileCalendar';
 
 const App = () => (
   <Fragment>
@@ -34,7 +34,7 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path="/newevent" component={EventForm} />
           <Route exact path='/event' component={EventDetails} />
-          <Route exact path='/calendar' component={Calendar} />
+          <Route exact path='/calendar' component={MobileCalendar} />
           <Route exact path="/newevent" component={EventForm} />
           <Route component={NoMatch} />
         </Switch>
