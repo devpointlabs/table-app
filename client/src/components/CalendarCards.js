@@ -42,10 +42,10 @@ class CalendarCards extends React.Component {
                 <StyledHeader>{host}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledSubHeader2>{this.state.date}</StyledSubHeader2>
+                <StyledSubHeader2>{date}</StyledSubHeader2>
               </Grid.Row>
               <Grid.Row>
-                <StyledSubHeader2>{event_time}</StyledSubHeader2>
+                <StyledSubHeader2>{time}</StyledSubHeader2>
               </Grid.Row>
               <br />
               <Grid.Row>
