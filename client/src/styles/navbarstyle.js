@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { Menu, Dropdown, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+export const StyledImg = styled.img`
+  height: 130px
+`
+
 export const StyledMenu = styled(Menu)`
   z-index: 1;
   background-color: #222222 !important;
