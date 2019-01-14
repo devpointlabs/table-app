@@ -16,6 +16,7 @@ import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
+import EventForm from "./components/EventForm"
 
 const App = () => (
   <Fragment>
