@@ -6,15 +6,13 @@ import { StyledSegment } from '../styles/AdminDashboardStyle'
 class AdminDashboard extends React.Component{
   render() {
     return (
-      <>
+      <StyledSegment basic>
         <Link to='/event-form'>
-          <StyledSegment basic>
-            <Button inverted color='blue'>
-              + Add Event
-            </Button>
-          </StyledSegment>
+          <Button inverted color='blue'>
+            + Add Event
+          </Button>
         </Link>
-      </>  
+      </StyledSegment>
     )
   }
 }

@@ -2,17 +2,16 @@ import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { withRouter, Link, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
-import { StyledMenu, StyledItem, StyledLink, StyledDrop } from '../styles/navbarstyle';
-
+import { StyledMenu, StyledItem, StyledLink, StyledDrop, StyledImg } from '../styles/navbarstyle';
+import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC.png';
 import '../App.css'
-
 class Navbar extends React.Component {
-
+  
   admin= () => {
     const {user} = this.props.auth
     if (user.admin) {
       return(
-      <Dropdown.Item>
+        <Dropdown.Item>
         <Link to = '/admin-dashboard'>ADMIN DASHBOARD</Link>
       </Dropdown.Item>
       )
@@ -21,10 +20,10 @@ class Navbar extends React.Component {
 
   NavItems = () => {
     const { user, handleLogout, } = this.props.auth;
-
+    
     if (user) {
       return (
-      <StyledDrop item text={user.email}>
+        <StyledDrop item text={user.email}>
         <Dropdown.Menu style = {{zIndex: '10'}}>
           <Dropdown.Item>
             <StyledLink black to = '/profile'>PROFILE</StyledLink>
@@ -58,7 +57,8 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <StyledMenu borderless position>
+      <StyledMenu borderless >
+        <StyledImg src={Sky_SLC}/>
         <Menu.Menu position="right">
           <StyledItem StyledLink>
             <StyledLink to = '/' className = ''>PRIVATE EVENTS</StyledLink>
