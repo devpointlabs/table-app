@@ -20,7 +20,7 @@ export const StyledItem = styled(Menu.Item)`
   color: white !important;
   font-size: 15px;
   border: 3px solid #b29d72;
-  margin: 5px;
+  margin: auto 5px;
   transition: background 0.2s ease;
   cursor: pointer;
 
@@ -37,7 +37,17 @@ export const StyledLink = styled(Link)`
 export const StyledDrop = styled(Dropdown)`
   z-index: 2;
   position: relative;
-  border: none;
+  font-size: 15px;
+  border: 3px solid #b29d72;
   background-color: #383838 !important;
   color: white !important;
+  margin: auto 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #606060 !important;
+    transition: background 0.2s ease;
+  }
+
 `;
