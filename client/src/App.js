@@ -6,7 +6,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
-import EventForm from './components/EventForm';
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
@@ -15,19 +14,21 @@ import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
+import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
 
 const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      <Container fluid>
-      <div style={styles.body}>
-        <Switch>
+      <Container fluid textAlign="center">
+        <Switch >
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
+          <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/newevent" component={EventForm} />
@@ -36,7 +37,6 @@ const App = () => (
           <Route exact path="/newevent" component={EventForm} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
       </Container>
     </FetchUser>
     <Footer style={styles.footer} />

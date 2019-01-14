@@ -25,7 +25,6 @@ ReactDOM.render(
   <AuthProvider>
     <GlobalStyle />
     <BrowserRouter>
-
       <App />
     </BrowserRouter>
   </AuthProvider>,
