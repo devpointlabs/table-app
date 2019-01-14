@@ -21,7 +21,7 @@ const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      {/* <Container> */}
+      <Container fluid>
       <div style={styles.body}>
         <Switch>
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
@@ -37,7 +37,7 @@ const App = () => (
           <Route component={NoMatch} />
         </Switch>
       </div>
-      {/* </Container> */}
+      </Container>
     </FetchUser>
     <Footer style={styles.footer} />
   </Fragment>

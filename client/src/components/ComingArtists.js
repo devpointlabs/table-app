@@ -43,7 +43,7 @@ class ComingArtists extends React.Component {
       <StyledSegment textAlign='center' fluid>
         <StyledHeader2 as="h1" inverted textAlign="center">What We Do</StyledHeader2>
         <StyledDivider />
-        <Grid columns={4} centered>
+        <Grid columns={4} centered container stackable>
           { events.map( event =>
           <Grid.Column>
             <StyledComingImage key={event.id} src={event.image_url} />
