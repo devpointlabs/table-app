@@ -6,7 +6,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
-import EventForm from './components/EventForm';
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
@@ -25,6 +24,7 @@ const App = () => (
       <Container fluid textAlign="center">
         <Switch >
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
+          <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
