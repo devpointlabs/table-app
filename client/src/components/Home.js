@@ -5,25 +5,17 @@ import styled from 'styled-components';
 // import WhatDo1 from './WhatDo1';
 import SampleMap from './SampleMap';
 import ContactUs from './ContactUs';
+import { Image } from 'semantic-ui-react';
+
 
 const Home = () => (
   <>
-    <HeroImage>
-      <Img src={hero}/>
-    </HeroImage>
+      <Image fluid src={hero}/>
     {/* <WhatDo1/> */}
     <ComingArtists />
     <ContactUs />
     <SampleMap />
   </>
 )
-
-const Img = styled.img`
-  width: 100%
-`
-
-const HeroImage = styled.div`
-  background-color: black;
-`
 
 export default Home;

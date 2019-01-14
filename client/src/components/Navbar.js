@@ -57,7 +57,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <StyledMenu borderless >
+      <StyledMenu stackable borderless >
         <StyledImg src={Sky_SLC}/>
         <Menu.Menu position="right">
           <StyledItem href="/">
