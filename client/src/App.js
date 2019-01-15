@@ -35,7 +35,6 @@ const App = () => (
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/newevent" component={EventForm} />
           <Route exact path='/event' component={EventDetails} />
           <Route exact path='/calendar' component={MobileCalendar} />
           <Route component={NoMatch} />
