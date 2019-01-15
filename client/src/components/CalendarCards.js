@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Button, Grid, Segment } from 'semantic-ui-react';
+import { Grid, } from 'semantic-ui-react';
 import { StyledButton, StyledButton2, StyledHeader, StyledSubHeader2, StyledComingImage, StyledSegment2 } from '../styles/generalitems';
 import { Link, } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -29,7 +29,7 @@ class CalendarCards extends React.Component {
   }
 
   render() {
-    const { id, host, image_url, event_date, event_time, description } = this.props;
+    const { id, host, image_url, } = this.props;
     const { date, time } = this.state;
     return(
       <StyledSegment2 style={{maxWidth: "700px"}} >

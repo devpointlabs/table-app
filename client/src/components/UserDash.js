@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Image, Grid, Button } from 'semantic-ui-react';
+import { Image, Grid, } from 'semantic-ui-react';
 import { UserCard, Wrapper, Line, DashContent, } from '../styles/userdashstyle';
 import { HeaderRow, GridText} from '../styles/ticketingstyle';
 

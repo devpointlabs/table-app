@@ -79,7 +79,7 @@ class MobileCalendar extends React.Component {
   };
 
   filteredDates = () => {
-    const { events, selectedMonth, filteredDates } = this.state;
+    const { events, } = this.state;
     const fEvents = events.filter(this.dateFilter);
     this.setState({ filteredDates: fEvents, })
   }
