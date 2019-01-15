@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Image, Grid, Container, Button} from 'semantic-ui-react';
+import { Grid, Container, } from 'semantic-ui-react';
 import { StyledButton, StyledHeader, StyledSubHeader, StyledImage, StyledMainText } from '../styles/generalitems';
  
 class EventDetails extends React.Component {
