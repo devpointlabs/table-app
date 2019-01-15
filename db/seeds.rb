@@ -140,4 +140,4 @@
   )
 end
 
-puts "Data Seeded."
+puts "Event Data Seeded, ADMIN ACCOUNT: admin@admin.com PASSWORD: password, USER ACCOUNT: test@test.com PASSWORD: password"
