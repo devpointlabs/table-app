@@ -3,6 +3,7 @@ import dateFns from 'date-fns';
 import { Container, Icon, Segment, } from 'semantic-ui-react';
 import { StyledHeader, StyledButton } from '../styles/generalitems';
 import CalendarCards from './CalendarCards';
+import { format } from 'date-fns'
 // Delete these when Database is working
 import Audien from '../images/Artists/Audien.jpg';
 import Cesqeaux from '../images/Artists/Cesqeaux.jpg';
@@ -18,7 +19,6 @@ import Spencer from '../images/Artists/Spencer Brown.jpg';
 import Subtronics from '../images/Artists/Subtronics.jpg';
 import Tritonal from '../images/Artists/Tritonal.jpg';
 import Valentino from '../images/Artists/Valentino_Khan.jpg';
-import Calendar from './Calendar';
 
 class MobileCalendar extends React.Component {
   state = { 
@@ -39,18 +39,61 @@ class MobileCalendar extends React.Component {
       {id: 13, host: "Tritonal", image_url: `${Tritonal}`, event_date: "2019-04-01 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional",},
       {id: 14, host: "Valentino", image_url: `${Valentino}`, event_date: "2019-04-10 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional",},
       ],
+      selectedMonth: [],
+      filteredDates: [],
   };
+
+  componentDidMount(){
+    this.selectedMonth();
+  }
 
   nextMonth = () => {
     this.setState({
-      currentMonth: dateFns.addMonths(this.state.currentMonth, 1)
+      currentMonth: dateFns.addMonths(this.state.currentMonth, 1) }, () => {
+        this.clearFiltered();
     });
   };
+
   prevMonth = () => {
     this.setState({
-      currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
+      currentMonth: dateFns.subMonths(this.state.currentMonth, 1) }, () => {
+        this.clearFiltered();
     });
   };
+
+  clearFiltered = () => {
+    this.setState({
+      filteredDates: [] }, () => {
+        this.selectedMonth();
+    });
+  }
+
+  selectedMonth = () => {
+    var month = format(
+      new Date(this.state.currentMonth),
+      'MMMM'
+    )
+    this.setState({ selectedMonth: month }, () => {
+      this.filteredDates();
+    });
+  };
+
+  filteredDates = () => {
+    const { events, selectedMonth, filteredDates } = this.state;
+    const fEvents = events.filter(this.dateFilter);
+    this.setState({ filteredDates: fEvents, })
+  }
+
+  dateFilter = (event) => {
+    var month = format(
+      new Date (event.event_date),
+      'MMMM'
+    )
+    if (month === this.state.selectedMonth)
+      return event
+    else
+      return null
+  }
 
   renderHeader = () => {
     const dateFormat = "MMMM YYYY";
@@ -77,11 +120,11 @@ class MobileCalendar extends React.Component {
 
 
   render() {
-    const { events } = this.state;
+    const { filteredDates } = this.state;
     return(
       <Container style={{marginTop: '75px',}}>
         { this.renderHeader() }
-          { events.map( event =>
+          { filteredDates.map( event =>
             <CalendarCards {...event} />
           )}
       </Container>
