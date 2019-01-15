@@ -7,7 +7,6 @@ import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
-// import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
 import UserDash from './components/UserDash';
 import EventForm from './components/EventForm';
@@ -29,7 +28,7 @@ const App = () => (
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
-          <Route exact path='/events/:id' component={Ticketing} />
+          <Route exact path='/tickets/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path="/cart" component={Cart} />

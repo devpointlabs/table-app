@@ -48,7 +48,7 @@ class EventDetails extends React.Component {
             <StyledMainText as='h3'>{event.description}</StyledMainText>
               <StyledButton>Dress Code</StyledButton>
               <StyledButton>VIP Tables</StyledButton>
-              <StyledButton onClick={() => this.props.history.push(`/events/${event.id}`)} >Tickets</StyledButton>
+              <StyledButton onClick={() => this.props.history.push(`/tickets/${event.id}`)}>Tickets</StyledButton>
           </Container>
         </Grid.Column>
       </Grid>
