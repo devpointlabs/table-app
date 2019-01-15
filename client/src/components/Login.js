@@ -28,40 +28,40 @@ class Login extends React.Component {
 
     return (
       <div>
-      <Modal open = {isOpen}>
-        <Modal.Header>
-          <Header as = 'h2' textAlign = 'center'>LOGIN</Header>
-        </Modal.Header>
-        <Modal.Content>
-          <Segment basic>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Input
-              label="Email"
-              required
-              autoFocus
-              name='email'
-              value={email}
-              placeholder='Email'
-              onChange={this.handleChange}
-            />
-            <Form.Input
-              label="Password"
-              required
-              name='password'
-              value={password}
-              placeholder='Password'
-              type='password'
-              onChange={this.handleChange}
-            />
-            <Segment textAlign='center' basic>
-              <Button primary type='submit'>Submit</Button>
-              <Button onClick = {this.handleOpen}>Close</Button>
+        <Modal open = {isOpen}>
+          <Modal.Header>
+            <Header as = 'h2' textAlign = 'center'>LOGIN</Header>
+          </Modal.Header>
+          <Modal.Content>
+            <Segment basic>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                label="Email"
+                required
+                autoFocus
+                name='email'
+                value={email}
+                placeholder='Email'
+                onChange={this.handleChange}
+              />
+              <Form.Input
+                label="Password"
+                required
+                name='password'
+                value={password}
+                placeholder='Password'
+                type='password'
+                onChange={this.handleChange}
+              />
+              <Segment textAlign='center' basic>
+                <Button primary type='submit'>Submit</Button>
+                <Button onClick = {this.handleOpen}>Close</Button>
+              </Segment>
+            </Form>
             </Segment>
-          </Form>
-          </Segment>
-        </Modal.Content>
-      </Modal>
-      <Home />
+          </Modal.Content>
+        </Modal>
+        <Home />
       </div>
     )
   }
