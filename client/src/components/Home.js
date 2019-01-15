@@ -5,6 +5,7 @@ import styled from 'styled-components';
 // import WhatDo1 from './WhatDo1';
 import SampleMap from './SampleMap';
 import ContactUs from './ContactUs';
+import TableService from './TableService';
 
 const Home = () => (
   <>
@@ -13,6 +14,7 @@ const Home = () => (
     </HeroImage>
     {/* <WhatDo1/> */}
     <ComingArtists />
+    <TableService />
     <ContactUs />
     <SampleMap />
   </>
@@ -20,10 +22,10 @@ const Home = () => (
 
 const Img = styled.img`
   width: 100%
-`
+`;
 
 const HeroImage = styled.div`
   background-color: black;
-`
+`;
 
 export default Home;
