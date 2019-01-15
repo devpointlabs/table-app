@@ -38,7 +38,6 @@ const App = () => (
           <Route exact path="/newevent" component={EventForm} />
           <Route exact path='/event' component={EventDetails} />
           <Route exact path='/calendar' component={MobileCalendar} />
-          <Route exact path="/newevent" component={EventForm} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

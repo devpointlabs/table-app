@@ -98,7 +98,7 @@ class MobileCalendar extends React.Component {
   renderHeader = () => {
     const dateFormat = "MMMM YYYY";
     return (
-        <Segment.Group horizontal fluid basic as={Segment}>
+        <Segment.Group horizontal fluid basic as={Segment} style={{paddingTop: "100px"}}>
           <Segment basic>
             <StyledButton icon onClick={this.prevMonth} floated="left">
               <Icon name='chevron left' />
