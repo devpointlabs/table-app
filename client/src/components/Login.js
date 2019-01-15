@@ -24,8 +24,8 @@ class Login extends React.Component {
       <Segment basic style = {{paddingTop: '165px'}}>
         <Header as='h1' textAlign='center'>Login</Header>
         <Form onSubmit={this.handleSubmit}>
+        <label>Email</label>
           <Form.Input
-            label="Email"
             autoFocus
             required
             name='email'
@@ -33,8 +33,8 @@ class Login extends React.Component {
             placeholder='Email'
             onChange={this.handleChange}
           />
+          <label>Password</label>
           <Form.Input
-            label="Password"
             required
             name='password'
             value={password}

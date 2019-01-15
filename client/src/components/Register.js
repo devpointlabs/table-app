@@ -29,8 +29,8 @@ class Register extends React.Component {
       <Segment basic style = {{paddingTop: '165px'}}>
         <Header as='h1' textAlign='center'>Register</Header>
         <Form onSubmit={this.handleSubmit}>
+        <label>Email</label>
           <Form.Input
-            label="Email"
             required
             autoFocus
             name='email'
@@ -38,8 +38,8 @@ class Register extends React.Component {
             placeholder='Email'
             onChange={this.handleChange}
           />
+          <label>Password</label>
           <Form.Input
-            label="Password"
             required
             name='password'
             value={password}
@@ -47,8 +47,8 @@ class Register extends React.Component {
             type='password'
             onChange={this.handleChange}
           />
+          <label>Password Confirmation</label>
           <Form.Input
-            label="Password Confirmation"
             required
             name='passwordConfirmation'
             value={passwordConfirmation}
