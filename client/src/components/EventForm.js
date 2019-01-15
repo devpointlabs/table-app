@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Form, Header, Container, } from 'semantic-ui-react'
+import { StyledButton } from '../styles/generalitems'
 import Dropzone from 'react-dropzone';
 
 class EventForm extends React.Component {
@@ -121,9 +122,9 @@ class EventForm extends React.Component {
           />
           <br />
           <br />
-          <Form.Button color="green">
+          <StyledButton color="green">
           Submit
-          </Form.Button>
+          </StyledButton>
         </Form>
       </Container>
     )

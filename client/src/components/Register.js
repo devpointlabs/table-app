@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Segment, Header, } from 'semantic-ui-react';
+import { StyledButton } from '../styles/generalitems';
 
 class Register extends React.Component {
   state = { email: '', password: '', passwordConfirmation: '', };
@@ -57,7 +58,7 @@ class Register extends React.Component {
             onChange={this.handleChange}
           />
           <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <StyledButton type='submit'>Submit</StyledButton>
           </Segment>
         </Form>
       </Segment>
