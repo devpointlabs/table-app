@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Segment, Header, } from 'semantic-ui-react';
+import { StyledButton } from '../styles/generalitems';
 
 class Register extends React.Component {
   state = { email: '', password: '', passwordConfirmation: '', };
@@ -29,8 +30,8 @@ class Register extends React.Component {
       <Segment basic style = {{paddingTop: '165px'}}>
         <Header as='h1' textAlign='center'>Register</Header>
         <Form onSubmit={this.handleSubmit}>
+        <label>Email</label>
           <Form.Input
-            label="Email"
             required
             autoFocus
             name='email'
@@ -38,8 +39,8 @@ class Register extends React.Component {
             placeholder='Email'
             onChange={this.handleChange}
           />
+          <label>Password</label>
           <Form.Input
-            label="Password"
             required
             name='password'
             value={password}
@@ -47,8 +48,8 @@ class Register extends React.Component {
             type='password'
             onChange={this.handleChange}
           />
+          <label>Password Confirmation</label>
           <Form.Input
-            label="Password Confirmation"
             required
             name='passwordConfirmation'
             value={passwordConfirmation}
@@ -57,7 +58,7 @@ class Register extends React.Component {
             onChange={this.handleChange}
           />
           <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <StyledButton type='submit'>Submit</StyledButton>
           </Segment>
         </Form>
       </Segment>

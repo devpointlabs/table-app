@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Form, Header, Container, } from 'semantic-ui-react'
+import { StyledButton } from '../styles/generalitems'
 import Dropzone from 'react-dropzone';
 
 class EventForm extends React.Component {
@@ -50,14 +51,14 @@ class EventForm extends React.Component {
   render(){
     const { host, event_date, dress_code, description, event_time, } = this.state;
     return(
-      <Container>
+      <Container style={{ paddingTop: '100px'}} >
         <Header as='h1' textAlign="center">
         { (this.props.id) ? "Edit Event" : "New Event" }
         </Header>
         <Form onSubmit={this.handleSubmit}>
+        <label>Host Artist</label>
           <Form.Input
             name="host"
-            label="Host Artist"
             placeholder="Host"
             required
             autofocus
@@ -65,18 +66,18 @@ class EventForm extends React.Component {
             onChange={this.handleChange}
           />
           <Form.Group widths="equal">
+            <label>Date</label>
             <Form.Input
               name="event_date"
-              label="Date"
               placeholder="Pretend this is a Date Picker"
               required
               type="date"
               value={event_date}
               onChange={this.handleChange}
               />
+            <label>Time</label>
             <Form.Input
               name="event_time"
-              label="Time"
               placeholder="Pretend this is a Time Picker"
               required
               type="time"
@@ -105,25 +106,25 @@ class EventForm extends React.Component {
             )
           }}
           </Dropzone>
-          <Form.Input
+          <label>Dress Code</label>
+          <Form.TextArea
             name="dress_code"
-            label="Dress Code"
             placeholder="Dress Code"
             required
             value={dress_code}
             onChange={this.handleChange}
           />
-          <Form.Input
+          <label>Description</label>
+          <Form.TextArea
             name="description"
-            label="Description"
             value={description}
             onChange={this.handleChange}
           />
           <br />
           <br />
-          <Form.Button color="green">
+          <StyledButton color="green">
           Submit
-          </Form.Button>
+          </StyledButton>
         </Form>
       </Container>
     )
@@ -134,12 +135,12 @@ class EventForm extends React.Component {
 const styles = {
   dropzone: {
     height: "150px",
-    width: "150px",
-    border: "1px dashed black",
-    borderRadius: "5px",
+    width: "100%",
+    border: "1px dotted white",
+    borderRadius: "5x",
     display: "flex",
     justifyContent: "center",
-    alignItems: "top",
+    alignItems: "center",
     padding: "10px"
   }
 }
