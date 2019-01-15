@@ -6,12 +6,11 @@ import styled from 'styled-components';
 import SampleMap from './SampleMap';
 import ContactUs from './ContactUs';
 import TableService from './TableService';
+import { Image } from 'semantic-ui-react';
 
 const Home = () => (
   <>
-    <HeroImage>
-      <Img src={hero}/>
-    </HeroImage>
+      <Image fluid src={hero}/>
     {/* <WhatDo1/> */}
     <ComingArtists />
     <TableService />
@@ -19,13 +18,5 @@ const Home = () => (
     <SampleMap />
   </>
 )
-
-const Img = styled.img`
-  width: 100%
-`;
-
-const HeroImage = styled.div`
-  background-color: black;
-`;
 
 export default Home;

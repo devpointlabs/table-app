@@ -2,10 +2,15 @@ import styled from 'styled-components';
 import { Menu, Dropdown, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+export const StyledImg = styled.img`
+  height: 130px
+`
+
 export const StyledMenu = styled(Menu)`
   z-index: 1;
-  background-color: #222222 !important;
-  opacity: .93;
+  border-top: 1px solid grey !important
+  border-bottom: 1px solid grey !important
+  background-color: rgba(85,85,85,0.5) !important;
   position: fixed;
   width: 100%;
   margin-top: 0px;
@@ -16,7 +21,14 @@ export const StyledItem = styled(Menu.Item)`
   color: white !important;
   font-size: 15px;
   border: 3px solid #b29d72;
-  margin: 5px;
+  margin: auto 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #606060 !important;
+    transition: background 0.2s ease;
+  }
 `; 
 
 export const StyledLink = styled(Link)`
@@ -26,7 +38,17 @@ export const StyledLink = styled(Link)`
 export const StyledDrop = styled(Dropdown)`
   z-index: 2;
   position: relative;
-  border: none;
+  font-size: 15px;
+  border: 3px solid #b29d72;
   background-color: #383838 !important;
   color: white !important;
+  margin: auto 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #606060 !important;
+    transition: background 0.2s ease;
+  }
+
 `;
