@@ -5,6 +5,10 @@ class Api::EventsController < ApplicationController
     render json: Event.all.order(event_date: :desc)
   end
 
+  def comingartists
+    render json: Event.all.order(event_date: :desc)
+  end
+
   def show
     render json: @event
   end
