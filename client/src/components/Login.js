@@ -27,7 +27,6 @@ class Login extends React.Component {
     const { email, password, isOpen } = this.state;
 
     return (
-      // paddingTop needed to navbar doesnt overlap content
       <div>
       <Modal open = {isOpen}>
         <Modal.Header>
@@ -38,6 +37,7 @@ class Login extends React.Component {
           <Form onSubmit={this.handleSubmit}>
             <Form.Input
               label="Email"
+              required
               autoFocus
               name='email'
               value={email}
@@ -46,6 +46,7 @@ class Login extends React.Component {
             />
             <Form.Input
               label="Password"
+              required
               name='password'
               value={password}
               placeholder='Password'
