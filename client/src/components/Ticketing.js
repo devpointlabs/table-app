@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, Image, Form, Button, Input, Select, } from 'semantic-ui-react';
-import Butterfly from './butterfly.jpg';
+import { Grid, Image, Form, Button, Input, Select, Header } from 'semantic-ui-react';
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
+import axios from "axios";
 
 
 
@@ -11,23 +11,41 @@ const gen = (v) => {
 }
 
 class Ticketing extends React.Component {
+  state = {
+    host: "",
+    image_url: "",
+    event_date: "",
+    dress_code: "",
+    description: "",
+    event_time: "",
+    }
 
+    componentDidMount() {
+      axios.get(`/api/events/${this.props.match.params.id}`)
+      .then( res => {
+        this.setState({ ...res.data });
+      })
+      .catch( err => {
+        console.log(err);
+      })
+    }
 
   render () {
+    const { host, image_url, event_date, event_time, dress_code, description,} = this.state
     return(
       <StyledSegment basic>
         <GridText small>
             <Grid stackable>
               <Grid.Column verticalAlign="middle" width={6}>
-                <Image size="medium" centered src={Butterfly} />
+                <Image size="medium" centered src={image_url} />
               </Grid.Column>
               <Grid.Column width={8}>
                 <Grid>
                   <Grid.Row>
-                    <GridText>datetime</GridText>
+                    <GridText>{event_time}, {event_date}</GridText>
                   </Grid.Row>
                   <Grid.Row>
-                    <GridText large>TitleName</GridText>
+                    <GridText large>{host}</GridText>
                   </Grid.Row>          
                   <HeaderRow>
                     <Grid.Column mobile={4} computer={4}>

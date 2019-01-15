@@ -1,43 +1,42 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { withRouter, Link, } from 'react-router-dom'
+import { withRouter, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
-import { StyledMenu, StyledItem, StyledLink, StyledDrop } from '../styles/navbarstyle';
-
+import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
+import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC.png';
 import '../App.css'
-
 class Navbar extends React.Component {
-
+  
   admin= () => {
     const {user} = this.props.auth
     if (user.admin) {
       return(
-      <Dropdown.Item>
-        <Link to = '/admin-dashboard'>ADMIN DASHBOARD</Link>
+      <Dropdown.Item href="/admin-dashboar">
+        ADMIN DASHBOARD
       </Dropdown.Item>
       )
     }
   }
 
-  leftNavItems = () => {
+  NavItems = () => {
     const { user, handleLogout, } = this.props.auth;
-
+    
     if (user) {
       return (
       <StyledDrop item text={user.email}>
-        <Dropdown.Menu style = {{zIndex: '10'}}>
-          <Dropdown.Item>
-            <StyledLink black to = '/profile'>PROFILE</StyledLink>
+        <Dropdown.Menu>
+          <Dropdown.Item href="/profile">
+            PROFILE
           </Dropdown.Item>
-          <Dropdown.Item>
-            <StyledLink black to = ''>DASHBOARD</StyledLink>
+          <Dropdown.Item href="/">
+            DASHBOARD
           </Dropdown.Item>
             {this.admin()}
-          <Dropdown.Item>
-            <StyledLink black to = '' onClick = {() => handleLogout(this.props.history)}>LOGOUT</StyledLink>
+          <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
+           LOGOUT
           </Dropdown.Item>
-          <Dropdown.Item>
-            <StyledLink black to = '/'>HOME</StyledLink>
+          <Dropdown.Item href="">
+            HOME
           </Dropdown.Item>
         </Dropdown.Menu>
       </StyledDrop>
@@ -45,11 +44,11 @@ class Navbar extends React.Component {
     } else {
       return (
         <>
-          <StyledItem link>
-            <StyledLink to = '/login' className = ''>LOGIN</StyledLink>
+          <StyledItem href="/login">
+            LOGIN
           </StyledItem>
-          <StyledItem link>
-            <StyledLink to = '/register' className = ''>REGISTER</StyledLink>
+          <StyledItem href="/register">
+            REGISTER
           </StyledItem>
         </>
       )
@@ -58,18 +57,21 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <StyledMenu borderless >
-        { this.leftNavItems() }
+      <StyledMenu stackable borderless >
+        <Menu.Header href="/">
+          <StyledImg src={Sky_SLC}/>
+        </Menu.Header>
         <Menu.Menu position="right">
-          <StyledItem StyledLink>
-            <StyledLink to = '/' className = ''>PRIVATE EVENTS</StyledLink>
+          <StyledItem href="/">
+            PRIVATE EVENTS
           </StyledItem>
-          <StyledItem StyledLink>
-            <StyledLink to = '/' className = ''>VIP TABLES</StyledLink>
+          <StyledItem href="/">
+            VIP TABLES
           </StyledItem>
-          <StyledItem>
-            <StyledLink to = '/ticketing' className = ''>TICKETS</StyledLink>
+          <StyledItem href="/ticketing">
+            TICKETS
           </StyledItem>
+        { this.NavItems() }
         </Menu.Menu>
       </StyledMenu>
     )

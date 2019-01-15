@@ -9,6 +9,8 @@ import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
 // import Calendar from './components/Calendar';
 import Profile from "./components/UserProfile";
+import UserDash from './components/UserDash';
+import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
@@ -17,7 +19,6 @@ import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
 import MobileCalendar from './components/MobileCalendar';
-import EventForm from './components/EventForm';
 
 const App = () => (
   <Fragment>
@@ -28,8 +29,9 @@ const App = () => (
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
-          <Route exact path='/ticketing' component={Ticketing} />
+          <Route exact path='/events/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
