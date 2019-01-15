@@ -17,7 +17,7 @@ class UserDash extends React.Component {
         <DashContent>
           <h3>TICKETS</h3>
           <Grid.Column width = {8}>
-            <Grid celled style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
+            <Grid style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
               <HeaderRow>
                 <Grid.Column mobile={4} computer={4}>
                   <GridText gray>

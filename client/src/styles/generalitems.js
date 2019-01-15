@@ -75,3 +75,33 @@ export const StyledComingImage = styled(Image)`
   border: 1px solid #bdbdbd !important;
   max-width: 250px !important;
 `; 
+
+export const GoldButton = styled.button`
+  color: #eee;
+  border: 2px solid #c4ae85;
+  background-color: #baa06f;
+  height: 60px;
+  width: 175px;
+  padding: 5px auto;
+  margin-top: -15px;
+  font-size: 30px;
+  font-family: times new roman;
+  margin: 10px;
+`;
+
+// I didnt know this would work but it did and i did it all by my self and i am very proud and nobody helped me and its super cool, wow good job joe
+export const Line = styled.div(
+  props => props.vertical ? 
+  `
+  border-left: 1px solid #363636;
+  height: 100vh;
+  margin: auto;
+  ` :
+  `
+  border-top: 1px solid #363636;
+  width 90%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  `
+);
