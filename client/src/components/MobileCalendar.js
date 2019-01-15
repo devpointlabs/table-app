@@ -25,7 +25,7 @@ class MobileCalendar extends React.Component {
     currentMonth: new Date(),
     events: [
       {id: 1, host: "Audien", image_url: `${Audien}`, event_date: "2019-01-15 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
-      {id: 2, host: "Cesqeaux", image_url: `${Cesqeaux}`, event_date: "2019-01-18 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
+      {id: 2, host: "Cesqeaux", image_url: `${Cesqeaux}`, event_date: "2020-01-18 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
       {id: 3, host: "DirtyDave", image_url: `${DirtyDave}`, event_date: "2019-01-24 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
       {id: 4, host: "DJ_Que", image_url: `${DJ_Que}`, event_date: "2019-01-27 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
       {id: 5, host: "DJ_Jazzy", image_url: `${DJ_Jazzy}`, event_date: "2019-02-01 00:00:00", event_time: "2019-01-14 21:30:00", description: "This is a dude who makes music in his mom's basement while high and eating capt crunch. Drop E and enjoy.Hailing from New York City, and having only been in the scene for less than two years. Midnight Tyrannosaurus has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on April 24th!", dress_code: "Clothing optional", },
@@ -71,7 +71,7 @@ class MobileCalendar extends React.Component {
   selectedMonth = () => {
     var month = format(
       new Date(this.state.currentMonth),
-      'MMMM'
+      'MMMM YYYY'
     )
     this.setState({ selectedMonth: month }, () => {
       this.filteredDates();
@@ -87,7 +87,7 @@ class MobileCalendar extends React.Component {
   dateFilter = (event) => {
     var month = format(
       new Date (event.event_date),
-      'MMMM'
+      'MMMM YYYY'
     )
     if (month === this.state.selectedMonth)
       return event
