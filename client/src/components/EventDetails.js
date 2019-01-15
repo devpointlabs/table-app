@@ -32,6 +32,7 @@ class EventDetails extends React.Component {
   }
 
 
+
   render() {
     const { event, date, time } = this.state;
     return(
@@ -47,7 +48,7 @@ class EventDetails extends React.Component {
             <StyledMainText as='h3'>{event.description}</StyledMainText>
               <StyledButton>Dress Code</StyledButton>
               <StyledButton>VIP Tables</StyledButton>
-              <StyledButton>Tickets</StyledButton>
+              <StyledButton onClick={() => this.props.history.push(`/events/${event.id}`)} >Tickets</StyledButton>
           </Container>
         </Grid.Column>
       </Grid>

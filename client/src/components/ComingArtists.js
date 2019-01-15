@@ -23,7 +23,7 @@ class ComingArtists extends React.Component {
         <Grid columns={4} centered container stackable>
           { events.map( event =>
           <Grid.Column>
-            <StyledComingImage key={event.id} src={event.image_url} href={`/events/${event.id}`} />
+            <StyledComingImage key={event.id} src={event.image_url} href={`/event/${event.id}`} />
           </Grid.Column>
           )}
           </Grid>
