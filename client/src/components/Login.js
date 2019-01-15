@@ -1,8 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
+import { Form, Segment, Header, Modal } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
-import { Button, Form, Segment, Header, Modal, Icon} from 'semantic-ui-react';
-import Home from './Home';
 
 class Login extends React.Component {
   state = { email: '', password: '', isOpen: true }
@@ -64,7 +63,6 @@ class Login extends React.Component {
         </Modal>
         <Home />
       </div>
-
     )
   }
 }
