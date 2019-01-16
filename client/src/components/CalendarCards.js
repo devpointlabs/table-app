@@ -49,12 +49,12 @@ class CalendarCards extends React.Component {
               </Grid.Row>
               <br />
               <Grid.Row>
-                <Link to={`/events/${id}`}>
-                <StyledButton fluid>Tables</StyledButton>
+                <Link to={`/event/${id}`}>
+                <StyledButton fluid>Details</StyledButton>
                 </Link>
               </Grid.Row>
               <Grid.Row>
-                <Link to={`/events/${id}`}>
+                <Link to={`/tickets/${id}`}>
                   <StyledButton2 fluid>Tickets</StyledButton2>
                 </Link>
               </Grid.Row>
