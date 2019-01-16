@@ -9,15 +9,15 @@ import { StyledButton } from '../styles/generalitems.js'
 const defaultImage = 'https://www.thesmallbusinesscentre.ca/wp-content/uploads/2017/05/businessman-silhouette.jpg'
 
 class UserProfile extends React.Component {
-  state = { editing: false, formValues: { name: '', email: '', file: '', }, };
+  state = { editing: false, formValues: { name: '', email: '', file: '', first_name: '', last_name: '', }, };
 
   onDrop = (files) => {
     this.setState({ formValues: { ...this.state.formValues, file: files[0], } });
   }
 
   componentDidMount() {
-    const { auth: { user: { name, email, }, }, } = this.props;
-    this.setState({ formValues: { name, email, }, });
+    const { auth: { user: { name, email, first_name, last_name, }, }, } = this.props;
+    this.setState({ formValues: { name, email, first_name, last_name, }, });
   }
 
   handleChange = (e) => {
@@ -32,9 +32,9 @@ class UserProfile extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { formValues: { name, email, file, }, } = this.state;
+    const { formValues: { name, email, file, first_name, last_name, }, } = this.state;
     const { auth: { user, updateUser, }, } = this.props;
-    updateUser(user.id, { name, email, file, });
+    updateUser(user.id, { name, email, file, first_name, last_name, });
     this.setState({
       editing: false,
       formValues: {
@@ -57,7 +57,7 @@ class UserProfile extends React.Component {
         <ViewDiv>
           <div>
             <Img src={user.image || defaultImage} />
-            <H1>{user.name}</H1>
+            <H1>{user.first_name} {user.last_name}</H1>
             <H1>{user.email}</H1>
           </div>
         </ViewDiv>
@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
 
   editView = () => {
     const { user } = this.props;
-    const { formValues: { name, email, file } } = this.state;
+    const { formValues: { name, email, file, first_name, last_name, } } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <EditDiv>
@@ -96,9 +96,16 @@ class UserProfile extends React.Component {
         </EditDiv>
         <Grid.Column width={8}>
           <Form.Input
-            label="Name"
-            name="name"
-            value={name}
+            label="First Name"
+            name="first_name"
+            value={first_name}
+            required
+            onChange={this.handleChange}
+          />
+          <Form.Input
+            label="Last Name"
+            name="last_name"
+            value={last_name}
             required
             onChange={this.handleChange}
           />
