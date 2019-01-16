@@ -74,7 +74,7 @@ class Register extends React.Component {
                   control={Select} 
                   required
                   name='gender'
-                  value={gender}
+                  
                   options={options}
                   placeholder='Gender'
                   onChange={this.handleChange}
@@ -138,6 +138,7 @@ class Register extends React.Component {
 const options = [
   { key: 'm', text: 'Male', value: 'male' },
   { key: 'f', text: 'Female', value: 'female' },
+  { key: 'o', text: 'Other', value: 'other'},
 ]
 
 export default class ConnectedRegister extends React.Component {
