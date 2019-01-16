@@ -90,7 +90,7 @@ class EventDetails extends React.Component {
   }
 
   editView = () => (
-    <EventForm event={this.state.event} time={this.state.time} date={this.state.date} />
+    <EventForm event={this.state.event} time={this.state.time} date={this.state.date} history={this.props.history} />
   )
 
   render() {
