@@ -31,7 +31,7 @@ export const StyledHeader2 = styled(Header)`
 `; 
 
 export const StyledSubHeader = styled(Header)`
-  color: white !important;
+  color: white !importan  t;
   font-size: 20px !important;
 `; 
 
