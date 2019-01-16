@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import { StyledButton } from '../styles/generalitems'

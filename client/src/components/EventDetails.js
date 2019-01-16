@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, Button, Modal, Segment, Header } from 'semantic-ui-react';
+import { Grid, Container, Button, Modal, Header } from 'semantic-ui-react';
 import EventForm from './EventForm';
 import { StyledButton, StyledHeader, StyledSubHeader, StyledImage, StyledMainText } from '../styles/generalitems';
 import axios from 'axios';
