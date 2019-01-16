@@ -2,15 +2,16 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
+import { StyledButton } from '../styles/generalitems'
 
 class AdminDashboard extends React.Component{
   render() {
     return (
       <StyledSegment basic>
         <Link to='/event-form'>
-          <Button inverted color='blue'>
+          <StyledButton>
             + Add Event
-          </Button>
+          </StyledButton>
         </Link>
       </StyledSegment>
     )
