@@ -3,14 +3,16 @@ import { Menu, Dropdown, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export const StyledImg = styled.img`
-  height: 130px
-`
+  height: 130px;
+  width: ${ props => props.width };
+  margin-left: 20px;
+`;
 
 export const StyledMenu = styled(Menu)`
   z-index: 1;
-  border-top: 1px solid grey !important
-  border-bottom: 1px solid grey !important
-  background-color: rgba(85,85,85,0.5) !important;
+  border-top: 1px solid grey !important;
+  border-bottom: 1px solid grey !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   position: fixed;
   width: 100%;
   margin-top: 0px;

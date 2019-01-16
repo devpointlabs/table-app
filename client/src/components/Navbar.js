@@ -3,7 +3,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { withRouter, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
 import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
-import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC.png';
+import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC_White.svg';
 import '../App.css'
 class Navbar extends React.Component {
   
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
     return (
       <StyledMenu stackable borderless >
         <Menu.Header href="/">
-          <StyledImg src={Sky_SLC}/>
+          <StyledImg src={Sky_SLC} width={320} />
         </Menu.Header>
         <Menu.Menu position="right">
           <StyledItem href="/calendar">
