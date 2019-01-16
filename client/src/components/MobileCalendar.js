@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 import { Container, Icon, Segment, } from 'semantic-ui-react';
-import { StyledHeader, StyledButton } from '../styles/generalitems';
+import { StyledHeader, StyledButton, StyledSegment2, StyledHeader2, StyledSubHeader2 } from '../styles/generalitems';
 import CalendarCards from './CalendarCards';
 import { format } from 'date-fns'
 import axios from 'axios';
@@ -95,15 +95,38 @@ class MobileCalendar extends React.Component {
     );
   }
 
+  renderEvents = () => {
+    const { filteredDates } = this.state;
+    return(
+      <div>
+      { filteredDates.map( event =>
+        <CalendarCards {...event} />
+      )}
+    </div>
+    )
+  }
+
+  renderNoEvents = () => {
+    const { selectedMonth } = this.state
+    return(
+      <StyledSegment2 style={{maxWidth: "700px"}} >
+        <StyledHeader2>No Events Listed For {selectedMonth}.</StyledHeader2>
+        <StyledSubHeader2>Please Select A Different Month</StyledSubHeader2>
+      </StyledSegment2>
+    )
+  }
+
 
   render() {
     const { filteredDates } = this.state;
     return(
       <Container style={{marginTop: '75px',}}>
         { this.renderHeader() }
-          { filteredDates.map( event =>
-            <CalendarCards {...event} />
-          )}
+        { filteredDates.length <= 0 ? 
+          this.renderNoEvents()
+          : 
+          this.renderEvents() 
+          }
       </Container>
     )
   }
