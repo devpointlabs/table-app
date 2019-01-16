@@ -16,11 +16,11 @@ export const HeroWrapper = styled.div`
 export const Header = styled.h1`
   font-size: 60px;
   color: white;
-  font-family: Biondi SemiBold;
+  font-family: "copperplate" !important;
 `;
 
 export const Container = styled.div`
   margin: auto;
+  padding-top: 200px;
 `;
 
-// padding-top: 430px;

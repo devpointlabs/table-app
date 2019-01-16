@@ -9,12 +9,18 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import * as serviceWorker from './serviceWorker';
 import { initMiddleware, } from "devise-axios";
 
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, } from "styled-components"
+import mainFont from "./fonts/Copperplate.ttc";
 
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: #000000 !important;
     color: white !important;
+  }
+
+  @font-face {
+    font-family: "copperplate" !important;
+    src: url(${mainFont}) format("truetype");
   }
 `
 
