@@ -8,7 +8,7 @@ import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
-import Profile from "./components/UserProfile";
+import UserProfile from "./components/UserProfile";
 import UserDash from './components/UserDash';
 import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -18,6 +18,7 @@ import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
+import Contacts from './components/Contacts';
 
 const App = () => (
   <Fragment>
@@ -29,8 +30,9 @@ const App = () => (
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
-          <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path="/profile" component={UserProfile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
+          <Route exact path='/contacts' component={Contacts} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
