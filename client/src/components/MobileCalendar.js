@@ -126,7 +126,7 @@ class MobileCalendar extends React.Component {
           this.renderNoEvents()
           : 
           this.renderEvents() 
-          }
+        }
       </Container>
     )
   }
