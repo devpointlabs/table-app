@@ -12,7 +12,7 @@ class AdminDashboard extends React.Component{
             + Add Event
           </Button>
         </Link>
-        <Form>
+        {/* <Form>
           <Form.Field>
             <label>email</label>
             <input placeholder='email@email.com' />
@@ -22,7 +22,7 @@ class AdminDashboard extends React.Component{
           <Button inverted color='red'>
               + Add user as admin
             </Button>
-        </Link>
+        </Link> */}
       </StyledSegment>
     )
   }
