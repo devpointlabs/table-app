@@ -9,6 +9,7 @@ import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
 import Calendar from './components/Calendar';
 import UserProfile from "./components/UserProfile";
+import Profile from "./components/UserProfile";
 import UserDash from './components/UserDash';
 import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -19,6 +20,7 @@ import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
 import Contacts from './components/Contacts';
+import MobileCalendar from './components/MobileCalendar';
 
 const App = () => (
   <Fragment>
@@ -36,10 +38,8 @@ const App = () => (
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/newevent" component={EventForm} />
-          <Route exact path='/event' component={EventDetails} />
-          <Route exact path='/calendar' component={Calendar} />
-          <Route exact path="/newevent" component={EventForm} />
+          <Route exact path='/event/:id' component={EventDetails} />
+          <Route exact path='/calendar' component={MobileCalendar} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

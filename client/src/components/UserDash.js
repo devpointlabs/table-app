@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Image, Grid, Button } from 'semantic-ui-react';
+import { Image, Grid, } from 'semantic-ui-react';
 import { UserCard, Wrapper, Line, DashContent, } from '../styles/userdashstyle';
 import { HeaderRow, GridText} from '../styles/ticketingstyle';
 
@@ -17,7 +17,7 @@ class UserDash extends React.Component {
         <DashContent>
           <h3>TICKETS</h3>
           <Grid.Column width = {8}>
-            <Grid celled style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
+            <Grid style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
               <HeaderRow>
                 <Grid.Column mobile={4} computer={4}>
                   <GridText gray>

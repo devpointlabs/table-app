@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           <Dropdown.Item href="/profile">
             PROFILE
           </Dropdown.Item>
-          <Dropdown.Item href="/">
+          <Dropdown.Item href="/userdash">
             DASHBOARD
           </Dropdown.Item>
             {this.admin()}
@@ -58,7 +58,9 @@ class Navbar extends React.Component {
   render() {
     return (
       <StyledMenu stackable borderless >
-        <StyledImg src={Sky_SLC}/>
+        <Menu.Header href="/">
+          <StyledImg src={Sky_SLC}/>
+        </Menu.Header>
         <Menu.Menu position="right">
           <StyledItem href="/">
             PRIVATE EVENTS

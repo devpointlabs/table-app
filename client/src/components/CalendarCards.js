@@ -1,26 +1,66 @@
 import React from 'react';
-import { Image, Header, Button, Grid } from 'semantic-ui-react';
+import { Grid, } from 'semantic-ui-react';
+import { StyledButton, StyledButton2, StyledHeader, StyledSubHeader2, StyledComingImage, StyledSegment2 } from '../styles/generalitems';
 import { Link, } from 'react-router-dom';
+import { format } from 'date-fns';
 
 class CalendarCards extends React.Component {
+  state = { date: [], time: [],  }
+
+  componentDidMount() {
+    this.dateFormat();
+    this.timeFormat();
+  }
+
+  dateFormat = () => {
+    var result = format(
+      new Date(this.props.event_date),
+      'dddd MMMM Do YYYY'
+    )
+    this.setState({ date: result, })
+  }
+
+  timeFormat = () => {
+    var tresult = format(
+      new Date(this.props.event_time),
+      'h:mm A'
+    )
+    this.setState({ time: tresult, })
+  }
+
   render() {
-    const { event } = this.props;
+    const { id, host, image_url, } = this.props;
+    const { date, time } = this.state;
     return(
-      <Grid centered>
-        <Grid.Column textAlign='center' style={{ maxWidth: '200px',}}>
-            <Grid.Row><Image src={event.image_url} /></Grid.Row>
-            <Grid.Row>
-              <b>{event.host}</b>
-            </Grid.Row>
-            <Grid.Row>
-              {event.event_date}
-            </Grid.Row>
-            <Grid.Row>
-              <Button as={Link} to={`/events/${event.id}`} fluid inverted color='blue'>Tables</Button>
-              <Button as={Link} to={`/events/${event.id}`} fluid color='blue'>Tickets</Button>
-            </Grid.Row>
-        </Grid.Column>
-      </Grid>
+      <StyledSegment2 style={{maxWidth: "700px"}} >
+        <Grid columns={2} stackable>
+          <Grid.Column>
+              <StyledComingImage src={image_url} />
+          </Grid.Column>
+          <Grid.Column width={6} style={{ marginTop: "15%"}}>
+              <Grid.Row>
+                <StyledHeader>{host}</StyledHeader>
+              </Grid.Row>
+              <Grid.Row>
+                <StyledSubHeader2>{date}</StyledSubHeader2>
+              </Grid.Row>
+              <Grid.Row>
+                <StyledSubHeader2>{time}</StyledSubHeader2>
+              </Grid.Row>
+              <br />
+              <Grid.Row>
+                <Link to={`/event/${id}`}>
+                <StyledButton fluid>Details</StyledButton>
+                </Link>
+              </Grid.Row>
+              <Grid.Row>
+                <Link to={`/tickets/${id}`}>
+                  <StyledButton2 fluid>Tickets</StyledButton2>
+                </Link>
+              </Grid.Row>
+          </Grid.Column>
+        </Grid>
+      </StyledSegment2>
     )
   }
 }

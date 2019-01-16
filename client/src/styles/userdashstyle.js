@@ -7,7 +7,7 @@ export const UserCard = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 100px;
+  padding-top: 190px;
   margin-left: 20px;
   display: flex;
 `;
