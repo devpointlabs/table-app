@@ -62,6 +62,9 @@ class Navbar extends React.Component {
           <StyledImg src={Sky_SLC}/>
         </Menu.Header>
         <Menu.Menu position="right">
+          <StyledItem href="/calendar">
+            CALENDAR
+          </StyledItem>
           <StyledItem href="/">
             PRIVATE EVENTS
           </StyledItem>
