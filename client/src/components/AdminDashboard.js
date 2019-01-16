@@ -28,6 +28,17 @@ class AdminDashboard extends React.Component{
             Edit Venue Details
           </StyledButton>
         </Link>
+        <Form>
+          <Form.Field>
+            <label>email</label>
+            <input placeholder='email@email.com' />
+          </Form.Field>
+        </Form>
+        <Link to='/event-form'>
+          <Button inverted color='red'>
+              + Add user as admin
+            </Button>
+        </Link>
       </StyledSegment>
     )
   }
