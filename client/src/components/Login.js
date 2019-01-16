@@ -1,5 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
+import { StyledButton } from '../styles/generalitems';
 import { Button, Form, Segment, Header, Modal, Icon} from 'semantic-ui-react';
 import Home from './Home';
 
@@ -54,7 +55,7 @@ class Login extends React.Component {
                 onChange={this.handleChange}
               />
               <Segment textAlign='center' basic>
-                <Button primary type='submit'>Submit</Button>
+                <StyledButton type='submit'>Submit</StyledButton>
                 <Button onClick = {this.handleOpen}>Close</Button>
               </Segment>
             </Form>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :events
+    get '/comingartists', to: 'events#comingartists'
   end
 
 end

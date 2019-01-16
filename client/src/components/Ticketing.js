@@ -3,6 +3,7 @@ import { Grid, Image, Form, Button, Input, Select, Header } from 'semantic-ui-re
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import axios from "axios";
+import { format } from 'date-fns'
 
 
 
@@ -23,15 +24,32 @@ class Ticketing extends React.Component {
     componentDidMount() {
       axios.get(`/api/events/${this.props.match.params.id}`)
       .then( res => {
-        this.setState({ ...res.data });
+        this.setState({ ...res.data }, () => this.dateFormat());
       })
       .catch( err => {
         console.log(err);
       })
     }
 
+    dateFormat = () => {
+      var result = format(
+        new Date(this.state.event_date),
+        'dddd MMMM Do YYYY'
+      )
+      this.setState({ date: result, }, () => this.timeFormat()
+      )
+    }
+  
+    timeFormat = () => {
+      var tresult = format(
+        new Date(this.state.event_time),
+        'h:mm A'
+      )
+      this.setState({ time: tresult, })
+    }
+
   render () {
-    const { host, image_url, event_date, event_time, dress_code, description,} = this.state
+    const { host, image_url, date, time, dress_code, description,} = this.state
     return(
       <StyledSegment basic>
         <GridText small>
@@ -42,7 +60,7 @@ class Ticketing extends React.Component {
               <Grid.Column width={8}>
                 <Grid>
                   <Grid.Row>
-                    <GridText>{event_time}, {event_date}</GridText>
+                    <GridText>{time}, {date}</GridText>
                   </Grid.Row>
                   <Grid.Row>
                     <GridText large>{host}</GridText>
