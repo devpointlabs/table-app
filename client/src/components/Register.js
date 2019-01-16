@@ -5,15 +5,15 @@ import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
 
 class Register extends React.Component {
-  state = { email: '', password: '', passwordConfirmation: '', isOpen: true};
+  state = { email: '', password: '', passwordConfirmation: '', first_name: '', last_name: '', isOpen: true};
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, } = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
 
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation, }, history);
+      handleRegister({ email, password, passwordConfirmation, first_name, last_name, }, history);
     else
       alert('Passwords Do Not Match!')
   }
@@ -29,7 +29,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation, isOpen, } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, isOpen, } = this.state;
 
     return (
       <div>
@@ -41,9 +41,25 @@ class Register extends React.Component {
             <Segment basic>
               <Form onSubmit={this.handleSubmit}>
                 <Form.Input
-                  label="Email"
+                  label="First Name"
                   required
                   autoFocus
+                  name='first_name'
+                  value={first_name}
+                  placeholder='John'
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Last Name"
+                  required
+                  name='last_name'
+                  value={last_name}
+                  placeholder='Doe'
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Email"
+                  required
                   name='email'
                   value={email}
                   placeholder='Email'
