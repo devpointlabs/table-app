@@ -21,6 +21,5 @@ export const Header = styled.h1`
 
 export const Container = styled.div`
   margin: auto;
-  padding-top: 200px;
 `;
 

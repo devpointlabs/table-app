@@ -35,9 +35,6 @@ class Navbar extends React.Component {
           <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
            LOGOUT
           </Dropdown.Item>
-          <Dropdown.Item href="">
-            HOME
-          </Dropdown.Item>
         </Dropdown.Menu>
       </StyledDrop>
       )
