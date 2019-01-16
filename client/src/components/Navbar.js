@@ -28,7 +28,7 @@ class Navbar extends React.Component {
           <Dropdown.Item href="/profile">
             PROFILE
           </Dropdown.Item>
-          <Dropdown.Item href="/">
+          <Dropdown.Item href="/userdash">
             DASHBOARD
           </Dropdown.Item>
             {this.admin()}

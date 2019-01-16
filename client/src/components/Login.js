@@ -1,10 +1,11 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
+import { Button, Form, Segment, Header, Modal, Icon} from 'semantic-ui-react';
+import Home from './Home';
 
 class Login extends React.Component {
-  state = { email: '', password: '' }
+  state = { email: '', password: '', isOpen: true }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -17,37 +18,53 @@ class Login extends React.Component {
     this.setState({ [name]: value, });
   }
 
+  handleOpen = (e) => {
+    e.preventDefault();
+    const {isOpen} = this.state;
+    this.setState({ isOpen: !isOpen});
+  }
+
   render() {
-    const { email, password, } = this.state;
+    const { email, password, isOpen } = this.state;
 
     return (
-      // paddingTop needed to navbar doesnt overlap content
-      <Segment basic style = {{paddingTop: '165px'}}>
-        <Header as='h1' textAlign='center'>Login</Header>
-        <Form onSubmit={this.handleSubmit}>
-        <label>Email</label>
-          <Form.Input
-            autoFocus
-            required
-            name='email'
-            value={email}
-            placeholder='Email'
-            onChange={this.handleChange}
-          />
-          <label>Password</label>
-          <Form.Input
-            required
-            name='password'
-            value={password}
-            placeholder='Password'
-            type='password'
-            onChange={this.handleChange}
-          />
-          <Segment textAlign='center' basic>
-            <StyledButton type='submit'>Submit</StyledButton>
-          </Segment>
-        </Form>
-      </Segment>
+      <div>
+        <Modal open = {isOpen}>
+          <Modal.Header>
+            <Header as = 'h2' textAlign = 'center'>LOGIN</Header>
+          </Modal.Header>
+          <Modal.Content>
+            <Segment basic>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                label="Email"
+                required
+                autoFocus
+                name='email'
+                value={email}
+                placeholder='Email'
+                onChange={this.handleChange}
+              />
+              <Form.Input
+                label="Password"
+                required
+                name='password'
+                value={password}
+                placeholder='Password'
+                type='password'
+                onChange={this.handleChange}
+              />
+              <Segment textAlign='center' basic>
+                <StyledButton type='submit'>Submit</StyledButton>
+                <Button onClick = {this.handleOpen}>Close</Button>
+              </Segment>
+            </Form>
+            </Segment>
+          </Modal.Content>
+        </Modal>
+        <Home />
+      </div>
+
     )
   }
 }
