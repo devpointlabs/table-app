@@ -24,17 +24,13 @@ export const StyledItem = styled(Menu.Item)`
   margin: auto 5px;
   transition: background 0.2s ease;
   cursor: pointer;
-  animation-name: glowing-border;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-
+  
   @keyframes glowing-border {
     from {
       border: 3px solid #b29d72 ;
-          
-     
-       }
+      
+      
+    }
     
     to {
       outline: none;
@@ -43,9 +39,12 @@ export const StyledItem = styled(Menu.Item)`
       
     }
   }
-
+  
   &:hover {
-    background: #606060 !important;
+    animation-name: glowing-border;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     transition: background 0.2s ease;
   }
 `; 

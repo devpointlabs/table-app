@@ -22,7 +22,7 @@ export const GridRow = styled(Grid.Row)`
 export const GridText = styled.p`
   font-size: ${props => props.large ? '25px' : props => props.small ? '15px' : '18px'} !important;
   color: ${props => props.gold ? '#b29d72' : 'white'};
-  font-family: futura;
+  font-family: 'Marcellus SC', serif !important;
   text-align: center;
   padding: 5px;
 `;
