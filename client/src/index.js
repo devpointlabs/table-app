@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #000000 !important;
     color: white !important;
+    font-family: 'Marcellus SC', serif !important;
 
   }
 `

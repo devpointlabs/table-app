@@ -8,6 +8,8 @@ export const StyledImg = styled.img`
 
 export const StyledMenu = styled(Menu)`
   z-index: 1;
+  font-family: 'Marcellus SC', serif !important;
+
   border-top: 1px solid grey !important
   border-bottom: 1px solid grey !important
   background-color: rgba(85,85,85,0.5) !important;
