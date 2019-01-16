@@ -21,6 +21,8 @@ import Cart from "./components/Cart"
 import AdminDashboard from './components/AdminDashboard';
 import Contacts from './components/Contacts';
 import MobileCalendar from './components/MobileCalendar';
+import PaymentSuccess from './components/PaymentSuccess';
+import Checkout from './components/Checkout'
 
 const App = () => (
   <Fragment>
@@ -40,6 +42,8 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <Route exact path='/event/:id' component={EventDetails} />
           <Route exact path='/calendar' component={MobileCalendar} />
+          <Route exact path='/payment_success' component={PaymentSuccess} />
+          <Route exact path='/checkout' component={Checkout} />
           <Route component={NoMatch} />
         </Switch>
       </Container>

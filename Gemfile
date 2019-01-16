@@ -12,6 +12,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "devise_token_auth"
 # Image Upload
 gem 'cloudinary'
+# Payments
+gem 'braintree'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
