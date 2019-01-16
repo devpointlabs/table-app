@@ -36,7 +36,25 @@ class EventDetails extends React.Component {
   editButton = () => {
     const { editing } = this.state;
     return(
-      <StyledButton onClick={() => this.toggleEdit()}>{ editing ? 'Cancel' : 'Edit' }</StyledButton>
+      <StyledButton onClick={() => this.editDate()}>{ editing ? 'Cancel' : 'Edit' }</StyledButton>
+    )
+  }
+
+  editDate = () => {
+    var result = format(
+      new Date(this.state.event.event_date),
+      'YYYY-MM-DD'
+    )
+    this.setState({ date: result, }, () => this.editTime()
+    )
+  }
+
+  editTime = () => {
+    var tresult = format(
+      new Date(this.state.event.event_time),
+      'HH:mm' 
+    )
+    this.setState({ time: tresult, }, () => this.toggleEdit()
     )
   }
 
