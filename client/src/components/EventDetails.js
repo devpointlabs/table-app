@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, } from 'semantic-ui-react';
+import { Grid, Container, Button } from 'semantic-ui-react';
 import EventForm from './EventForm';
 import { StyledButton, StyledHeader, StyledSubHeader, StyledImage, StyledMainText } from '../styles/generalitems';
 import axios from 'axios';
@@ -40,6 +40,20 @@ class EventDetails extends React.Component {
     )
   }
 
+  deleteButton = () => (
+      <StyledButton onClick={() => this.deleteEvent()}>Delete Event</StyledButton>
+  )
+
+  deleteEvent = (id) => {
+    const remove = window.confirm("Are you sure you want to delete this event?")
+    if (remove)
+      axios.delete(`/api/events/${this.state.event.id}`)
+        .then( res => {
+          this.props.history.push(`/`)
+        })
+  }
+  
+
   editDate = () => {
     var result = format(
       new Date(this.state.event.event_date),
@@ -75,7 +89,10 @@ class EventDetails extends React.Component {
       </Grid.Column>
       <Grid.Column width={8}>
         <Container style={{paddingTop: '150px'}}>
+        <Button.Group>
         {user && user.admin ? this.editButton() : null }
+        {user && user.admin ? this.deleteButton() : null }
+        </Button.Group>
           <StyledHeader>{event.host}</StyledHeader>
           <StyledSubHeader>{date}</StyledSubHeader>
           <StyledSubHeader>{time}</StyledSubHeader>
