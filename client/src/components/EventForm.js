@@ -17,8 +17,15 @@ class EventForm extends React.Component {
   state = {...this.initialState};
 
   componentDidMount() {
-    if (this.props.id)
-      this.setState({ ...this.props, });
+    if (this.props.event && this.props.event.id)
+      this.setState({ 
+        host: this.props.event.host,
+        image_url: this.props.event.image_url,
+        event_date: this.props.date,
+        event_time: this.props.time,
+        dress_code: this.props.event.dress_code,
+        description: this.props.event.description,
+       });
   }
 
   onDrop = (files) => {
@@ -39,12 +46,12 @@ class EventForm extends React.Component {
     data.append("dress_code", this.state.dress_code)
     data.append("description", this.state.description)
     e.preventDefault();
-    if (this.props.id) {
-      axios.put(`/api/events/${this.props.id}`, data)
-        .then( res => this.props.history.push(`/events/${res.data.id}`))
+    if (this.props.event && this.props.event.id) {
+      axios.put(`/api/events/${this.props.event.id}`, data)
+        .then( res => this.props.history.go(`/event/${res.data.id}`))
     } else {
       axios.post(`/api/events`, data)
-        .then( res => this.props.history.push(`/events/${res.data.id}`))
+        .then( res => this.props.history.push(`/event/${res.data.id}`))
     }
   }
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import AuthProvider from "./providers/AuthProvider";
 import { BrowserRouter, } from "react-router-dom";
+import ScrollToTop from './components/ScrollToTop';
 import "semantic-ui-css/semantic.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -30,7 +31,9 @@ ReactDOM.render(
   <AuthProvider>
     <GlobalStyle />
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </AuthProvider>,
   document.getElementById('root')

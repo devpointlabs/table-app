@@ -7,9 +7,7 @@ import Register from "./components/Register";
 import NoMatch from "./components/NoMatch";
 import FetchUser from "./components/FetchUser";
 import EventDetails from './components/EventDetails';
-import Calendar from './components/Calendar';
 import UserProfile from "./components/UserProfile";
-import Profile from "./components/UserProfile";
 import UserDash from './components/UserDash';
 import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -34,6 +32,7 @@ const App = () => (
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
+          <Route exact path='/tickets/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={UserProfile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path='/contacts' component={Contacts} />
