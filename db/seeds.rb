@@ -1,7 +1,7 @@
 1.times do
   User.create(
-    first_name: "Admin"
-    last_name: "Smith"
+    first_name: "Admin",
+    last_name: "Smith",
     email: "admin@admin.com",
     password: "password",
     password_confirmation: "password",
@@ -9,8 +9,8 @@
   )
 
   User.create(
-    first_name: "Johnny"
-    last_name: "Test"
+    first_name: "Johnny",
+    last_name: "Test",
     email: "test@test.com",
     password: "password",
     password_confirmation: "password",
