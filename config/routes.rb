@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     resources :events
     get '/comingartists', to: 'events#comingartists'
   end
+  namespace :api do
+    resources :users, only: :update
+  end
 
 end
