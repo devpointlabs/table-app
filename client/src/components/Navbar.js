@@ -11,7 +11,7 @@ class Navbar extends React.Component {
     const {user} = this.props.auth
     if (user.admin) {
       return(
-      <Dropdown.Item href="/admin-dashboar">
+      <Dropdown.Item href="/admin-dashboard">
         ADMIN DASHBOARD
       </Dropdown.Item>
       )
