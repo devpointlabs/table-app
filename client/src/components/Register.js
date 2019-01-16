@@ -1,19 +1,29 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal, Button } from 'semantic-ui-react';
+import { Form, Segment, Header, Modal, Button, Select } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
 
 class Register extends React.Component {
-  state = { email: '', password: '', passwordConfirmation: '', first_name: '', last_name: '', isOpen: true};
+  state = { 
+    email: '', 
+    password: '', 
+    passwordConfirmation: '', 
+    first_name: '', 
+    last_name: '', 
+    gender: '',
+    city: '',
+    date_of_birth: '',
+    isOpen: true,
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirmation, first_name, last_name, } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth} = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
 
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation, first_name, last_name, }, history);
+      handleRegister({ email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth}, history);
     else
       alert('Passwords Do Not Match!')
   }
@@ -29,7 +39,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation, first_name, last_name, isOpen, } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth, isOpen, } = this.state;
 
     return (
       <div>
@@ -40,21 +50,33 @@ class Register extends React.Component {
           <Modal.Content>
             <Segment basic>
               <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths = {2}>
+                  <Form.Input
+                    label="First Name"
+                    required
+                    autoFocus
+                    name='first_name'
+                    value={first_name}
+                    placeholder='John'
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    label="Last Name"
+                    required
+                    name='last_name'
+                    value={last_name}
+                    placeholder='Doe'
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
                 <Form.Input
-                  label="First Name"
+                  label="Gender"
+                  control={Select} 
                   required
-                  autoFocus
-                  name='first_name'
-                  value={first_name}
-                  placeholder='John'
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Last Name"
-                  required
-                  name='last_name'
-                  value={last_name}
-                  placeholder='Doe'
+                  name='gender'
+                  value={gender}
+                  options={options}
+                  placeholder='Gender'
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -63,6 +85,22 @@ class Register extends React.Component {
                   name='email'
                   value={email}
                   placeholder='Email'
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="City"
+                  required
+                  name="city"
+                  value={city}
+                  placeholder='City'
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Date of Birth"
+                  required
+                  name='date_of_birth'
+                  value={date_of_birth}
+                  placeholder='mm/dd/yy'
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -96,6 +134,11 @@ class Register extends React.Component {
     )
   }
 }
+
+const options = [
+  { key: 'm', text: 'Male', value: 'male' },
+  { key: 'f', text: 'Female', value: 'female' },
+]
 
 export default class ConnectedRegister extends React.Component {
   render() {
