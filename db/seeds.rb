@@ -1,5 +1,7 @@
 1.times do
   User.create(
+    first_name: "Admin"
+    last_name: "Smith"
     email: "admin@admin.com",
     password: "password",
     password_confirmation: "password",
@@ -7,6 +9,8 @@
   )
 
   User.create(
+    first_name: "Johnny"
+    last_name: "Test"
     email: "test@test.com",
     password: "password",
     password_confirmation: "password",
@@ -141,3 +145,4 @@
 end
 
 puts "Event Data Seeded, ADMIN ACCOUNT: admin@admin.com PASSWORD: password, USER ACCOUNT: test@test.com PASSWORD: password"
+puts "2 Users And 14 Events Created"
