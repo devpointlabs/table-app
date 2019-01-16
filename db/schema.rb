@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_224620) do
+ActiveRecord::Schema.define(version: 2019_01_16_214018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "host", null: false
@@ -24,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_01_14_224620) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.datetime "event_time"
+  end
+
+  create_table "r_tickets", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.integer "quantity"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_r_tickets_on_cart_id"
+    t.index ["event_id"], name: "index_r_tickets_on_event_id"
   end
 
   create_table "table_groups", force: :cascade do |t|
@@ -73,5 +90,8 @@ ActiveRecord::Schema.define(version: 2019_01_14_224620) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "carts", "users"
+  add_foreign_key "r_tickets", "carts"
+  add_foreign_key "r_tickets", "events"
   add_foreign_key "tables", "table_groups"
 end
