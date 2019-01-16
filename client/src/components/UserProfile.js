@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Grid, Image, Header, Divider, Form, Button, Container } from 'semantic-ui-react';
 import { ViewDiv, Img, H1, EditDiv, Content, EditCont } from "../styles/profilestyle";
-import { Grid, Image, Header, } from 'semantic-ui-react';
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
 import { StyledButton } from '../styles/generalitems.js'
