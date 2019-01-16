@@ -1,3 +1,5 @@
+// NOT IN USE AT THIS TIME USING MOBILECALENDAR.JS
+
 import React from 'react';
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
