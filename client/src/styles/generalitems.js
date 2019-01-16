@@ -38,9 +38,33 @@ export const StyledButton = styled(Button)`
 
 export const StyledButton2 = styled(Button)`
   color: white !important;
-  background-color: #c1a25c !important;
+  background-color: #b29d72 !important;
   font-size: 15px !important;
   margin: 5px;
+  border: 3px solid #b29d72 !important;
+
+  @keyframes glowing-border {
+    from {
+      border: 3px solid #b29d72 ;
+      
+      
+    }
+    
+    to {
+      outline: none;
+      border: 3px solid cyan;
+      box-shadow: 1px 1px 10px cyan;
+      
+    }
+  }
+  
+  &:hover {
+    animation-name: glowing-border;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: background 0.2s ease;
+  }
 
 `;
 
