@@ -80,7 +80,7 @@ export const StyledHeader2 = styled(Header)`
 `; 
 
 export const StyledSubHeader = styled(Header)`
-  color: white !importan  t;
+  color: white !important;
   font-size: 20px !important;
 `; 
 

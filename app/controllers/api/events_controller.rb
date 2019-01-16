@@ -6,7 +6,7 @@ class Api::EventsController < ApplicationController
   end
 
   def comingartists
-    render json: Event.all.order(event_date: :desc)
+    render json: Event.order(event_date: :asc).where("event_date >= ?", Date.today).first(24)
   end
 
   def show
