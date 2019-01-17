@@ -13,6 +13,8 @@ class UserDash extends React.Component {
           <Image src = 'https://pixel.nymag.com/imgs/daily/selectall/2017/01/09/09-steve-jobs-iphone.w700.h700.jpg' style = {{borderRadius: '100%'}}/>
           <h3>{user.first_name} {user.last_name}</h3>
           <h3>{user.email}</h3>
+          <h3>{user.date_of_birth}</h3>
+          <h3>{user.gender}</h3>
         </UserCard>
         <Line vertical/>
         <DashContent>

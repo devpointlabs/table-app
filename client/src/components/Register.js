@@ -3,7 +3,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Form, Segment, Header, Modal, Button, Select } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
-import DateTimePicker from 'react-datetime-picker/dist/entry.nostyle';
+import DatePicker from 'react-date-picker'
 
 class Register extends React.Component {
   state = { 
@@ -107,7 +107,8 @@ class Register extends React.Component {
                   onChange={this.handleChange}
                 /> */}
                 <Form.Input label='Date of Birth' >
-                  <DateTimePicker
+                  <DatePicker
+                    
                     name='date_of_birth'
                     value={date_of_birth}
                     onChange = {this.onChange}
