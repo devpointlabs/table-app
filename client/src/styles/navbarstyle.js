@@ -12,12 +12,13 @@ export const StyledMenu = styled(Menu)`
   z-index: 1;
   border-top: 1px solid grey !important;
   border-bottom: 1px solid grey !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: ${ props => props.solid ? "black !important": "rgba(0, 0, 0, 0.5) !important" };
   position: fixed;
   width: 100%;
   margin-top: 0px;
   top: 0px;
 `;
+
 
 export const StyledItem = styled(Menu.Item)`
   color: white !important;
