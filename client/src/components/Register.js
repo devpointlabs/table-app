@@ -3,6 +3,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Form, Segment, Header, Modal, Button, Select } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
+import DateTimePicker from 'react-datetime-picker/dist/entry.nostyle';
 
 class Register extends React.Component {
   state = { 
@@ -13,7 +14,7 @@ class Register extends React.Component {
     last_name: '', 
     gender: '',
     city: '',
-    date_of_birth: '',
+    date_of_birth: new Date(),
     isOpen: true,
   };
 
@@ -37,6 +38,8 @@ class Register extends React.Component {
     const {isOpen} = this.state;
     this.setState({ isOpen: !isOpen });
   }
+
+  onChange = date_of_birth => this.setState({ date_of_birth })
 
   render() {
     const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth, isOpen, } = this.state;
@@ -95,14 +98,21 @@ class Register extends React.Component {
                   placeholder='City'
                   onChange={this.handleChange}
                 />
-                <Form.Input
+                {/* <Form.Input
                   label="Date of Birth"
                   required
                   name='date_of_birth'
                   value={date_of_birth}
                   placeholder='mm/dd/yy'
                   onChange={this.handleChange}
-                />
+                /> */}
+                <Form.Input label='Date of Birth' >
+                  <DateTimePicker
+                    name='date_of_birth'
+                    value={date_of_birth}
+                    onChange = {this.onChange}
+                  />
+                </Form.Input>
                 <Form.Input
                   label="Password"
                   required
