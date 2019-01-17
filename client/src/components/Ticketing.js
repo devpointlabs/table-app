@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid, Image, Form, Button, Input, Select, Header } from 'semantic-ui-react';
+import { Grid, Image, Form, Button, Input, Select, } from 'semantic-ui-react';
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
+import { StyledButton, StyledImage } from '../styles/generalitems'
 import axios from "axios";
 import { format } from 'date-fns'
 
@@ -55,7 +56,7 @@ class Ticketing extends React.Component {
         <GridText small>
             <Grid stackable>
               <Grid.Column verticalAlign="middle" width={6}>
-                <Image size="medium" centered src={image_url} />
+                <StyledImage centered src={image_url} />
               </Grid.Column>
               <Grid.Column width={8}>
                 <Grid>
@@ -131,7 +132,7 @@ class Ticketing extends React.Component {
                           </label>
                           <Input />
                         </Form.Field>
-                        <Button inline>Unlock Tickets</Button>
+                        <StyledButton inline>Unlock Tickets</StyledButton>
                         </Form.Group>
                       </Form>
                     </Grid.Column>
