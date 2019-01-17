@@ -8,7 +8,7 @@ const HeaderText = styled.h1`
 `;
 
 // Filled puts border color as background
-// Large makes button bigger
+// Large makes bigger
 export const StyledButton = styled(Button)`
   color: white !important;
   border: 3px solid #b29d72 !important;
@@ -38,4 +38,23 @@ export const StyledButton = styled(Button)`
     animation-direction: alternate;
     transition: background 0.2s ease;
   }
+`;
+
+const fontSize = (size) => {
+  switch(size) {
+    case 'large':
+      return '30px';
+    case 'small':
+      return '15px';
+    default:
+      return '20px';
+  }
+};
+
+// set fSize in component Large, Small makes changes size
+// Underline will underline text
+export const StyledHeader = styled(Header)`
+  color: white !important;
+  font-size: ${props => fontSize(props.fSize)} !important;
+  text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
 `;
