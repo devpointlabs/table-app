@@ -60,15 +60,34 @@ export const StyledDrop = styled(Dropdown)`
   position: relative;
   font-size: 15px;
   border: 3px solid #b29d72;
-  background-color: #383838 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   color: white !important;
   margin: auto 5px;
   transition: background 0.2s ease;
   cursor: pointer;
 
+  @keyframes glowing-border {
+    from {
+      border: 3px solid #b29d72 ;
+      
+      
+    }
+    
+    to {
+      outline: none;
+      border: 3px solid cyan;
+      box-shadow: 1px 1px 10px cyan;
+      
+    }
+  }
+  
   &:hover {
-    background: #606060 !important;
+    animation-name: glowing-border;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     transition: background 0.2s ease;
   }
+
 
 `;
