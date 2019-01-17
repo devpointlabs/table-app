@@ -1,7 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { StyledComingImage } from '../styles/generalitems';
-import { Popup, Card } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import ComingCardFront from './ComingCardFront';
 import ComingCardBack from './ComingCardBack';
 

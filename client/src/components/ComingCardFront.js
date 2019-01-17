@@ -1,15 +1,14 @@
 import React from 'react'
-import { format } from 'date-fns'
 import { StyledComingImage } from '../styles/generalitems';
-import { Card } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 class ComingCardFront extends React.Component {
   render() {
     const {event} = this.props;
     return(
-      <Card as={StyledComingImage}>
+      <Segment basic>
         <StyledComingImage key={event.id} src={event.image_url} href={`/event/${event.id}`} />
-      </Card>
+      </Segment>
     )
   }
 }

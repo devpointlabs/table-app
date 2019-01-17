@@ -125,29 +125,42 @@ export const StyledComingImage = styled(Image)`
   border: 1px solid #bdbdbd !important;
   width: 250px !important;
   background-color: black !important;
-
-  &:hover {
-    width: 300px !important;
-  }
 `; 
 
-export const StyledComingImage2 = styled(Image)`
-  border: 1px solid #bdbdbd !important;
-  background-color: black !important;
-  width: 350px !important;
-`; 
-
-export const GoldButton = styled.button`
-  color: #eee;
-  border: 2px solid #c4ae85;
-  background-color: #baa06f;
+export const GoldButton = styled(Button)`
+  color: white !important;
+  border: 3px solid #b29d72 !important;
+  background-color: #b29d72 !important;
   height: 60px;
   width: 175px;
   padding: 5px auto;
   margin-top: -15px;
-  font-size: 30px;
+  font-size: 18px !important;
   font-family: times new roman;
   margin: 10px;
+
+  @keyframes glowing-border {
+    from {
+      border: 3px solid #b29d72 ;
+      
+      
+    }
+    
+    to {
+      outline: none;
+      border: 3px solid cyan;
+      box-shadow: 1px 1px 10px cyan;
+      
+    }
+  }
+  
+  &:hover {
+    animation-name: glowing-border;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: background 0.2s ease;
+  }
 `;
 
 // I didnt know this would work but it did and i did it all by my self and i am very proud and nobody helped me and its super cool, wow good job joe
