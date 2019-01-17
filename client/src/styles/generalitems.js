@@ -123,7 +123,18 @@ export const StyledDivider = styled(Divider)`
 
 export const StyledComingImage = styled(Image)`
   border: 1px solid #bdbdbd !important;
-  max-width: 250px !important;
+  width: 250px !important;
+  background-color: black !important;
+
+  &:hover {
+    width: 300px !important;
+  }
+`; 
+
+export const StyledComingImage2 = styled(Image)`
+  border: 1px solid #bdbdbd !important;
+  background-color: black !important;
+  width: 350px !important;
 `; 
 
 export const GoldButton = styled.button`
