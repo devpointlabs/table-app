@@ -3,6 +3,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Image, Grid, } from 'semantic-ui-react';
 import { UserCard, Wrapper, Line, DashContent, } from '../styles/userdashstyle';
 import { HeaderRow, GridText} from '../styles/ticketingstyle';
+import defaultImage from '../images/default-profile.jpg'
 
 class UserDash extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class UserDash extends React.Component {
     return (
       <Wrapper>
         <UserCard>
-          <Image src = 'https://pixel.nymag.com/imgs/daily/selectall/2017/01/09/09-steve-jobs-iphone.w700.h700.jpg' style = {{borderRadius: '100%'}}/>
+          <Image src = {user.image || defaultImage} style = {{borderRadius: '10%'}}/>
           <h3>{user.first_name} {user.last_name}</h3>
           <h3>{user.email}</h3>
           <h3>{user.date_of_birth}</h3>
