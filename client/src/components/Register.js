@@ -1,9 +1,8 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal, Button, Select } from 'semantic-ui-react';
+import { Form, Segment, Header, Modal, Button } from 'semantic-ui-react';
 import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
-import DatePicker from 'react-date-picker'
 
 class Register extends React.Component {
   state = { 
@@ -30,8 +29,9 @@ class Register extends React.Component {
   }
 
   handleChange = (e) => {
+    e.preventDefault();
     const { name, value, } = e.target;
-    this.setState({ [name]: value, });
+    this.setState({ [name]: value,});
   }
 
   handleOpen = () => {
@@ -39,11 +39,8 @@ class Register extends React.Component {
     this.setState({ isOpen: !isOpen });
   }
 
-  onChange = date_of_birth => this.setState({ date_of_birth })
-
   render() {
     const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth, isOpen, } = this.state;
-
     return (
       <div>
         <Modal open = {isOpen}>
@@ -74,11 +71,9 @@ class Register extends React.Component {
                 </Form.Group>
                 <Form.Input
                   label="Gender"
-                  control={Select} 
                   required
-                  name='gender'
-                  
-                  options={options}
+                  name='gender'      
+                  value={gender}
                   placeholder='Gender'
                   onChange={this.handleChange}
                 />
@@ -138,12 +133,6 @@ class Register extends React.Component {
     )
   }
 }
-
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other'},
-]
 
 export default class ConnectedRegister extends React.Component {
   render() {

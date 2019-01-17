@@ -15,6 +15,7 @@ class UserDash extends React.Component {
           <h3>{user.email}</h3>
           <h3>{user.date_of_birth}</h3>
           <h3>{user.gender}</h3>
+          <h3>{user.city}</h3>
         </UserCard>
         <Line vertical/>
         <DashContent>
