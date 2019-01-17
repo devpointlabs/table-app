@@ -98,22 +98,15 @@ class Register extends React.Component {
                   placeholder='City'
                   onChange={this.handleChange}
                 />
-                {/* <Form.Input
+                <Form.Input
                   label="Date of Birth"
                   required
                   name='date_of_birth'
                   value={date_of_birth}
                   placeholder='mm/dd/yy'
                   onChange={this.handleChange}
-                /> */}
-                <Form.Input label='Date of Birth' >
-                  <DatePicker
-                    
-                    name='date_of_birth'
-                    value={date_of_birth}
-                    onChange = {this.onChange}
-                  />
-                </Form.Input>
+                  type='date'
+                />
                 <Form.Input
                   label="Password"
                   required
