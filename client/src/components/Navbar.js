@@ -5,7 +5,32 @@ import { Dropdown, Menu } from 'semantic-ui-react';
 import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
 import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC_White.svg';
 import '../App.css'
+
 class Navbar extends React.Component {
+  state = { solid: false, };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.resizeNavOnScroll.bind(this));
+  }
+
+  resizeNavOnScroll() {
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 100,
+      navMenu = document.getElementById("navMenu"),
+      skyImg = document.getElementById("skyImg")
+
+    if (distanceY > shrinkOn) {
+      navMenu.style.height = "51px"
+      navMenu.style.transition = "all 0.4s ease-in-out"
+      skyImg.style.transition = "all 0.4s ease-in-out"
+      this.setState({ solid: true })
+      skyImg.style.height = "52px"
+    } else {
+      navMenu.style.height = "130px"
+      skyImg.style.height = "130px"
+      this.setState({ solid: false })
+    }
+  }
   
   admin= () => {
     const {user} = this.props.auth
@@ -17,6 +42,7 @@ class Navbar extends React.Component {
       )
     }
   }
+
 
   NavItems = () => {
     const { user, handleLogout, } = this.props.auth;
@@ -37,6 +63,7 @@ class Navbar extends React.Component {
           </Dropdown.Item>
         </Dropdown.Menu>
       </StyledDrop>
+      
       )
     } else {
       return (
@@ -52,11 +79,12 @@ class Navbar extends React.Component {
     }
   }
 
+
   render() {
     return (
-      <StyledMenu stackable borderless >
+      <StyledMenu id="navMenu" stackable borderless solid={this.state.solid}>
         <Menu.Header href="/">
-          <StyledImg src={Sky_SLC} width={320} />
+          <StyledImg id="skyImg" src={Sky_SLC} width={320} />
         </Menu.Header>
         <Menu.Menu position="right">
           <StyledItem href="/calendar">
