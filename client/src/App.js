@@ -26,7 +26,7 @@ const App = () => (
   <Fragment>
     <Navbar />
     <FetchUser>
-      <Container fluid textAlign="center">
+      <Container fluid>
         <Switch >
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>

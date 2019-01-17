@@ -6,6 +6,7 @@ import { BrowserRouter, } from "react-router-dom";
 import ScrollToTop from './components/ScrollToTop';
 import "semantic-ui-css/semantic.min.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import * as serviceWorker from './serviceWorker';
 import { initMiddleware, } from "devise-axios";

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
-import { StyledSegment, StyledHeader2, StyledDivider, StyledComingImage, } from '../styles/generalitems';
+import { Grid, } from 'semantic-ui-react';
+import { StyledSegment, StyledHeader2, StyledDivider, } from '../styles/generalitems';
 import axios from 'axios';
+import ComingArtistCard from './ComingArtistCard';
 
 class ComingArtists extends React.Component {
 
-  state = { events: [], };
+  state = { events: [],  };
 
   componentDidMount() {
     axios.get('/api/comingartists')
@@ -23,7 +24,7 @@ class ComingArtists extends React.Component {
         <Grid columns={4} centered container stackable>
           { events.map( event =>
           <Grid.Column>
-            <StyledComingImage key={event.id} src={event.image_url} href={`/event/${event.id}`} />
+            <ComingArtistCard event={event} />
           </Grid.Column>
           )}
           </Grid>

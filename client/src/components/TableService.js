@@ -1,7 +1,7 @@
 import React from 'react';
 // These are not styled components not semantic components
 import { HeroWrapper, Header, Container} from '../styles/tableServiceStyle';
-import { GoldButton } from '../styles/generalitems';
+import { GoldButton, } from '../styles/generalitems';
 
 class TableService extends React.Component{
 
