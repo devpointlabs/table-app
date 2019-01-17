@@ -5,22 +5,33 @@ import { StyledButton } from '../styles/generalitems';
 import Home from './Home';
 
 class Register extends React.Component {
-  state = { email: '', password: '', passwordConfirmation: '', first_name: '', last_name: '', isOpen: true};
+  state = { 
+    email: '', 
+    password: '', 
+    passwordConfirmation: '', 
+    first_name: '', 
+    last_name: '', 
+    gender: '',
+    city: '',
+    date_of_birth: new Date(),
+    isOpen: true,
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirmation, first_name, last_name, } = this.state;
+    const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth} = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
 
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation, first_name, last_name, }, history);
+      handleRegister({ email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth}, history);
     else
       alert('Passwords Do Not Match!')
   }
 
   handleChange = (e) => {
+    e.preventDefault();
     const { name, value, } = e.target;
-    this.setState({ [name]: value, });
+    this.setState({ [name]: value,});
   }
 
   handleOpen = () => {
@@ -29,8 +40,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation, first_name, last_name, isOpen, } = this.state;
-
+    const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth, isOpen, } = this.state;
     return (
       <div>
         <Modal open = {isOpen}>
@@ -40,21 +50,31 @@ class Register extends React.Component {
           <Modal.Content>
             <Segment basic>
               <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths = {2}>
+                  <Form.Input
+                    label="First Name"
+                    required
+                    autoFocus
+                    name='first_name'
+                    value={first_name}
+                    placeholder='John'
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    label="Last Name"
+                    required
+                    name='last_name'
+                    value={last_name}
+                    placeholder='Doe'
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
                 <Form.Input
-                  label="First Name"
+                  label="Gender"
                   required
-                  autoFocus
-                  name='first_name'
-                  value={first_name}
-                  placeholder='John'
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Last Name"
-                  required
-                  name='last_name'
-                  value={last_name}
-                  placeholder='Doe'
+                  name='gender'      
+                  value={gender}
+                  placeholder='Gender'
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -64,6 +84,23 @@ class Register extends React.Component {
                   value={email}
                   placeholder='Email'
                   onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="City"
+                  required
+                  name="city"
+                  value={city}
+                  placeholder='City'
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Date of Birth"
+                  required
+                  name='date_of_birth'
+                  value={date_of_birth}
+                  placeholder='mm/dd/yy'
+                  onChange={this.handleChange}
+                  type='date'
                 />
                 <Form.Input
                   label="Password"
