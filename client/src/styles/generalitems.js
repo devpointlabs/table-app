@@ -69,24 +69,10 @@ export const StyledButton2 = styled(Button)`
 `;
 
 export const StyledHeader = styled(Header)`
-  color: white !important;
-  font-size: 30px !important;
-  text-decoration: underline !important;
-`; 
-
-export const StyledHeader2 = styled(Header)`
-  color: white !important;
-  font-size: 30px !important;
-`; 
-
-export const StyledSubHeader = styled(Header)`
-  color: white !important;
-  font-size: 20px !important;
-`; 
-
-export const StyledSubHeader2 = styled(Header)`
-  color: white !important;
-  font-size: 15px !important;
+  font-size: ${props => props.large ? '30px !important' : props.small ? '15px !important' : '20px !important'}
+  text-decoration: ${props => props.underline ? 'underline !important' : 'none'}
+  font-family: ${props => props.copperplate ? 'copperplate !important' : 'none'}
+  color: ${props => props.gray? 'gray !important' : 'white !important'}
 `; 
 
 export const StyledMainText = styled(Header)`
@@ -113,13 +99,13 @@ export const StyledSegment2 = styled(Segment)`
   border: 3px solid #b29d72 !important;
 `;
 
-export const StyledDivider = styled(Divider)`
-  width: 60% !important;
-  height: 3px !important;
-  background-color: #bdbdbd !important;
-  margin: auto !important;
-  margin-bottom: 25px !important;
-`;
+// export const StyledDivider = styled(Divider)`
+//   width: 60% !important;
+//   height: 3px !important;
+//   background-color: #bdbdbd !important;
+//   margin: auto !important;
+//   margin-bottom: 25px !important;
+// `;
 
 export const StyledComingImage = styled(Image)`
   border: 1px solid #bdbdbd !important;
@@ -168,14 +154,13 @@ export const Line = styled.div(
   props => props.vertical ? 
   `
   border-left: 1px solid #363636;
-  height: 100vh;
-  margin: auto;
+  height: 80vh;
   ` :
   `
   border-top: 1px solid #363636;
   width 90%;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: ${props => props.padded ? '50px' : '20px'};
+  margin-bottom: ${props => props.padded ? '50px' : '20px'};
   `
 );

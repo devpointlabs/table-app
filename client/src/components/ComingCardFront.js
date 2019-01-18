@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledComingImage } from '../styles/generalitems';
+import { StyledImage } from '../styles/Styles';
 import { Segment } from 'semantic-ui-react';
 
 class ComingCardFront extends React.Component {
@@ -7,7 +7,7 @@ class ComingCardFront extends React.Component {
     const {event} = this.props;
     return(
       <Segment basic>
-        <StyledComingImage key={event.id} src={event.image_url} href={`/event/${event.id}`} />
+        <StyledImage small key={event.id} src={event.image_url} href={`/event/${event.id}`} />
       </Segment>
     )
   }

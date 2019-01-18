@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import { Form, Header, Container, } from 'semantic-ui-react'
-import { StyledButton } from '../styles/generalitems'
+import { StyledButton } from '../styles/Styles'
 import Dropzone from 'react-dropzone';
 
 class EventForm extends React.Component {
@@ -128,8 +128,7 @@ class EventForm extends React.Component {
             onChange={this.handleChange}
           />
           <br />
-          <br />
-          <StyledButton color="green">
+          <StyledButton>
           Submit
           </StyledButton>
         </Form>

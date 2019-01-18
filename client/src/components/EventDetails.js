@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Container, Button, Modal, Header } from 'semantic-ui-react';
 import EventForm from './EventForm';
-import { StyledButton, StyledHeader, StyledSubHeader, StyledImage, StyledMainText } from '../styles/generalitems';
+import { StyledImage, StyledButton, StyledHeader } from '../styles/Styles'
 import axios from 'axios';
 import { format } from 'date-fns'
 import { AuthConsumer } from '../providers/AuthProvider';
@@ -106,10 +106,10 @@ class EventDetails extends React.Component {
           {user && user.admin ? this.editButton() : null }
           {user && user.admin ? this.deleteButton() : null }
           </Button.Group>
-            <StyledHeader>{event.host}</StyledHeader>
-            <StyledSubHeader>{date}</StyledSubHeader>
-            <StyledSubHeader>{time}</StyledSubHeader>
-            <StyledMainText as='h3'>{event.description}</StyledMainText>
+            <StyledHeader fSize='large' underlined>{event.host}</StyledHeader>
+            <StyledHeader>{date}</StyledHeader>
+            <StyledHeader>{time}</StyledHeader>
+            <StyledHeader fSize='small'>{event.description}</StyledHeader>
               <StyledButton onClick={() => this.handleOpen()}>Dress Code</StyledButton>
               <StyledButton>VIP Tables</StyledButton>
               <StyledButton onClick={() => this.props.history.push(`/ticketing/${event.id}`)}>Tickets</StyledButton>

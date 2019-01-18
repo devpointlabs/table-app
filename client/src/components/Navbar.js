@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 
   resizeNavOnScroll() {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 100,
+      shrinkOn = 400,
       navMenu = document.getElementById("navMenu"),
       skyImg = document.getElementById("skyImg")
 
@@ -99,6 +99,7 @@ class Navbar extends React.Component {
           <StyledItem href="/cart">
             CART
           </StyledItem>
+
         { this.NavItems() }
         </Menu.Menu>
       </StyledMenu>

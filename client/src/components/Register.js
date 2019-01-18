@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal, Button } from 'semantic-ui-react';
-import { StyledButton } from '../styles/generalitems';
+import { Form, Segment, Header, Modal, } from 'semantic-ui-react';
+import { StyledButton } from '../styles/Styles';
 import Home from './Home';
 
 class Register extends React.Component {
@@ -21,7 +21,7 @@ class Register extends React.Component {
     e.preventDefault();
     const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth} = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
-
+    if (date_of_birth)
     if (password === passwordConfirmation)
       handleRegister({ email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth}, history);
     else
@@ -122,7 +122,7 @@ class Register extends React.Component {
                 />
                 <Segment textAlign='center' basic>
                   <StyledButton type='submit'>Submit</StyledButton>
-                  <Button onClick = {this.handleOpen}>Close</Button>
+                  <StyledButton filled onClick = {this.handleOpen}>Close</StyledButton>
                 </Segment>
               </Form>
             </Segment>
