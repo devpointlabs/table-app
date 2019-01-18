@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
 
 
-
 export const StyledButton = styled(Button)`
   color: white !important;
   background-color: #222222 !important;
@@ -164,3 +163,10 @@ export const Line = styled.div(
   margin-bottom: ${props => props.padded ? '50px' : '20px'};
   `
 );
+
+// use this to wrap new components. You dont have to add paddingTop etc.
+export const ComponentContainer = styled.div`
+  alignItems: center;
+  padding-top: 190px;
+  padding-bottom: 600px;
+`;

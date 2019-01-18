@@ -21,6 +21,7 @@ import Contacts from './components/Contacts';
 import MobileCalendar from './components/MobileCalendar';
 import PaymentSuccess from './components/PaymentSuccess';
 import Checkout from './components/Checkout'
+import VirtualTour from './components/VirtualTour';
 
 const App = () => (
   <Fragment>
@@ -42,6 +43,7 @@ const App = () => (
           <Route exact path='/calendar' component={MobileCalendar} />
           <Route exact path='/payment_success' component={PaymentSuccess} />
           <Route exact path='/checkout' component={Checkout} />
+          <Route exact path='/virtual_tour' component={VirtualTour} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
@@ -59,6 +61,7 @@ const styles = {
   footer: {
     margin: 0,
     top: 0,
+    position: 'static',
   }
 };
 
