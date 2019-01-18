@@ -49,7 +49,7 @@ const fontSize = (size) => {
 // Underline will underline text
 export const StyledHeader = styled(Header)`
   color: white !important;
-  font-family: "copperplate" !important;
+  font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
 `;

@@ -21,7 +21,7 @@ class Register extends React.Component {
     e.preventDefault();
     const { email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth} = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
-
+    if (date_of_birth)
     if (password === passwordConfirmation)
       handleRegister({ email, password, passwordConfirmation, first_name, last_name, gender, city, date_of_birth}, history);
     else
