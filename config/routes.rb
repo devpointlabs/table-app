@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   namespace :api do
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
-    resources :events
     get '/comingartists', to: 'events#comingartists'
-  end
-  namespace :api do
-    resources :users, only: :update
+    resources :events
+    resources :users, only: :update do
+      resource :cart
+    end
+    resources :carts do
+      resources :r_tickets
+    end
   end
 
 end

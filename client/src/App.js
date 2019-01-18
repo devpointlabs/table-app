@@ -31,8 +31,7 @@ const App = () => (
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <Route exact path="/" component={Home} />
-          <Route exact path='/ticketing' component={Ticketing} />
-          <Route exact path='/tickets/:id' component={Ticketing} />
+          <Route exact path='/ticketing/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={UserProfile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path='/contacts' component={Contacts} />
