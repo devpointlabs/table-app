@@ -169,8 +169,7 @@ export const Line = styled.div(
   props => props.vertical ? 
   `
   border-left: 1px solid #363636;
-  height: 100vh;
-  margin: auto;
+  height: 80vh;
   ` :
   `
   border-top: 1px solid #363636;
