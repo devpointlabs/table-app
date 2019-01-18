@@ -13,6 +13,11 @@ class AdminDashboard extends React.Component{
             <Icon name="plus" /> Add Event
           </StyledButton>
         </Link>
+        <Link to='/hero-form'>
+          <StyledButton icon>
+            <Icon name="plus" /> Add New Hero Image
+          </StyledButton>
+        </Link>
       </StyledSegment>
     )
   }

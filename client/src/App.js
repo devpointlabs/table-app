@@ -21,6 +21,7 @@ import Contacts from './components/Contacts';
 import MobileCalendar from './components/MobileCalendar';
 import PaymentSuccess from './components/PaymentSuccess';
 import Checkout from './components/Checkout'
+import HeroForm from './components/HeroForm';
 
 const App = () => (
   <Fragment>
@@ -30,6 +31,7 @@ const App = () => (
         <Switch >
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>
+          <AdminRoute exact path='/hero-form' component={HeroForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <Route exact path='/tickets/:id' component={Ticketing} />

@@ -1,5 +1,5 @@
 class Api::HeroImagesController < ApplicationController
-  before_action :set_hero, only: [:destroy]
+  before_action :set_hero, only: [:destroy, :update]
   
   def index
     render json: HeroImage.where(active: true)
@@ -24,6 +24,12 @@ class Api::HeroImagesController < ApplicationController
     else
       render json: hero.errors
     end
+  end
+
+  def update
+    @hero.update(active: !@hero.active)
+    render json: @hero
+
   end
 
   def destroy
