@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     post '/payment', to: 'braintree#payment'
     get '/comingartists', to: 'events#comingartists'
     get '/heroimages', to: 'hero_images#all'
+    
+    resources :users, only: :update do
+      resource :cart
+    end
+    
+    resources :carts do
+      resources :r_tickets
+    end
   end
 
 end

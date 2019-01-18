@@ -112,7 +112,7 @@ class EventDetails extends React.Component {
             <StyledHeader fSize='small'>{event.description}</StyledHeader>
               <StyledButton onClick={() => this.handleOpen()}>Dress Code</StyledButton>
               <StyledButton>VIP Tables</StyledButton>
-              <StyledButton onClick={() => this.props.history.push(`/tickets/${event.id}`)}>Tickets</StyledButton>
+              <StyledButton onClick={() => this.props.history.push(`/ticketing/${event.id}`)}>Tickets</StyledButton>
           </Container>
         </Grid.Column>
       </Grid>

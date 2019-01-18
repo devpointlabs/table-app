@@ -3,6 +3,7 @@ import { Route, Redirect, } from "react-router-dom";
 import { AuthConsumer, } from "../providers/AuthProvider";
 
 const AdminRoute = ({ component: Component, ...rest }) => (
+
   <AuthConsumer>
     { auth => 
       <Route 
@@ -23,4 +24,12 @@ const AdminRoute = ({ component: Component, ...rest }) => (
   </AuthConsumer>
 )
 
-export default AdminRoute;
+const ConnectedAdminRoute = (props) => (
+  <AuthConsumer>
+    { auth => 
+      <AdminRoute { ...props } auth={auth} />
+    }
+  </AuthConsumer>
+)
+
+export default ConnectedAdminRoute;

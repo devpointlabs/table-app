@@ -23,6 +23,7 @@ import PaymentSuccess from './components/PaymentSuccess';
 import Checkout from './components/Checkout';
 import HeroForm from './components/HeroForm';
 import HeroManagement from './components/HeroManagement';
+import VirtualTour from './components/VirtualTour';
 
 const App = () => (
   <Fragment>
@@ -35,8 +36,7 @@ const App = () => (
           <AdminRoute exact path='/hero-form' component={HeroForm}/>
           <AdminRoute exact path='/hero-management' component={HeroManagement}/>
           <Route exact path="/" component={Home} />
-          <Route exact path='/ticketing' component={Ticketing} />
-          <Route exact path='/tickets/:id' component={Ticketing} />
+          <Route exact path='/ticketing/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={UserProfile} />
           <ProtectedRoute exact path='/userdash' component={UserDash} />
           <Route exact path='/contacts' component={Contacts} />
@@ -47,6 +47,7 @@ const App = () => (
           <Route exact path='/calendar' component={MobileCalendar} />
           <Route exact path='/payment_success' component={PaymentSuccess} />
           <Route exact path='/checkout' component={Checkout} />
+          <Route exact path='/virtual_tour' component={VirtualTour} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
@@ -64,6 +65,7 @@ const styles = {
   footer: {
     margin: 0,
     top: 0,
+    position: 'static',
   }
 };
 
