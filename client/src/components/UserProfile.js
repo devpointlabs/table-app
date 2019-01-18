@@ -5,8 +5,7 @@ import { ViewDiv, Img, H1, EditDiv, Content, EditCont, UploadText, FormDiv, Form
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
 import { StyledButton } from '../styles/generalitems.js'
-
-const defaultImage = 'https://www.thesmallbusinesscentre.ca/wp-content/uploads/2017/05/businessman-silhouette.jpg'
+import defaultImage from '../images/default-profile.jpg'
 
 class UserProfile extends React.Component {
   state = { editing: false, formValues: { first_name: '', last_name: '', email: '', file: '', }, };
