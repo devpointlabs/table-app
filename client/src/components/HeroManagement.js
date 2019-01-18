@@ -17,7 +17,7 @@ class HeroManagement extends React.Component {
     <Segment basic>
       <HeroImage src={image.image_url} active={image.active} />
       <br />
-      <StyledButton fluid>{image.active ? 'Deactivate' : 'Activate' }</StyledButton>
+      <StyledButton fluid onClick={() => this.handleEdit(image.id)}>{image.active ? 'Deactivate' : 'Activate' }</StyledButton>
       <br />
       <StyledButton fluid filled onClick={() => this.handleDelete(image.id)}>Delete</StyledButton>
     </Segment>
@@ -34,6 +34,18 @@ class HeroManagement extends React.Component {
          })
          this.setState({heroImages: images,})
        })
+  }
+
+  handleEdit = (id) => {
+    axios.put(`/api/hero_images/${id}`)
+      .then( res => {
+        const images = this.state.heroImages.map( image => {
+          if(image.id === id)
+            return res.data
+          return image
+        })
+        this.setState({ heroImages: images, })
+      })
   }
 
   render(){
