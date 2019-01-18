@@ -287,7 +287,32 @@
     event_time: "2019-01-14 21:30:00"
   )
 
+  HeroImage.create(
+    image_url: 'https://d1qmdf3vop2l07.cloudfront.net/stable-juice.cloudvent.net/compressed/44231f0a485d4a9385ccd1f5d2b5b3ed.jpg',
+    active: true,
+  )
+
+  HeroImage.create(
+    image_url: 'https://d1qmdf3vop2l07.cloudfront.net/stable-juice.cloudvent.net/compressed/75068711a75e0bce1ce5ce18cb1405ad.jpg',
+    active: true,
+  )
+
+  HeroImage.create(
+    image_url: 'https://d1qmdf3vop2l07.cloudfront.net/stable-juice.cloudvent.net/compressed/d68bd683d7691a24531721370bbfdf6f.jpg',
+    active: true,
+  )
+
+  HeroImage.create(
+    image_url: 'https://d1qmdf3vop2l07.cloudfront.net/stable-juice.cloudvent.net/compressed/c0ee95171e97c2f764297c25f85f827b.jpg',
+    active: true,
+  )
+
+  HeroImage.create(
+    image_url: 'https://d1qmdf3vop2l07.cloudfront.net/stable-juice.cloudvent.net/compressed/67d2828550a30a3dcb87064944873e18.jpg',
+    active: true,
+  )
+
 end
 
 puts "Event Data Seeded, ADMIN ACCOUNT: admin@admin.com PASSWORD: password, USER ACCOUNT: test@test.com PASSWORD: password"
-puts "2 Users And 30 Events Created"
+puts "2 Users, 30 Events, 5 HeroImages Created"

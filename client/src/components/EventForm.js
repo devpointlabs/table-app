@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios'
-import { Form, Header, Container, } from 'semantic-ui-react'
-import { StyledButton } from '../styles/Styles'
+import { Form, Container, } from 'semantic-ui-react'
+import { StyledButton, StyledHeader, StyledImage } from '../styles/Styles'
 import Dropzone from 'react-dropzone';
+import placeholder from '../images/placeholder.png'
 
 class EventForm extends React.Component {
   initialState = {
@@ -12,6 +13,7 @@ class EventForm extends React.Component {
     event_time: '',
     dress_code: "Must be 21+ to attend. We spend good money on world-class entertainment so we can all have a great time. Please act and dress like a grown up or we won't let you sit with us.",
     description: '',
+    display: placeholder,
   };
 
   state = {...this.initialState};
@@ -29,7 +31,8 @@ class EventForm extends React.Component {
   }
 
   onDrop = (files) => {
-    this.setState({ ...this.state, image_url: files[0], });
+    const image = URL.createObjectURL(files[0])
+    this.setState({ ...this.state, image_url: files[0], display: image, });
   }
 
   handleChange = (e) => {
@@ -56,12 +59,13 @@ class EventForm extends React.Component {
   }
 
   render(){
-    const { host, event_date, dress_code, description, event_time, } = this.state;
+    const { host, event_date, dress_code, description, event_time, display } = this.state;
     return(
       <Container style={{paddingTop: '100px' }}>
-        <Header as='h1' textAlign="center">
+        <StyledHeader fSize='large' underlined textAlign="center">
         { (this.props.id) ? "Edit Event" : "New Event" }
-        </Header>
+        </StyledHeader>
+        <StyledImage centered src={display} />
         <Form onSubmit={this.handleSubmit}>
         <label>Host Artist</label>
           <Form.Input

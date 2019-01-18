@@ -1,0 +1,2 @@
+class HeroImage < ApplicationRecord
+end
