@@ -1,18 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { StyledComingImage } from '../styles/generalitems';
-import { Card } from 'semantic-ui-react';
 import ComingCardFront from './ComingCardFront';
 import ComingCardBack from './ComingCardBack';
-
-const cardBack = (event) => (
-  <Card>
-    <Card.Image>
-      <StyledComingImage key={event.id} src={event.image_url} href={`/event/${event.id}`} />
-    </Card.Image>
-    <Card.Content>{event.host}</Card.Content>
-  </Card>
-)
 
 class ComingArtistCard extends React.Component {
   state = {date: [], time: [], flipped: false };

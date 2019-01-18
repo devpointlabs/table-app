@@ -75,21 +75,6 @@ export const StyledHeader = styled(Header)`
   color: ${props => props.gray? 'gray !important' : 'white !important'}
 `; 
 
-// export const StyledHeader2 = styled(Header)`
-//   color: white !important;
-//   font-size: 30px !important;
-// `; 
-
-// export const StyledSubHeader = styled(Header)`
-//   color: white !important;
-//   font-size: 20px !important;
-// `; 
-
-// export const StyledSubHeader2 = styled(Header)`
-//   color: white !important;
-//   font-size: 15px !important;
-// `; 
-
 export const StyledMainText = styled(Header)`
   color: white !important;
   font-size: 15px !important;

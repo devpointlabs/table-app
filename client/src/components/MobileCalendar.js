@@ -1,7 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
 import { Container, Icon, Segment, } from 'semantic-ui-react';
-import { StyledHeader, StyledButton, StyledSegment2, StyledHeader2, StyledSubHeader2 } from '../styles/generalitems';
+import { StyledButton, StyledSegment, StyledHeader } from '../styles/Styles';
 import CalendarCards from './CalendarCards';
 import { format } from 'date-fns'
 import axios from 'axios';
@@ -82,7 +82,7 @@ class MobileCalendar extends React.Component {
             </StyledButton>
           </Segment>
         <Segment basic>
-          <StyledHeader large underline textAlign='center'>
+          <StyledHeader fSize='large' underlined textAlign='center'>
             {dateFns.format(this.state.currentMonth, dateFormat)}
           </StyledHeader>
         </Segment>
@@ -109,10 +109,10 @@ class MobileCalendar extends React.Component {
   renderNoEvents = () => {
     const { selectedMonth } = this.state
     return(
-      <StyledSegment2 style={{maxWidth: "700px"}} >
-        <StyledHeader large>No Events Listed For {selectedMonth}.</StyledHeader>
-        <StyledHeader>Please Select A Different Month</StyledHeader>
-      </StyledSegment2>
+      <StyledSegment auto bordered style={{maxWidth: "700px"}} >
+        <StyledHeader fSize='large'>No Events Listed For {selectedMonth}.</StyledHeader>
+        <StyledHeader fSize='small'>Please Select A Different Month</StyledHeader>
+      </StyledSegment>
     )
   }
 

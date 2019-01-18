@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, Image, Form, Button, Input, Select, } from 'semantic-ui-react';
+import { Grid, Form, Input, Select, } from 'semantic-ui-react';
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
-import { StyledButton, StyledImage } from '../styles/generalitems'
+import { StyledButton, StyledImage, } from '../styles/Styles'
 import axios from "axios";
 import { format } from 'date-fns'
 
@@ -50,7 +50,7 @@ class Ticketing extends React.Component {
     }
 
   render () {
-    const { host, image_url, date, time, dress_code, description,} = this.state
+    const { host, image_url, date, time, } = this.state
     return(
       <StyledSegment basic>
         <GridText small>

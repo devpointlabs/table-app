@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
-import { Header, } from 'semantic-ui-react';
+import {StyledHeader, } from '../styles/Styles'
+import { Container, } from 'semantic-ui-react';
 
 const NoMatch = () => (
-  <Header as="h3" textAlign="center">
+  <Container style={{marginTop: '175px', marginBottom: '100px'}}>
+  <StyledHeader fSize='large' textAlign="center">
     Page not found return
     <Link to="/"> Home</Link>
-  </Header>
+  </StyledHeader>
+  </Container>
 )
 
 export default NoMatch;

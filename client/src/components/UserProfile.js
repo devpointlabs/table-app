@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Grid, Image, Header, Divider, Form, Button, Container } from 'semantic-ui-react';
+import { Form, } from 'semantic-ui-react';
 import { ViewDiv, Img, H1, EditDiv, Content, EditCont, UploadText, FormDiv, FormUpload } from "../styles/profilestyle";
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
-import { StyledButton } from '../styles/generalitems.js'
+import { StyledButton } from '../styles/Styles';
 import defaultImage from '../images/default-profile.jpg'
 
 class UserProfile extends React.Component {

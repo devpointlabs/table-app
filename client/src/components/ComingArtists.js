@@ -19,7 +19,7 @@ class ComingArtists extends React.Component {
     const { events } = this.state;
     return(
       <StyledSegment textAlign='center' fluid>
-        <StyledHeader large textAlign="center">What We Do</StyledHeader>
+        <StyledHeader fSize='large' inverted textAlign="center">What We Do</StyledHeader>
         <Line />
         <Grid columns={4} centered container stackable>
           { events.map( event =>

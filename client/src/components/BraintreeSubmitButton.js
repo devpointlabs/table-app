@@ -1,15 +1,15 @@
 import React from 'react';
-import { Button, } from 'semantic-ui-react';
+import { StyledButton } from '../styles/Styles'
 
 const renderSubmitButton = ({onClick, isDisabled, text}) => {
   return (
-    <Button
+    <StyledButton
       primary
       onClick={onClick}
       disabled={isDisabled}
     >
       { text }
-    </Button>
+    </StyledButton>
   )
 }
 
