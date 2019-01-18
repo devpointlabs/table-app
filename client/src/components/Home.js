@@ -6,10 +6,12 @@ import Map from './Map';
 import ContactUs from './ContactUs';
 import TableService from './TableService';
 import { Image } from 'semantic-ui-react';
+import HeroImages from './HeroImages';
 
 const Home = () => (
   <>
     <Image bordered fluid src={hero}/>
+    <HeroImages />
     {/* <WhatDo1/> */}
     <ComingArtists />
     <TableService />

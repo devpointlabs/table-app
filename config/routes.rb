@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
 
   namespace :api do
+    resources :events
+    resources :users, only: :update
+    resources :hero_images
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
-    resources :events
     get '/comingartists', to: 'events#comingartists'
-  end
-  namespace :api do
-    resources :users, only: :update
   end
 
 end
