@@ -15,13 +15,14 @@ import AdminRoute from './components/AdminRoute';
 import { Container, } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
-import Cart from "./components/Cart"
+import Cart from "./components/Cart";
 import AdminDashboard from './components/AdminDashboard';
 import Contacts from './components/Contacts';
 import MobileCalendar from './components/MobileCalendar';
 import PaymentSuccess from './components/PaymentSuccess';
-import Checkout from './components/Checkout'
+import Checkout from './components/Checkout';
 import HeroForm from './components/HeroForm';
+import HeroManagement from './components/HeroManagement';
 
 const App = () => (
   <Fragment>
@@ -32,6 +33,7 @@ const App = () => (
           <AdminRoute exact path='/admin-dashboard' component={AdminDashboard} />
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <AdminRoute exact path='/hero-form' component={HeroForm}/>
+          <AdminRoute exact path='/hero-management' component={HeroManagement}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing' component={Ticketing} />
           <Route exact path='/tickets/:id' component={Ticketing} />

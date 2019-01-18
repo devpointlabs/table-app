@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
     get '/comingartists', to: 'events#comingartists'
+    get '/heroimages', to: 'hero_images#all'
   end
 
 end

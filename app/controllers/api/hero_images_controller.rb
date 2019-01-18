@@ -5,6 +5,10 @@ class Api::HeroImagesController < ApplicationController
     render json: HeroImage.where(active: true)
   end
 
+  def all
+    render json: HeroImage.all
+  end
+
   def create
     hero = HeroImage.new(hero_params)
     image_url = params[:image_url]

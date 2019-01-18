@@ -78,3 +78,8 @@ export const StyledImage = styled(Image)`
   width: ${props => props.small ? '250px' : '400px'} !important;
   background-color: black !important;
 `;
+
+export const HeroImage = styled(Image)`
+  border: ${props => props.active ? '3px solid #33db00' : '3px solid #db0000'} !important;
+  width: 100% !important
+`;
