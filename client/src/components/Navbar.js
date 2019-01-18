@@ -26,8 +26,8 @@ class Navbar extends React.Component {
       this.setState({ solid: true })
       skyImg.style.height = "52px"
     } else {
-      navMenu.style.height = "130px"
-      skyImg.style.height = "130px"
+      navMenu.style.height = "50px"
+      skyImg.style.height = "50px"
       this.setState({ solid: false })
     }
   }

@@ -69,10 +69,10 @@ export const StyledButton2 = styled(Button)`
 `;
 
 export const StyledHeader = styled(Header)`
-  color: white !important;
   font-size: ${props => props.large ? '30px !important' : props.small ? '15px !important' : '20px !important'}
-  text-decoration: ${props => props.underline ? 'underline' : 'none'}
-  font-family: ${props => props.copperplate ? 'copperplate' : 'none'}
+  text-decoration: ${props => props.underline ? 'underline !important' : 'none'}
+  font-family: ${props => props.copperplate ? 'copperplate !important' : 'none'}
+  color: ${props => props.gray? 'gray !important' : 'white !important'}
 `; 
 
 // export const StyledHeader2 = styled(Header)`
