@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ContUs, Quote, Button, ContactHeader, } from '../styles/contact-us-style'
-import { StyledButton2, } from '../styles/generalitems'
+import { ContUs, Quote, ContactHeader, } from '../styles/contact-us-style'
+import { StyledButton } from '../styles/Styles'
 import { Link } from 'react-router-dom';
 
 class ContactUs extends Component {
@@ -8,10 +8,10 @@ class ContactUs extends Component {
     return (
       <>
         <ContUs>
-          <ContactHeader>Contact <br/> Us</ContactHeader> 
+          <ContactHeader>Contact Us</ContactHeader> 
           <Quote> Far far away, behind the word mountains, far from the countries Vokalia and Consanatia. </Quote>
           <Link to='/contacts'>
-           <StyledButton2>Contact Us</StyledButton2>
+           <StyledButton large filled>Contact Us</StyledButton>
           </Link>
         </ContUs>
       </>
