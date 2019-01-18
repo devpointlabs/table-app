@@ -15,7 +15,7 @@ class Navbar extends React.Component {
 
   resizeNavOnScroll() {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-      shrinkOn = 100,
+      shrinkOn = 820,
       navMenu = document.getElementById("navMenu"),
       skyImg = document.getElementById("skyImg")
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, } from 'semantic-ui-react';
-import { StyledButton, StyledButton2, StyledHeader, StyledSubHeader2, StyledComingImage, StyledSegment2 } from '../styles/generalitems';
+import { StyledButton, StyledButton2, StyledHeader, StyledComingImage, StyledSegment2 } from '../styles/generalitems';
 import { Link, } from 'react-router-dom';
 import { format } from 'date-fns';
 
@@ -42,10 +42,10 @@ class CalendarCards extends React.Component {
                 <StyledHeader>{host}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledSubHeader2>{date}</StyledSubHeader2>
+                <StyledHeader small>{date}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledSubHeader2>{time}</StyledSubHeader2>
+                <StyledHeader small>{time}</StyledHeader>
               </Grid.Row>
               <br />
               <Grid.Row>

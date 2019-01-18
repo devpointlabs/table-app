@@ -82,7 +82,7 @@ class MobileCalendar extends React.Component {
             </StyledButton>
           </Segment>
         <Segment basic>
-          <StyledHeader textAlign='center'>
+          <StyledHeader large underline textAlign='center'>
             {dateFns.format(this.state.currentMonth, dateFormat)}
           </StyledHeader>
         </Segment>
@@ -110,8 +110,8 @@ class MobileCalendar extends React.Component {
     const { selectedMonth } = this.state
     return(
       <StyledSegment2 style={{maxWidth: "700px"}} >
-        <StyledHeader2>No Events Listed For {selectedMonth}.</StyledHeader2>
-        <StyledSubHeader2>Please Select A Different Month</StyledSubHeader2>
+        <StyledHeader large>No Events Listed For {selectedMonth}.</StyledHeader>
+        <StyledHeader>Please Select A Different Month</StyledHeader>
       </StyledSegment2>
     )
   }
