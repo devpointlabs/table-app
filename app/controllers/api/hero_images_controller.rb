@@ -13,7 +13,7 @@ class Api::HeroImagesController < ApplicationController
       begin
         ext = File.extname(image_url.tempfile)
         cloud_image = Cloudinary::Uploader.upload(image_url, public_id: image_url.original_filename, secure: true)
-        event.image_url = cloud_image['secure_url']
+        hero.image_url = cloud_image['secure_url']
       rescue => e
         render json: { errors: e }, status: 422 and return
       end
@@ -29,7 +29,6 @@ class Api::HeroImagesController < ApplicationController
   def update
     @hero.update(active: !@hero.active)
     render json: @hero
-
   end
 
   def destroy
@@ -38,7 +37,7 @@ class Api::HeroImagesController < ApplicationController
 
   private
     def hero_params
-      params.require(:heroimage).permit(:image_url, :active)
+      params.permit(:image_url, :active)
     end
 
     def set_hero

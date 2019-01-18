@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
-import { Form, Header, Container, } from 'semantic-ui-react'
-import { StyledButton } from '../styles/Styles'
+import { Form, Container, } from 'semantic-ui-react'
+import { StyledButton, StyledHeader } from '../styles/Styles'
 import Dropzone from 'react-dropzone';
 
 class EventForm extends React.Component {
@@ -59,9 +59,9 @@ class EventForm extends React.Component {
     const { host, event_date, dress_code, description, event_time, } = this.state;
     return(
       <Container style={{paddingTop: '100px' }}>
-        <Header as='h1' textAlign="center">
+        <StyledHeader fSize='large' underlined textAlign="center">
         { (this.props.id) ? "Edit Event" : "New Event" }
-        </Header>
+        </StyledHeader>
         <Form onSubmit={this.handleSubmit}>
         <label>Host Artist</label>
           <Form.Input
