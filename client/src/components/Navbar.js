@@ -96,9 +96,6 @@ class Navbar extends React.Component {
           <StyledItem href="/">
             VIP TABLES
           </StyledItem>
-          <StyledItem href="/ticketing">
-            TICKETS
-          </StyledItem>
         { this.NavItems() }
         </Menu.Menu>
       </StyledMenu>

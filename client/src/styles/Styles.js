@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
 
-const HeaderText = styled.h1`
-  color: white !important;
-  text-align: center;
-  font-size: ${props => props.large ? '4rem' : '2rem'} !important;
-`;
-
 // Filled puts border color as background
 // Large makes bigger
 export const StyledButton = styled(Button)`
@@ -55,6 +49,32 @@ const fontSize = (size) => {
 // Underline will underline text
 export const StyledHeader = styled(Header)`
   color: white !important;
+  font-family: "copperplate" !important;
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
+`;
+
+// bordered adds colored border
+// auto moves from 5% margin and a 10px bottom margin
+export const StyledSegment = styled(Segment)`
+  margin: ${props => props.auto ? 'auto' : '5%'} !important;
+  margin-bottom: ${props => props.auto ? '10px' : ''} !important;
+  padding: 5% !important;
+  background-color: #000000 !important;
+  border: ${props => props.bordered ? '3px solid #b29d72' : ''} !important;
+`;
+
+export const StyledDivider = styled(Divider)`
+  width: 60% !important;
+  height: 3px !important;
+  background-color: #bdbdbd !important;
+  margin: auto !important;
+  margin-bottom: 25px !important;
+`;
+
+// small sets to the smaller bordered image size
+export const StyledImage = styled(Image)`
+  border: ${props => props.small ? '1px solid #bdbdbd' : '3px solid #b29d72'} !important;
+  width: ${props => props.small ? '250px' : '400px'} !important;
+  background-color: black !important;
 `;
