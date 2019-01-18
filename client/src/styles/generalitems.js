@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
 
-
 export const StyledButton = styled(Button)`
   color: white !important;
   background-color: #222222 !important;
@@ -32,8 +31,6 @@ export const StyledButton = styled(Button)`
     transition: background 0.2s ease;
   }
 `; 
-
- 
 
 export const StyledButton2 = styled(Button)`
   color: white !important;
