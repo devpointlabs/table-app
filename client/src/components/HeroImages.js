@@ -14,8 +14,18 @@ class HeroImages extends React.Component {
   }
 
   render() {
+     const {heroImages} = this.state;
     return(
-      <div>IMAGES</div>
+      <Carousel infiniteLoop={true} autoPlay={true} showThumbs={false}>
+        { heroImages.map(image =>{
+          return(
+            <div>
+            <img src={image.image_url} />
+          </div>
+            )
+        })
+        }
+      </Carousel>
     )
   }
 }
