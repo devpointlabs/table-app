@@ -31,7 +31,7 @@ class VenueForm extends React.Component {
       .then( res => {
         this.setState({ 
           venue_name: res.data.venue_name,
-          logo: res.data.logo,
+          logo: null,
           contact_us_blurb: res.data.contact_us_blurb,
           street_address: res.data.street_address,
           city: res.data.city,
@@ -80,7 +80,7 @@ class VenueForm extends React.Component {
     data.append("longitude", this.state.longitude)
     data.append("latitude", this.state.latitude)
     axios.put(`/api/settings/1`, data)
-      .then( res => this.props.history.go(`/`))
+      .then( res => this.props.history.push(`/`))
   }
 
   renderForm = () => {

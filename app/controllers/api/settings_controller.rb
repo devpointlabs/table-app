@@ -32,7 +32,9 @@ class Api::SettingsController < ApplicationController
     settings = Setting.find(params[:id])
     logo = params[:logo]
 
-    if logo
+    if logo == "null"
+      params[:logo] = settings.logo
+    else
       begin
         ext = File.extname(logo.tempfile)
         cloud_image = Cloudinary::Uploader.upload(logo, public_id: logo.original_filename, secure: true)
@@ -42,8 +44,6 @@ class Api::SettingsController < ApplicationController
         render json: { errors: e }, status: 422 and return
       end
     end
-
-
 
     if settings.update(settings_params)
       render json: settings

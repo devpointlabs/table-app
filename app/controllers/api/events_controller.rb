@@ -37,7 +37,9 @@ class Api::EventsController < ApplicationController
   def update
     image_url = params[:image_url]
 
-    if image_url
+    if image_url == "null"
+      params[:image_url] = @event.image_url
+    else
       begin
         ext = File.extname(image_url.tempfile)
         cloud_image = Cloudinary::Uploader.upload(image_url, public_id: image_url.original_filename, secure: true)
