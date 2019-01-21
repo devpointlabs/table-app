@@ -30,6 +30,21 @@ class Api::SettingsController < ApplicationController
 
   def update
     settings = Setting.find(params[:id])
+    logo = params[:logo]
+
+    if logo
+      begin
+        ext = File.extname(logo.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(logo, public_id: logo.original_filename, secure: true)
+        settings.logo = cloud_image['secure_url']
+        params[:logo] = settings.logo
+      rescue => e
+        render json: { errors: e }, status: 422 and return
+      end
+    end
+
+
+
     if settings.update(settings_params)
       render json: settings
     else

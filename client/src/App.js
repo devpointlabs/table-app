@@ -25,6 +25,7 @@ import HeroForm from './components/HeroForm';
 import HeroManagement from './components/HeroManagement';
 import VirtualTour from './components/VirtualTour';
 import Reviews from './components/Reviews';
+import VenueForm from './components/VenueForm'
 
 const App = () => (
   <Fragment>
@@ -36,6 +37,7 @@ const App = () => (
           <AdminRoute exact path='/event-form' component={EventForm}/>
           <AdminRoute exact path='/hero-form' component={HeroForm}/>
           <AdminRoute exact path='/hero-management' component={HeroManagement}/>
+          <AdminRoute exact path='/venue-form' component={VenueForm}/>
           <Route exact path="/" component={Home} />
           <Route exact path='/ticketing/:id' component={Ticketing} />
           <ProtectedRoute exact path="/profile" component={UserProfile} />

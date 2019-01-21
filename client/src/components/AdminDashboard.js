@@ -23,6 +23,11 @@ class AdminDashboard extends React.Component{
             Manage Hero Images
           </StyledButton>
         </Link>
+        <Link to='/venue-form'>
+          <StyledButton>
+            Edit Venue Details
+          </StyledButton>
+        </Link>
       </StyledSegment>
     )
   }

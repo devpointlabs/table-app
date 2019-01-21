@@ -27,6 +27,7 @@ class EventForm extends React.Component {
         event_time: this.props.time,
         dress_code: this.props.event.dress_code,
         description: this.props.event.description,
+        display: this.props.event.image_url
        });
   }
 
