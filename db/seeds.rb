@@ -21,7 +21,7 @@
     venue_name: "SkySLC",
     logo: "https://res.cloudinary.com/xenmordin/image/upload/v1548095484/Table-App/Sky_SLC_White.svg",
     contact_us_blurb: "Far far away, behind the word mountains, far from the countries Vokalia and Consanatia.",
-    street_address: "149 Pierpont Ave<",
+    street_address: "149 Pierpont Ave",
     city: "Salt Lake City",
     state: "UT",
     zip_code: 84101,

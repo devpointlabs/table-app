@@ -4,13 +4,18 @@ import { withRouter, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
 import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
 import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC_White.svg';
+import axios from 'axios';
 import '../App.css'
 
 class Navbar extends React.Component {
-  state = { solid: false, };
+  state = { solid: false, venue: [], };
 
   componentDidMount() {
     window.addEventListener("scroll", this.resizeNavOnScroll.bind(this));
+    axios.get(`/api/settings/1`)
+      .then( res => {
+        this.setState({ venue: res.data, })
+      })
   }
 
   resizeNavOnScroll() {
@@ -81,10 +86,11 @@ class Navbar extends React.Component {
 
 
   render() {
+    const {venue} = this.state;
     return (
       <StyledMenu id="navMenu" stackable borderless solid={this.state.solid}>
         <Menu.Header href="/">
-          <StyledImg id="skyImg" src={Sky_SLC} width={320} />
+          <StyledImg id="skyImg" src={venue.logo} width={320} />
         </Menu.Header>
         <Menu.Menu position="right">
           <StyledItem href="/calendar">

@@ -3,6 +3,10 @@ class Api::SettingsController < ApplicationController
     render json: Setting.all
   end
 
+  def show
+    render json: Setting.find(params[:id])
+  end
+
   def create
     settings = Setting.new(settings_params)
     logo = params[:logo]
@@ -29,7 +33,7 @@ class Api::SettingsController < ApplicationController
     if settings.update(settings_params)
       render json: settings
     else
-      render json: settings.errors, status 422 and return
+      render json: settings.errors, status: 422 and return
     end
   end
 
