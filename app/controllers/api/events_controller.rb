@@ -30,7 +30,7 @@ class Api::EventsController < ApplicationController
     if event.save
       render json: event
     else
-      render json: blog.errors
+      render json: event.errors
     end
   end
 
