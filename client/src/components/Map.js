@@ -16,10 +16,9 @@ const mapStyle = {
 };
 
 const zoom = [16.38]
-const center = [-111.895558, 40.763691]
 
 class Maps extends Component { 
-  state = { venue: [], center: [], }
+  state = { venue: [], center: [], loaded: false }
   
   componentDidMount() {
     axios.get(`/api/settings/1`)
@@ -29,28 +28,35 @@ class Maps extends Component {
   }
 
   setCenter = () => {
-    const longitude = this.state.venue.longitude;
-    const latitude = this.state.venue.latitude;
-    const center = [longitude, latitude]
-    this.setState({ center: center })
+    const center = [this.state.venue.longitude, this.state.venue.latitude]
+    this.setState({ center: center, loaded: true })
   }
-  
-  render() {
-    const {venue,} = this.state;
-    return (
+
+  renderMap = () => {
+    const {venue, center} = this.state;
+    return(
       <Map
         style={style}
         containerStyle={mapStyle}
         center={center}
         zoom={zoom}>
         <Marker
-        coordinates={center}
-        anchor="bottom">
-        <a href={venue.google_maps} target="_blank" rel="noopener noreferrer">
-        <img src={Pointer} alt='' />
-        </a>
+          coordinates={center}
+          anchor="bottom">
+          <a href={venue.google_maps} target="_blank" rel="noopener noreferrer">
+            <img src={Pointer} alt='' />
+          </a>
         </Marker>
       </Map>
+    )
+  }
+  
+  render() {
+    const {loaded} = this.state;
+    return ( 
+      <div>
+      { loaded ? this.renderMap() : null }
+      </div>
     );
   }
 }
