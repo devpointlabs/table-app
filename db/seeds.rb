@@ -33,7 +33,7 @@
     
     SKY is a versatile 3-floor space used for large scale events, weddings, private parties, concerts and nightclub events. The 15.000 sq ft open-air building is complete with the optimum sound, 300′′video screen, glass retractable roof, 20 VIP suites, 14 garage doors and performance lighting unlike anything else available in SLC; rivaling any other renowned entertainment facility in the world! Night Club, Event Space, Lounge and Patio... 
     
-    Please come check us out at 149 Pierpont Ave, Downtown Salt Lake.",
+    Please come check us out at 149 Pierpont Ave, Downtown Salt Lake. Call or email us to tour the space, we know you’ll love it!",
     facebook_url: "https://www.facebook.com/skysaltlakecity",
     twitter_url: "https://twitter.com/SkyVenueSLC",
     instagram_url: "https://www.instagram.com/SKYSLC/",

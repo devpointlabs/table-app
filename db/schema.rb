@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2019_01_21_182057) do
     t.text "twitter_url"
     t.text "instagram_url"
     t.text "google_maps"
-    t.integer "longitude"
-    t.integer "latitude"
+    t.decimal "longitude"
+    t.decimal "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

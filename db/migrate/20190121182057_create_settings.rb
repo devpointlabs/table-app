@@ -15,8 +15,8 @@ class CreateSettings < ActiveRecord::Migration[5.2]
       t.text :twitter_url
       t.text :instagram_url
       t.text :google_maps
-      t.integer :longitude
-      t.integer :latitude
+      t.decimal :longitude
+      t.decimal :latitude
 
       t.timestamps
     end

@@ -3,7 +3,6 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { withRouter, } from 'react-router-dom'
 import { Dropdown, Menu } from 'semantic-ui-react';
 import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
-import Sky_SLC from '../images/Logo_Floorplan/Sky_SLC_White.svg';
 import axios from 'axios';
 import '../App.css'
 
