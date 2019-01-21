@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_185752) do
+ActiveRecord::Schema.define(version: 2019_01_21_182057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,27 @@ ActiveRecord::Schema.define(version: 2019_01_18_185752) do
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_r_tickets_on_cart_id"
     t.index ["event_id"], name: "index_r_tickets_on_event_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "venue_name"
+    t.string "logo"
+    t.text "contact_us_blurb"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.string "telephone"
+    t.string "email"
+    t.text "about_us"
+    t.text "facebook_url"
+    t.text "twitter_url"
+    t.text "instagram_url"
+    t.text "google_maps"
+    t.integer "longitude"
+    t.integer "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "table_groups", force: :cascade do |t|
