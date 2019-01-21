@@ -1,6 +1,5 @@
 class Api::CartsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user
 
   def create
     cart = current_user.build_cart
