@@ -24,6 +24,7 @@ import Checkout from './components/Checkout';
 import HeroForm from './components/HeroForm';
 import HeroManagement from './components/HeroManagement';
 import VirtualTour from './components/VirtualTour';
+import Reviews from './components/Reviews';
 
 const App = () => (
   <Fragment>
@@ -48,6 +49,7 @@ const App = () => (
           <Route exact path='/payment_success' component={PaymentSuccess} />
           <Route exact path='/checkout' component={Checkout} />
           <Route exact path='/virtual_tour' component={VirtualTour} />
+          <Route exact path='/reviews' component={Reviews} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
