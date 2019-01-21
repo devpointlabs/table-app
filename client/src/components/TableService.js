@@ -12,7 +12,9 @@ class TableService extends React.Component{
         <Container>
           <Header>VIP TABLE SERVICE</Header>
           <div>
-            <StyledButton large filled>Button</StyledButton>
+            <Link to = '/reviews'>
+              <StyledButton large filled>Reviews</StyledButton>         
+            </Link>
             <Link to = '/virtual_tour'>
               <StyledButton large filled>Virtual Tour</StyledButton>
             </Link>

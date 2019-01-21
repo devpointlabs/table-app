@@ -68,7 +68,8 @@ export const StyledHeader = styled(Header)`
   font-size: ${props => props.large ? '30px !important' : props.small ? '15px !important' : '20px !important'}
   text-decoration: ${props => props.underline ? 'underline !important' : 'none'}
   font-family: ${props => props.copperplate ? 'copperplate !important' : 'none'}
-  color: ${props => props.gray? 'gray !important' : 'white !important'}
+  color: ${props => props.gray ? 'gray !important' : 'white !important'}
+  text-align: ${props => props.centered ? 'center !important' : 'none'}
 `; 
 
 export const StyledMainText = styled(Header)`
