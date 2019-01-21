@@ -4,6 +4,7 @@ import axios from 'axios'
 
 class Contacts extends Component {
   state = { venue: [], }
+  
   componentDidMount() {
     axios.get(`/api/settings/1`)
     .then( res => {
