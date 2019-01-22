@@ -4,12 +4,18 @@ class Api::RTicketsController < ApplicationController
   before_action :set_cart
   
   def create
-    ticket = @cart.r_tickets.new(event_params)
 
-    if ticket.save
-      render json: ticket
+    if @event.available_tickets >= params[:quantity]
+      ticket = @cart.r_tickets.new(event_params)
+      @event.available_tickets = @event.available_tickets - params[:quantity]
+
+      if ticket.save && @event.update(available_tickets: @event.available_tickets)
+        render json: ticket
+      else
+        render json: ticket.errors, status: 422
+      end
     else
-      render json: ticket.errors, status: 422
+        puts "Not enough tickets"
     end
   end
 
