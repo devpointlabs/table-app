@@ -30,11 +30,26 @@ class Api::EventsController < ApplicationController
     if event.save
       render json: event
     else
-      render json: blog.errors
+      render json: event.errors
     end
   end
 
   def update
+    image_url = params[:image_url]
+
+    if image_url == "null"
+      params[:image_url] = @event.image_url
+    else
+      begin
+        ext = File.extname(image_url.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(image_url, public_id: image_url.original_filename, secure: true)
+        @event.image_url = cloud_image['secure_url']
+        params[:image_url] = @event.image_url
+      rescue => e
+        render json: { errors: e }, status: 422 and return
+      end
+    end
+
     if @event.update(event_params)
       render json: @event
     else
