@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::RTicketControllerTest < ActionDispatch::IntegrationTest
+class Api::RTicketsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

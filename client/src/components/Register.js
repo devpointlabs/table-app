@@ -1,8 +1,17 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal, } from 'semantic-ui-react';
+import { Form, Segment, Header, Modal, Select } from 'semantic-ui-react';
 import { StyledButton } from '../styles/Styles';
 import Home from './Home';
+
+const genders = () => {
+  return [
+    {text: "Male", value: "Male", key: 1},
+    {text: "Female", value: "Female", key: 2},
+    {text: "Other", value: "Other", key: 3},
+    {text: "Apache Attack Helicopter", value: "Apache Attack Helicopter", key: 4},
+  ]
+}
 
 class Register extends React.Component {
   state = { 
@@ -32,6 +41,10 @@ class Register extends React.Component {
     e.preventDefault();
     const { name, value, } = e.target;
     this.setState({ [name]: value,});
+  }
+
+  genderChange = (e, data) => {
+    this.setState({ [data.name]: data.value });
   }
 
   handleOpen = () => {
@@ -69,14 +82,18 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </Form.Group>
-                <Form.Input
+
+                {/* <Form.Input
                   label="Gender"
                   required
                   name='gender'      
                   value={gender}
                   placeholder='Gender'
-                  onChange={this.handleChange}
-                />
+                  onChange={this.genderChange}
+                /> */}
+
+                <Form.Select label="Gender" placeholder='' defaultValue="Other" name="gender" value={gender} onChange={this.genderChange} options={genders()} />
+
                 <Form.Input
                   label="Email"
                   required

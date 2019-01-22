@@ -1,10 +1,10 @@
-class Api::RTicketController < ApplicationController
+class Api::RTicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event
   before_action :set_cart
   
   def create
-    ticket = R_ticket.new(@event, @cart)
+    ticket = @cart.r_tickets.new(event_params)
 
     if ticket.save
       render json: ticket
@@ -20,7 +20,11 @@ class Api::RTicketController < ApplicationController
     end
 
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find(params[:event_id])
+    end
+
+    def event_params
+      params.require(:r_ticket).permit(:event_id, :quantity, :ticket_type)
     end
 
 end
