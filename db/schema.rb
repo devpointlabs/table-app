@@ -62,6 +62,27 @@ ActiveRecord::Schema.define(version: 2019_01_21_212053) do
     t.index ["event_id"], name: "index_r_tickets_on_event_id"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string "venue_name"
+    t.string "logo"
+    t.text "contact_us_blurb"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.string "telephone"
+    t.string "email"
+    t.text "about_us"
+    t.text "facebook_url"
+    t.text "twitter_url"
+    t.text "instagram_url"
+    t.text "google_maps"
+    t.decimal "longitude"
+    t.decimal "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "table_groups", force: :cascade do |t|
     t.string "name"
     t.text "description"

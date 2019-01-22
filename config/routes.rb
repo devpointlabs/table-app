@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :events
     resources :users, only: :update
     resources :hero_images
+    resources :settings
     resources :r_tickets
 
     get '/braintree_token', to: 'braintree#token'

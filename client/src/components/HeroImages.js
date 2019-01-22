@@ -20,7 +20,7 @@ class HeroImages extends React.Component {
         { heroImages.map(image =>{
           return(
             <div>
-            <img src={image.image_url} />
+            <img src={image.image_url} alt='Carousel Images' />
           </div>
             )
         })

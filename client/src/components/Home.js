@@ -4,7 +4,6 @@ import ComingArtists from './ComingArtists';
 import Map from './Map';
 import ContactUs from './ContactUs';
 import TableService from './TableService';
-import { Image } from 'semantic-ui-react';
 import HeroImages from './HeroImages';
 
 const Home = () => (

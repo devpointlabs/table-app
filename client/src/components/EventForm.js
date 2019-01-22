@@ -22,11 +22,12 @@ class EventForm extends React.Component {
     if (this.props.event && this.props.event.id)
       this.setState({ 
         host: this.props.event.host,
-        image_url: this.props.event.image_url,
+        image_url: null,
         event_date: this.props.date,
         event_time: this.props.time,
         dress_code: this.props.event.dress_code,
         description: this.props.event.description,
+        display: this.props.event.image_url
        });
   }
 
