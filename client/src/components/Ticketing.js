@@ -20,6 +20,7 @@ class Ticketing extends React.Component {
     dress_code: "",
     description: "",
     event_time: "",
+    available_tickets: 0,
     tier1: 0,
     tier2: 0,
     tier3: 0,
@@ -58,11 +59,17 @@ class Ticketing extends React.Component {
     this.setState({ time: tresult, })
   }
 
+  decrement_available = (q) => {
+    let dec = (this.state.available_tickets - q )
+    this.setState({ available_tickets: dec})
+  }
+
   add_to_cart1 = () => {
     let r_ticket = {event_id: this.state.id, quantity: this.state.tier1, ticket_type: "tier1"}
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier1: 0, });
+        this.decrement_available(r_ticket.quantity)
       })
 }
   add_to_cart2 = () => {
@@ -70,6 +77,7 @@ class Ticketing extends React.Component {
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier2: 0, });
+        this.decrement_available(r_ticket.quantity)
       })
 }
 
@@ -78,6 +86,7 @@ class Ticketing extends React.Component {
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier3: 0, });
+        this.decrement_available(r_ticket.quantity)
       })
 }
 
@@ -86,11 +95,12 @@ class Ticketing extends React.Component {
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier4: 0, });
+        this.decrement_available(r_ticket.quantity)
       })
 }
   
   render () {
-    const { host, image_url, date, time, tier1, tier2, tier3, tier4} = this.state
+    const { host, image_url, date, time, tier1, tier2, tier3, tier4, available_tickets} = this.state
     return(
       <StyledSegment basic>
         <GridText small>
@@ -135,7 +145,7 @@ class Ticketing extends React.Component {
                         <Grid.Column mobile={4} computer={4}>$25</Grid.Column>
                         
                         <Grid.Column mobile={4} computer={4}>
-                          <Select compact placeholder='0' defaultValue={0} name="tier1" value={tier1} onChange={this.handleChange} options={gen(150)} />
+                          <Select compact placeholder='0' defaultValue={0} name="tier1" value={tier1} onChange={this.handleChange} options={gen(available_tickets)} />
                         </Grid.Column>
 
                         <Grid.Column mobile={4} computer={4}>
@@ -150,7 +160,7 @@ class Ticketing extends React.Component {
                       <Grid.Column mobile={4} computer={4}>$35</Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        <Select compact placeholder='0' defaultValue={0} name="tier2" value={tier2} onChange={this.handleChange} options={gen(150)} />
+                        <Select compact placeholder='0' defaultValue={0} name="tier2" value={tier2} onChange={this.handleChange} options={gen(available_tickets)} />
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
@@ -165,7 +175,7 @@ class Ticketing extends React.Component {
                       <Grid.Column mobile={4} computer={4}>$60</Grid.Column>
                       
                       <Grid.Column mobile={4} computer={4}>
-                        <Select compact placeholder='0' defaultValue={0} name="tier3" value={tier3} onChange={this.handleChange} options={gen(150)} />
+                        <Select compact placeholder='0' defaultValue={0} name="tier3" value={tier3} onChange={this.handleChange} options={gen(available_tickets)} />
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
@@ -180,7 +190,7 @@ class Ticketing extends React.Component {
                       <Grid.Column mobile={4} computer={4}>$40</Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        <Select compact placeholder='0' defaultValue={0} name="tier4" value={tier4} onChange={this.handleChange} options={gen(150)} />
+                        <Select compact placeholder='0' defaultValue={0} name="tier4" value={tier4} onChange={this.handleChange} options={gen(available_tickets)} />
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
