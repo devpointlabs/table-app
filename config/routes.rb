@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :users, only: :update
     resources :hero_images
     resources :settings
+    resources :r_tickets
+
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
     get '/comingartists', to: 'events#comingartists'
@@ -15,9 +17,6 @@ Rails.application.routes.draw do
       resource :cart
     end
     
-    resources :carts do
-      resources :r_tickets
-    end
   end
 
 end
