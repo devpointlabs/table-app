@@ -62,7 +62,7 @@ class EventForm extends React.Component {
   render(){
     const { host, event_date, dress_code, description, event_time, display } = this.state;
     return(
-      <Container style={{paddingTop: '100px' }}>
+      <Container style={{paddingTop: '175px' }}>
         <StyledHeader fSize='large' underlined textAlign="center">
         { (this.props.id) ? "Edit Event" : "New Event" }
         </StyledHeader>
