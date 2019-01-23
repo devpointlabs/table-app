@@ -6,6 +6,7 @@ import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
 export const StyledButton = styled(Button)`
   color: white !important;
   border: 3px solid #b29d72 !important;
+  border-radius: 0px !important;
   margin: 1 0px !important;
   background-color: ${props => props.filled ? '#b29d72' : '#222222' } !important;
   font-size: ${props => props.large ? '20px' : '15px' } !important;

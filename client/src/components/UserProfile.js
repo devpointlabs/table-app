@@ -1,22 +1,23 @@
 import React, {Fragment} from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, } from 'semantic-ui-react';
+import { Form, Image, } from 'semantic-ui-react';
 import { ViewDiv, Img, H1, EditDiv, Content, EditCont, UploadText, FormDiv, FormUpload } from "../styles/profilestyle";
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
 import { StyledButton } from '../styles/Styles';
 import defaultImage from '../images/default-profile.jpg'
+import { LeftDiv, RightDiv, Line, StyledHeader, ComponentContainer} from '../styles/generalitems';
 
 class UserProfile extends React.Component {
-  state = { editing: false, formValues: { first_name: '', last_name: '', email: '', file: '', }, };
+  state = { editing: false, formValues: { first_name: '', last_name: '', email: '', city: '', file: '', }, };
 
   onDrop = (files) => {
     this.setState({ formValues: { ...this.state.formValues, file: files[0], } });
   }
 
   componentDidMount() {
-    const { auth: { user: { first_name, last_name, email, }, }, } = this.props;
-    this.setState({ formValues: { first_name, last_name, email, }, });
+    const { auth: { user: { first_name, last_name, email, city, }, }, } = this.props;
+    this.setState({ formValues: { first_name, last_name, email, city, }, });
   }
 
   handleChange = (e) => {
@@ -31,9 +32,9 @@ class UserProfile extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { formValues: { first_name, last_name, email, file, }, } = this.state;
+    const { formValues: { first_name, last_name, email, file, city, }, } = this.state;
     const { auth: { user, updateUser, }, } = this.props;
-    updateUser(user.id, { first_name, last_name, email, file, });
+    updateUser(user.id, { first_name, last_name, email, file, city, });
     this.setState({
       editing: false,
       formValues: {
@@ -51,26 +52,38 @@ class UserProfile extends React.Component {
 
   profileView = () => {
     const { auth: { user }, } = this.props;
+    const { editing, } = this.state;
     return (
-      <Fragment>
-        <ViewDiv>
-          <div>
-            <Img src={user.image || defaultImage} />
-            <H1>{user.first_name} {user.last_name}</H1>
-            <H1>{user.email}</H1>
-          </div>
-        </ViewDiv>
-      </Fragment>
+      <div style = {{ paddingTop: '190px', height: '100vh', display: 'flex' }}>
+        <LeftDiv>
+          <img 
+            src={user.image || defaultImage} 
+            style = {{
+              height: '250px',
+              width: '300px',
+              display: 'block',
+            }}
+          />
+        </LeftDiv>
+        <Line vertical />
+        <RightDiv>
+          <StyledHeader>{user.first_name} {user.last_name}</StyledHeader>
+          <StyledHeader>{user.email}</StyledHeader>
+          <StyledHeader>{user.date_of_birth}</StyledHeader>
+          <StyledHeader>{user.gender}</StyledHeader>
+          <StyledHeader>{user.city}</StyledHeader>
+          <StyledButton onClick={this.toggleEdit}>{editing ? 'Cancel' : 'Edit'}</StyledButton>
+        </RightDiv>
+      </div>
     )
   }
 
   editView = () => {
-    const { user } = this.props;
-    const { formValues: { first_name, last_name, email, file } } = this.state;
+    const { formValues: { first_name, last_name, city, file } } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
-      <FormUpload>
-        <EditDiv>
+        <ComponentContainer>
+        <LeftDiv bordered style = {{height: '300px'}}>
           <Dropzone
             onDrop={this.onDrop}
             multiple={false}
@@ -95,9 +108,10 @@ class UserProfile extends React.Component {
               )
             }}
           </Dropzone>
-        </EditDiv>
-        <FormDiv>
-          <div>
+        </LeftDiv>
+        <Line vertical />
+        <RightDiv>
+          <div style = {{paddingTop: '30px'}}>
             <Form.Input
               placeholder="First Name"
               name="first_name"
@@ -113,16 +127,16 @@ class UserProfile extends React.Component {
               onChange={this.handleChange}
             />
             <Form.Input
-              placeholder="Email"
-              name="email"
-              value={email}
+              placeholder="City"
+              name="city"
+              value={city}
               required
               onChange={this.handleChange}
             />
             <StyledButton>Update</StyledButton>
           </div>
-        </FormDiv>
-        </FormUpload>
+        </RightDiv>
+        </ComponentContainer>
       </Form>
     )
   }
@@ -131,14 +145,7 @@ class UserProfile extends React.Component {
     const { editing, } = this.state;
     return(
       <div>
-        <Content>
-          <EditCont>
-              { editing ? this.editView() : this.profileView()}
-              <div style={{marginLeft: "15%"}}>
-                <StyledButton onClick={this.toggleEdit}>{editing ? 'Cancel' : 'Edit'}</StyledButton>
-              </div>
-          </EditCont>
-        </Content>
+        { editing ? this.editView() : this.profileView()}
       </div>
     )
   }

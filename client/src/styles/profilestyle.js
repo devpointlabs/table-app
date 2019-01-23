@@ -19,7 +19,6 @@ export const Img = styled.img`
   min-height: 50%;
   max-width: 30%;
   min-height: 30%;
-  border-radius: 10px;
 `
 
 export const H1 = styled.p`
@@ -31,9 +30,8 @@ export const EditDiv = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px dashed #aaa;
-  min-width: 50%
-  min-height: 50%;
-  border-radius: 10%;
+  width: 50px;
+  height: 50px;
 `
 
 
