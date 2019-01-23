@@ -84,7 +84,7 @@ class VenueForm extends React.Component {
   }
 
   renderForm = () => {
-    const { venue_name, logo, contact_us_blurb, street_address, city, state, zip_code, telephone, email, about_us, facebook_url, twitter_url, instagram_url, google_maps, longitude, latitude,} = this.state;
+    const { venue_name, contact_us_blurb, street_address, city, state, zip_code, telephone, email, about_us, facebook_url, twitter_url, instagram_url, google_maps, longitude, latitude,} = this.state;
     return(
       <Form onSubmit={this.handleSubmit}>
           <Dropzone

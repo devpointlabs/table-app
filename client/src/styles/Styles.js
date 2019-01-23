@@ -8,11 +8,12 @@ export const StyledButton = styled(Button)`
   border: 3px solid #b29d72 !important;
   border-radius: 0px !important;
   margin: 1 0px !important;
+  font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   background-color: ${props => props.filled ? '#b29d72' : '#222222' } !important;
   font-size: ${props => props.large ? '20px' : '15px' } !important;
   height: ${props => props.large ? '60px' : '' } !important;
   width: ${props => props.large ? '175px' : '' } !important;
-  padding: ${props => props.large ? '5px auto' : '' } !important;
+  padding: ${props => props.large ? '5px 5px' : '' } !important;
 
   @keyframes glowing-border {
     from {

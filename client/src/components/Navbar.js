@@ -21,17 +21,56 @@ class Navbar extends React.Component {
     const distanceY = window.pageYOffset || document.documentElement.scrollTop,
       shrinkOn = 400,
       navMenu = document.getElementById("navMenu"),
-      skyImg = document.getElementById("skyImg")
+      skyImg = document.getElementById("skyImg"),
+      navButton1 = document.getElementById("navButton1"),
+      navButton2 = document.getElementById("navButton2"),
+      navButton3 = document.getElementById("navButton3"),
+      navButton4 = document.getElementById("navButton4"),
+      navButton5 = document.getElementById("navButton5"),
+      navButton6 = document.getElementById("navButton6"),
+      navButton7 = document.getElementById("navButton7")
 
-    if (distanceY > shrinkOn) {
+    if (this.props.auth.user && distanceY > shrinkOn) {
       navMenu.style.height = "51px"
       navMenu.style.transition = "all 0.4s ease-in-out"
       skyImg.style.transition = "all 0.4s ease-in-out"
       this.setState({ solid: true })
       skyImg.style.height = "52px"
-    } else {
+      navButton3.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton5.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton6.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton7.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+    } else if (distanceY > shrinkOn) {
+      navMenu.style.height = "51px"
+      navMenu.style.transition = "all 0.4s ease-in-out"
+      skyImg.style.transition = "all 0.4s ease-in-out"
+      this.setState({ solid: true })
+      skyImg.style.height = "52px"
+      navButton1.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton2.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton3.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton5.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      navButton6.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+    } else if (this.props.auth.user && distanceY < shrinkOn) {
       navMenu.style.height = "130px"
       skyImg.style.height = "130px"
+      navButton3.style.cssText = 'border: 3px solid #b29d72'
+      navButton4.style.cssText = 'border: 3px solid #b29d72'
+      navButton5.style.cssText = 'border: 3px solid #b29d72'
+      navButton6.style.cssText = 'border: 3px solid #b29d72'
+      navButton7.style.cssText = 'border: 3px solid #b29d72'
+      this.setState({ solid: false })
+    } else if (distanceY < shrinkOn) {
+      navMenu.style.height = "130px"
+      skyImg.style.height = "130px"
+      navButton1.style.cssText = 'border: 3px solid #b29d72'
+      navButton2.style.cssText = 'border: 3px solid #b29d72'
+      navButton3.style.cssText = 'border: 3px solid #b29d72'
+      navButton4.style.cssText = 'border: 3px solid #b29d72'
+      navButton5.style.cssText = 'border: 3px solid #b29d72'
+      navButton6.style.cssText = 'border: 3px solid #b29d72'
       this.setState({ solid: false })
     }
   }
@@ -53,7 +92,7 @@ class Navbar extends React.Component {
     
     if (user) {
       return (
-      <StyledDrop item text={user.email}>
+      <StyledDrop item text={user.email} id='navButton7'>
         <Dropdown.Menu>
           <Dropdown.Item href="/profile">
             PROFILE
@@ -72,10 +111,10 @@ class Navbar extends React.Component {
     } else {
       return (
         <>
-          <StyledItem href="/login">
+          <StyledItem href="/login" id='navButton1'>
             LOGIN
           </StyledItem>
-          <StyledItem href="/register">
+          <StyledItem href="/register" id='navButton2'>
             REGISTER
           </StyledItem>
         </>
@@ -92,16 +131,16 @@ class Navbar extends React.Component {
           <StyledImg id="skyImg" src={venue.logo} width={320} />
         </Menu.Header>
         <Menu.Menu position="right">
-          <StyledItem href="/calendar">
+          <StyledItem href="/calendar" id='navButton3'>
             CALENDAR
           </StyledItem>
-          <StyledItem href="/">
+          <StyledItem href="/" id='navButton4'>
             PRIVATE EVENTS
           </StyledItem>
-          <StyledItem href="/">
+          <StyledItem href="/" id='navButton5'>
             VIP TABLES
           </StyledItem>
-          <StyledItem href="/cart">
+          <StyledItem href="/cart" id='navButton6'>
             CART
           </StyledItem>
 

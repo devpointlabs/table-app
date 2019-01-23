@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Form, Input, Select, } from 'semantic-ui-react';
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
-import { StyledButton, StyledImage, } from '../styles/Styles'
+import { StyledButton, StyledImage, StyledHeader } from '../styles/Styles'
 import axios from "axios";
 import { format } from 'date-fns'
 
@@ -112,37 +112,37 @@ class Ticketing extends React.Component {
               <Grid.Column width={8}>
                 <Grid>
                     <Grid.Row>
-                      <GridText>{time}, {date}</GridText>
+                      <GridText><StyledHeader>{time}, {date}</StyledHeader></GridText>
                     </Grid.Row>
                     <Grid.Row>
-                      <GridText large>{host}</GridText>
+                      <GridText large><StyledHeader fSize='large'>{host}</StyledHeader></GridText>
                     </Grid.Row>          
                     <HeaderRow>
                       <Grid.Column mobile={4} computer={4}>
                         <GridText large gray>
-                          Ticket Type
+                        <StyledHeader style={{paddingTop: '10px'}}>Ticket Type</StyledHeader>
                         </GridText>
                       </Grid.Column>
                       <Grid.Column mobile={4} computer={4}>
                         <GridText large gray>
-                          Price
+                          <StyledHeader style={{paddingTop: '10px'}}>Price</StyledHeader>
                         </GridText>
                       </Grid.Column>
                       <Grid.Column mobile={4} computer={4}>
                         <GridText large gray>
-                          QTY
+                        <StyledHeader style={{paddingTop: '10px'}}>QTY</StyledHeader>
                         </GridText>
                       </Grid.Column>
                       <Grid.Column mobile={4} computer={4}>
                         <GridText large gold gray>
-                          Reset QTY
+                        <StyledHeader style={{paddingTop: '10px'}}>Reset QTY</StyledHeader>
                         </GridText>
                       </Grid.Column>
                     </HeaderRow>
 
                     <Grid.Row>
-                        <Grid.Column mobile={4} computer={4}>Pre-Sale Gen.ADM</Grid.Column>
-                        <Grid.Column mobile={4} computer={4}>$25</Grid.Column>
+                        <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Pre-Sale Gen.ADM</StyledHeader></Grid.Column>
+                        <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$25</StyledHeader></Grid.Column>
                         
                         <Grid.Column mobile={4} computer={4}>
                           <Select compact placeholder='0' defaultValue={0} name="tier1" value={tier1} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -150,14 +150,14 @@ class Ticketing extends React.Component {
 
                         <Grid.Column mobile={4} computer={4}>
                           <StyledButton onClick={() => this.add_to_cart1()}>
-                            Add to cart
+                          <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>
                         </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row>
-                      <Grid.Column mobile={4} computer={4}>Pre-Sale Tier 2 Gen-ADM</Grid.Column>
-                      <Grid.Column mobile={4} computer={4}>$35</Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Pre-Sale Tier 2 Gen-ADM</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$35</StyledHeader></Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier2" value={tier2} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -165,14 +165,14 @@ class Ticketing extends React.Component {
 
                       <Grid.Column mobile={4} computer={4}>
                         <StyledButton onClick={() => this.add_to_cart2()}>
-                          Add to cart
+                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
                         </StyledButton>
                       </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row>
-                      <Grid.Column mobile={4} computer={4}>VIP Bar Card Package wit $50 Bar Card</Grid.Column>
-                      <Grid.Column mobile={4} computer={4}>$60</Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>VIP Bar Card Package wit $50 Bar Card</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$60</StyledHeader></Grid.Column>
                       
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier3" value={tier3} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -180,14 +180,14 @@ class Ticketing extends React.Component {
 
                       <Grid.Column mobile={4} computer={4}>
                         <StyledButton onClick={() => this.add_to_cart3()}>
-                          Add to cart
+                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
                         </StyledButton>
                       </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row>
-                      <Grid.Column mobile={4} computer={4}>Day Of Show General Admission</Grid.Column>
-                      <Grid.Column mobile={4} computer={4}>$40</Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Day Of Show General Admission</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$40</StyledHeader></Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier4" value={tier4} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -195,7 +195,7 @@ class Ticketing extends React.Component {
 
                       <Grid.Column mobile={4} computer={4}>
                         <StyledButton onClick={() => this.add_to_cart4()}>
-                          Add to cart
+                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
                         </StyledButton>
                       </Grid.Column>
                     </Grid.Row>
@@ -207,7 +207,7 @@ class Ticketing extends React.Component {
                           <Form.Field inline>
                             <label>
                               <GridText>
-                                Promo Code:
+                              <StyledHeader fSize='large'>Promo Code:</StyledHeader>
                               </GridText>
                             </label>
                             <Input />
