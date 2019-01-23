@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     resources :events
     get '/comingartists', to: 'events#comingartists'
-  end
-  namespace :api do
     resources :users, only: :update
+    put '/promote_to_admin', to: 'users#promote_to_admin'
+    put '/remove_as_admin', to: 'users#remove_as_admin'
+    get '/view_all_admins', to: 'users#view_all_admins'
   end
-
 end
