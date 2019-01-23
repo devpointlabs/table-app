@@ -17,6 +17,7 @@ export const StyledMenu = styled(Menu)`
   width: 100%;
   margin-top: 0px;
   top: 0px;
+  font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
 `;
 
 
