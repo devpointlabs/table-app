@@ -28,4 +28,49 @@ class Api::UsersController < ApplicationController
       render json: { errors: user.errors.full_messages }, status: 422
     end
   end
+
+  def promote_to_admin
+    user = User.find_by(email: params[:email])
+    if user
+      user.update(admin: true)
+      render json: {
+        status: 200, # 200 = OK
+        message: "User successfully promoted to Admin!",
+        color: 'green',
+        hide: ''
+      }
+    else
+      render json: {
+        status: 422, # 422 = Unprocessable Entity
+        message: 'Email not found',
+        color: 'red',
+        hide: ''
+      }.to_json
+    end
+  end
+
+  def remove_as_admin
+    user = User.find_by(email: params[:email])
+    if user
+      user.update(admin: false)
+      render json: {
+        status: 200, # 200 = OK
+        message: "User successfully removed as Admin!",
+        color: 'green',
+        hide: ''
+      }
+    else
+      render json: {
+        status: 422, # 422 = Unprocessable Entity
+        message: 'Email not found',
+        color: 'red',
+        hide: ''
+      }.to_json
+    end
+  end
+
+  def view_all_admins
+    @admins = User.where(admin: true)
+    render json: @admins
+  end
 end
