@@ -12,7 +12,7 @@ import UserDash from './components/UserDash';
 import EventForm from './components/EventForm';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from './components/AdminRoute';
-import { Container, } from "semantic-ui-react";
+import { Container, Responsive } from "semantic-ui-react";
 import { Route, Switch, } from "react-router-dom";
 import Ticketing from './components/Ticketing';
 import Cart from "./components/Cart";
@@ -26,6 +26,7 @@ import HeroManagement from './components/HeroManagement';
 import VirtualTour from './components/VirtualTour';
 import Reviews from './components/Reviews';
 import VenueForm from './components/VenueForm'
+import MobileNavbar from './components/MobileNavbar';
 import axios from 'axios';
 
 class App extends React.Component {
@@ -42,10 +43,17 @@ class App extends React.Component {
     document.title = this.state.venue.venue_name;
   }
 
+  Navbars = () => (
+    <div>
+      <Responsive maxWidth={425}><MobileNavbar /></Responsive>
+      <Responsive minWidth={426}><Navbar /></Responsive>
+    </div>
+  )
+
   render() {
     return(
-      <Fragment>
-      <Navbar />
+    <Fragment>
+      {this.Navbars()}
       <FetchUser>
         <Container fluid>
           <Switch >
