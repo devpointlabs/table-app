@@ -16,11 +16,11 @@ class Footer extends React.Component {
   render() {
     const { venue, } = this.state;
     return(
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '10px'}}>
         <Grid style={{ background: '#000000' }} stackable>
           <Grid.Column width={3}>
             <Grid.Row>
-              <StyledHeader fSize='small' style={{ fontSize: '80%', display: "flex", justifyContent: "center", paddingTop: '35px' }} textAlign="center">Lounge<Icon name='star' size='mini' style={{ paddingLeft: '2px'}}/>Events<Icon name='star' size='mini' style={{ paddingLeft: '2px'}} />Patio</StyledHeader>
+              <StyledHeader fSize='small' style={{ fontSize: '80%', display: "flex", justifyContent: "center", paddingTop: '25px' }} textAlign="center">Lounge<Icon name='star' size='mini' style={{ paddingLeft: '2px'}}/>Events<Icon name='star' size='mini' style={{ paddingLeft: '2px'}} />Patio</StyledHeader>
             </Grid.Row>
           </Grid.Column>
           <Grid.Column width={3}>

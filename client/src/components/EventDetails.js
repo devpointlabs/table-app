@@ -102,10 +102,8 @@ class EventDetails extends React.Component {
         </Grid.Column>
         <Grid.Column width={8}>
           <Container style={{paddingTop: '150px'}}>
-          <Button.Group>
           {user && user.admin ? this.editButton() : null }
           {user && user.admin ? this.deleteButton() : null }
-          </Button.Group>
             <StyledHeader fSize='large' underlined>{event.host}</StyledHeader>
             <StyledHeader>{date}</StyledHeader>
             <StyledHeader>{time}</StyledHeader>
