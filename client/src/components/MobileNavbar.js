@@ -16,53 +16,49 @@ class MobileNavbar extends React.Component {
       })
   }
   
-  // admin= () => {
-  //   const {user} = this.props.auth
-  //   if (user.admin) {
-  //     return(
-  //     <Dropdown.Item href="/admin-dashboard">
-  //       ADMIN DASHBOARD
-  //     </Dropdown.Item>
-  //     )
-  //   }
-  // }
+  admin= () => {
+    const {user} = this.props.auth
+    if (user.admin) {
+      return(
+      <Dropdown.Item href="/admin-dashboard">
+        ADMIN DASHBOARD
+      </Dropdown.Item>
+      )
+    }
+  }
 
 
-  // NavItems = () => {
-  //   const { user, handleLogout, } = this.props.auth;
-  //   const { venue } = this.state;
+  NavItems = () => {
+    const { user, handleLogout, } = this.props.auth;
     
-  //   if (user) {
-  //     return (
-  //     <StyledDrop item>
-  //       <Dropdown.Menu>
-  //         <Dropdown.Item href="/profile">
-  //           PROFILE
-  //         </Dropdown.Item>
-  //         <Dropdown.Item href="/userdash">
-  //           DASHBOARD
-  //         </Dropdown.Item>
-  //           {this.admin()}
-  //         <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
-  //          LOGOUT
-  //         </Dropdown.Item>
-  //       </Dropdown.Menu>
-  //     </StyledDrop>
-      
-  //     )
-  //   } else {
-  //     return (
-  //       <>
-  //         <StyledItem href="/login" id='navButton1'>
-  //           LOGIN
-  //         </StyledItem>
-  //         <StyledItem href="/register" id='navButton2'>
-  //           REGISTER
-  //         </StyledItem>
-  //       </>
-  //     )
-  //   }
-  // }
+    if (user) {
+      return (
+        <>
+          <Dropdown.Item href="/profile">
+            PROFILE
+          </Dropdown.Item>
+          <Dropdown.Item href="/userdash">
+            DASHBOARD
+          </Dropdown.Item>
+            { this.admin() }
+          <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
+           LOGOUT
+          </Dropdown.Item>
+        </>
+      )
+    } else {
+      return (
+          <>
+            <Dropdown.Item href="/login">
+              LOGIN
+            </Dropdown.Item>
+            <Dropdown.Item href="/register">
+              REGISTER
+            </Dropdown.Item>
+          </>
+      )
+    }
+  }
 
   
   render() {
@@ -86,6 +82,7 @@ class MobileNavbar extends React.Component {
             <Dropdown.Item href='/cart'>
               CART
             </Dropdown.Item>
+            { this.NavItems() }
           </Dropdown.Menu>
         </StyledDropMobile>
       </StyledMenu>
