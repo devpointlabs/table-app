@@ -21,9 +21,8 @@ class Api::RTicketsController < ApplicationController
   end
 
   def destroy
-    quantity = @ticket.quantity
     event = Event.find(id: @ticket.event_id)
-    quantity = event.available_tickets + quantity
+    quantity = event.available_tickets + @ticket.quantity
 
     @ticket.destroy
 
@@ -50,7 +49,7 @@ class Api::RTicketsController < ApplicationController
     end
 
     def event_params
-      params.require(:r_ticket).permit(:event_id, :quantity, :ticket_type)
+      params.require(:r_ticket).permit(:event_id, :quantity, :ticket_type, :price)
     end
 
 end

@@ -26,7 +26,7 @@ class Cart extends React.Component {
     this.state.tickets.map( t => (
       t.event_date = format(
         new Date(t.event_date),
-        'MMMM Do'
+        'MMM Do'
       ),
     this.setState({ event_date: t.event_date, },
       //  () => this.timeFormat()
@@ -46,11 +46,13 @@ class Cart extends React.Component {
     const { tickets } = this.state
     return(
     tickets.map( t => (
-        <Table.Row>
+        <Table.Row textAlign="center">
           <Table.Cell content={t.event_date}/>
           <Table.Cell content={t.host}/>
           <Table.Cell content={t.quantity}/>
-          <Table.Cell content={t.price}/>
+          <Table.Cell>
+            ${t.price}
+          </Table.Cell>
           <Table.Cell>${t.quantity * t.price}</Table.Cell>  
           <Table.Cell>
             <Button inverted basic icon>
