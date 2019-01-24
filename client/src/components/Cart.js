@@ -18,9 +18,20 @@ class Cart extends React.Component {
     .then( res => {
       this.setState({ tickets: [...res.data] }, () => this.dateFormat());
     })
+        .then ( res => {
+          this.calculate()
+    })
     .catch( err => {
       console.log(err);
     })
+  }
+
+  calculate = () => {
+    this.setState({total: 0})
+    this.state.tickets.map( t => (
+      this.setState({ total: this.state.total + (t.price * t.quantity)})
+
+    ))
   }
 
   dateFormat = () => {
@@ -66,11 +77,6 @@ class Cart extends React.Component {
   }
 
   render () {
-    let subtotal = 0
-    this.state.tickets.map( t => {
-      const { quantity, price } = t
-      subtotal = subtotal + (quantity * price)
-    })
 
     return(
       <StyledSegment basic>
@@ -113,7 +119,7 @@ class Cart extends React.Component {
           <Grid.Row > 
             <Grid.Column textAlign="center">
               <h4>Subtotal:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.total}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Surcharge:</h4>
