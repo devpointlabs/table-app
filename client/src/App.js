@@ -45,8 +45,8 @@ class App extends React.Component {
 
   Navbars = () => (
     <div>
-      <Responsive maxWidth={425}><MobileNavbar /></Responsive>
-      <Responsive minWidth={426}><Navbar /></Responsive>
+      <Responsive maxWidth={1000}><MobileNavbar /></Responsive>
+      <Responsive minWidth={1001}><Navbar /></Responsive>
     </div>
   )
 
