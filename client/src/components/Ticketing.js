@@ -21,6 +21,10 @@ class Ticketing extends React.Component {
     description: "",
     event_time: "",
     available_tickets: 0,
+    t1_price: 0,
+    t2_price: 0,
+    t3_price: 0,
+    t4_price: 0,
     tier1: 0,
     tier2: 0,
     tier3: 0,
@@ -36,6 +40,7 @@ class Ticketing extends React.Component {
       console.log(err);
     })
   }
+  
 
   handleChange = (e, data) => {
     this.setState({ [data.name]: data.value });
@@ -65,7 +70,7 @@ class Ticketing extends React.Component {
   }
 
   add_to_cart1 = () => {
-    let r_ticket = {event_id: this.state.id, quantity: this.state.tier1, ticket_type: "tier1"}
+    let r_ticket = {event_id: this.state.id, quantity: this.state.tier1, ticket_type: "tier1", price: this.state.t1_price}
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier1: 0, });
@@ -73,7 +78,7 @@ class Ticketing extends React.Component {
       })
 }
   add_to_cart2 = () => {
-    let r_ticket = {event_id: this.state.id, quantity: this.state.tier2, type: "tier2"}
+    let r_ticket = {event_id: this.state.id, quantity: this.state.tier2, type: "tier2", price: this.state.t2_price}
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier2: 0, });
@@ -82,7 +87,7 @@ class Ticketing extends React.Component {
 }
 
   add_to_cart3 = () => {
-    let r_ticket = {event_id: this.state.id, quantity: this.state.tier3, type: "tier3"}
+    let r_ticket = {event_id: this.state.id, quantity: this.state.tier3, type: "tier3", price: this.state.t3_price}
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier3: 0, });
@@ -91,7 +96,7 @@ class Ticketing extends React.Component {
 }
 
   add_to_cart4 = () => {
-    let r_ticket = {event_id: this.state.id, quantity: this.state.tier4, type: "tier4"}
+    let r_ticket = {event_id: this.state.id, quantity: this.state.tier4, type: "tier4", price: this.state.t4_price}
     axios.post(`/api/r_tickets`, r_ticket )
       .then (res => {
         this.setState({ tier4: 0, });
@@ -100,7 +105,7 @@ class Ticketing extends React.Component {
 }
   
   render () {
-    const { host, image_url, date, time, tier1, tier2, tier3, tier4, available_tickets} = this.state
+    const { host, image_url, date, time, tier1, tier2, tier3, tier4, available_tickets, t1_price, t2_price, t3_price, t4_price} = this.state
     return(
       <StyledSegment basic>
         <GridText small>
@@ -142,7 +147,7 @@ class Ticketing extends React.Component {
 
                     <Grid.Row>
                         <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Pre-Sale Gen.ADM</StyledHeader></Grid.Column>
-                        <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$25</StyledHeader></Grid.Column>
+                        <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>${t1_price}</StyledHeader></Grid.Column>
                         
                         <Grid.Column mobile={4} computer={4}>
                           <Select compact placeholder='0' defaultValue={0} name="tier1" value={tier1} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -157,7 +162,7 @@ class Ticketing extends React.Component {
 
                     <Grid.Row>
                       <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Pre-Sale Tier 2 Gen-ADM</StyledHeader></Grid.Column>
-                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$35</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>${t2_price}</StyledHeader></Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier2" value={tier2} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -172,7 +177,7 @@ class Ticketing extends React.Component {
 
                     <Grid.Row>
                       <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>VIP Bar Card Package wit $50 Bar Card</StyledHeader></Grid.Column>
-                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$60</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>${t3_price}</StyledHeader></Grid.Column>
                       
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier3" value={tier3} onChange={this.handleChange} options={gen(available_tickets)} />
@@ -187,7 +192,7 @@ class Ticketing extends React.Component {
 
                     <Grid.Row>
                       <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>Day Of Show General Admission</StyledHeader></Grid.Column>
-                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>$40</StyledHeader></Grid.Column>
+                      <Grid.Column mobile={4} computer={4}><StyledHeader fSize='small'>${t4_price}</StyledHeader></Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
                         <Select compact placeholder='0' defaultValue={0} name="tier4" value={tier4} onChange={this.handleChange} options={gen(available_tickets)} />
