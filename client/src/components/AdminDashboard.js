@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledButton } from '../styles/Styles'
 import { Icon } from 'semantic-ui-react'
-import { Form, Message, Grid, Divider, List } from 'semantic-ui-react';
+import { Form, Message, Grid, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import axios from "axios";
