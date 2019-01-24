@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_212053) do
+ActiveRecord::Schema.define(version: 2019_01_24_041311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 2019_01_21_212053) do
     t.string "description"
     t.datetime "event_time"
     t.integer "available_tickets"
+    t.integer "t1_price"
+    t.integer "t2_price"
+    t.integer "t3_price"
+    t.integer "t4_price"
   end
 
   create_table "hero_images", force: :cascade do |t|
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_212053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ticket_type"
+    t.integer "price"
     t.index ["cart_id"], name: "index_r_tickets_on_cart_id"
     t.index ["event_id"], name: "index_r_tickets_on_event_id"
   end
