@@ -1,6 +1,12 @@
 class Api::CartsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    render json: current_user.cart.r_tickets.ticketinfo
+    
+
+  end
+
   def create
     cart = current_user.build_cart
 

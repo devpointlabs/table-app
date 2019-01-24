@@ -1,27 +1,54 @@
 import React from 'react';
 import { Table, Grid, Divider, Button, Icon, Segment, Header, Container } from 'semantic-ui-react';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
+import axios from "axios"
+import { AuthConsumer, } from "../providers/AuthProvider";
+import { format } from 'date-fns'
 
 
 class Cart extends React.Component {
 
   state = { tickets : [
-    {date: "Jan 1" , tEvent: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
-    {date: "Jan 1" , tEvent: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
-    {date: "Jan 1" , tEvent: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
-    {date: "Jan 1" , tEvent: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
-
-
+    // {date: "Jan 1st" , event_date: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
   ] }
 
+  componentDidMount() {
+    axios.get(`/api/users/${this.props.auth.user.id}/cart`)
+    .then( res => {
+      this.setState({ tickets: [...res.data] }, () => this.dateFormat());
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
+
+  dateFormat = () => {
+    this.state.tickets.map( t => (
+      t.event_date = format(
+        new Date(t.event_date),
+        'MMMM Do'
+      ),
+    this.setState({ event_date: t.event_date, },
+      //  () => this.timeFormat()
+    )
+    ))
+  }
+
+  timeFormat = () => {
+    var tresult = format(
+      new Date(this.state.event_time),
+      'h:mm A'
+    )
+    this.setState({ time: tresult, })
+  }
 
   rendertickets () {
     const { tickets } = this.state
     return(
     tickets.map( t => (
         <Table.Row>
-          <Table.Cell content={t.date}/>
-          <Table.Cell content={t.tEvent}/>
+          <Table.Cell content={t.event_date}/>
+          <Table.Cell content={t.host}/>
           <Table.Cell content={t.quantity}/>
           <Table.Cell content={t.price}/>
           <Table.Cell>${t.quantity * t.price}</Table.Cell>  
@@ -106,4 +133,16 @@ class Cart extends React.Component {
   }
 };
 
-export default Cart;
+export class ConnectedCart extends React.Component {
+  render() {
+    return (
+      <AuthConsumer>
+        { auth =>
+          <Cart {...this.props} auth={auth} />
+        }
+      </AuthConsumer>
+    )
+  }
+}
+
+export default ConnectedCart;

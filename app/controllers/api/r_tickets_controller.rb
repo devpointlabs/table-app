@@ -1,6 +1,7 @@
 class Api::RTicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event
+  before_action :set_event, except: :destroy
+  before_action :set_ticket, only: :destroy
   before_action :set_cart
   
   def create
@@ -19,10 +20,29 @@ class Api::RTicketsController < ApplicationController
     end
   end
 
+  def destroy
+    quantity = @ticket.quantity
+    event = Event.find(id: @ticket.event_id)
+    quantity = event.available_tickets + quantity
+
+    @ticket.destroy
+
+    if event.update(available_tickets: quantity)
+      render json: event
+    else
+      render json: event.errors, status: 422
+    end
+
+  end
+
   private
 
     def set_cart
       @cart = current_user.cart
+    end
+
+    def set_ticket
+      @ticket = R_Ticket.find(params[:id])
     end
 
     def set_event
