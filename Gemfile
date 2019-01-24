@@ -14,6 +14,8 @@ gem "devise_token_auth"
 gem 'cloudinary'
 # Payments
 gem 'braintree'
+# Jobs
+gem 'whenever', require: false
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console

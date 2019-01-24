@@ -2,6 +2,7 @@ class Api::EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
   def index
+    EventExpiration.set(wait: 5.seconds).perform_later 1,2,3
     render json: Event.all.order(event_date: :desc)
   end
 
@@ -58,8 +59,13 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
+    
     @event.destroy
   end
+
+  # def expire
+
+  # end
 
   private
     def set_event
