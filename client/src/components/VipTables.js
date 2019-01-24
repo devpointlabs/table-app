@@ -46,7 +46,9 @@ class VipTables extends React.Component {
             We give our patrons the opportunity to see world class shows in an intimate and eclectic setting. VIP Table Service allows you to experience these events by reserving your own private space, skipping the lines at the door, avoiding the lines at the bar, and most importantly, enjoying the show with the people you came to see it with. Whether you like to be the center of attention or enjoy the show privately from above, we’ve got the spot for you!
           </StyledHeader>
         </Segment>
-        <ReservationsForm />
+        <Container>
+        <ReservationsForm history={this.props.history}  />
+        </Container>
       </StyledSegment>
       </>
     )

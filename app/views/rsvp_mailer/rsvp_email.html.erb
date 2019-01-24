@@ -1,0 +1,9 @@
+<h1>New RSVP for <%= @rsvp.date %></h1>
+<p>
+  <%= @rsvp.name %> has requested a table on <%= @rsvp.date %> for <%= @rsvp.size %> people.
+  <%= @rsvp.name%>'s email is <%= @rsvp.email %> and phone # is <%= @rsvp.phone %>
+
+  Their additional comments were: 
+
+  <%= @rsvp.notes %>
+</p>
