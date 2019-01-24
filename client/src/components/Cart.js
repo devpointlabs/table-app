@@ -27,9 +27,16 @@ class Cart extends React.Component {
   }
 
   calculate = () => {
-    this.setState({total: 0})
+    this.setState({subtotal: 0, surcharge: 2, IETax: 3, salesTax: 4, venueFee: 5, total: 0, })
     this.state.tickets.map( t => (
-      this.setState({ total: this.state.total + (t.price * t.quantity)})
+      this.setState({ subtotal: this.state.subtotal + (t.price * t.quantity)}),
+      
+      this.setState({ surcharge: this.state.subtotal * 0.05}),
+      this.setState({ IETax: this.state.subtotal * 0.05}),
+      this.setState({ salesTax: this.state.subtotal * 0.08}),
+      this.setState({ venueFee: this.state.subtotal * 0.1}),
+      this.setState({ total: this.state.subtotal + this.state.surcharge + this.state.IETax + this.state.salesTax + this.state.venueFee})
+
 
     ))
   }
@@ -119,27 +126,27 @@ class Cart extends React.Component {
           <Grid.Row > 
             <Grid.Column textAlign="center">
               <h4>Subtotal:</h4>
-              <h4>${this.state.total}</h4>
+              <h4>${this.state.subtotal}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Surcharge:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.surcharge}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Inc. Ent. Tax:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.IETax}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Sales Tax:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.salesTax}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Venue Fee:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.venueFee}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h3>Total:</h3>
-              <h3>$0.00</h3>
+              <h3>${this.state.total}</h3>
             </Grid.Column>
           </Grid.Row>
         </Grid>
