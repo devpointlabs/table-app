@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledButton } from '../styles/Styles'
 import { Icon } from 'semantic-ui-react'
-import { Button, Form, Message } from 'semantic-ui-react';
+import { Form, Message, Grid, Divider, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import axios from "axios";
@@ -80,28 +80,39 @@ class AdminDashboard extends React.Component {
         </Link>
         <br />
         <br />
-        <Form>
-          <label>email</label>
-          <Form.Input
-          name="email"
-          placeholder="email@email.com"
-          required
-          value={email}
-          onChange={this.handleChange}
-          />
-          <StyledButton onClick={this.promoteToAdmin}>
-            + Add user as admin
-          </StyledButton>
-          <StyledButton onClick={this.removeAsAdmin}>
-            - Remove as admin
-          </StyledButton>
-        </Form>
-        <h2>Admins</h2>
-        { admins.map( admin => 
-          <h3>
-           { admin.first_name } { admin.last_name } { admin.email } 
-          </h3>
-        )}
+        <br />
+        <br />
+        <Grid columns={2} stackable textAlign='center'>
+          <Form>
+            <h1>email</h1>
+            <Form.Input
+            name="email"
+            placeholder="email@email.com"
+            required
+            value={email}
+            onChange={this.handleChange}
+            />
+            <StyledButton onClick={this.promoteToAdmin}>
+              + Add user as admin
+            </StyledButton>
+            <StyledButton onClick={this.removeAsAdmin}>
+              - Remove as admin
+            </StyledButton>
+          </Form>
+          <List>
+            <h2>Admins</h2>
+            { admins.map( admin => 
+            <li>
+              <strong>
+                { admin.first_name } { admin.last_name }
+              </strong>
+              <br />
+              { admin.email }
+              <br /><br />
+            </li>
+            )}
+          </List>
+        </Grid>
       </StyledSegment>
     )
   }
