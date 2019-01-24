@@ -56,6 +56,9 @@ export const StyledHeader = styled(Header)`
   font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
+  color: ${props => props.gray ? 'gray !important' : 'white !important'}
+  text-align: ${props => props.centered ? 'center !important' : 'none'}
+  line-height: ${props => props.spaced ? '30px !important' : 'none' };
 `;
 
 // bordered adds colored border
