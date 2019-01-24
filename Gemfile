@@ -15,7 +15,7 @@ gem 'cloudinary'
 # Payments
 gem 'braintree'
 # Jobs
-# gem 'whenever'
+gem 'whenever', require: false
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
