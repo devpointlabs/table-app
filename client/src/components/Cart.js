@@ -1,6 +1,7 @@
 import React from 'react';
-import { Table, Grid, Divider, Button, Icon, Segment, Header, Container } from 'semantic-ui-react';
+import { Table, Grid, Divider, Icon, Segment, Header, Container } from 'semantic-ui-react';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
+import { StyledButton, StyledHeader } from '../styles/Styles'
 import axios from "axios"
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { format } from 'date-fns'
@@ -54,10 +55,10 @@ class Cart extends React.Component {
             ${t.price}
           </Table.Cell>
           <Table.Cell>${t.quantity * t.price}</Table.Cell>  
-          <Table.Cell>
-            <Button inverted basic icon>
+          <Table.Cell width={1}>
+            <StyledButton icon>
               <Icon name="times"/>
-            </Button>
+            </StyledButton>
           </Table.Cell>
         </Table.Row>
       ))
@@ -73,25 +74,35 @@ class Cart extends React.Component {
 
     return(
       <StyledSegment basic>
-        <Segment inverted basic>
-          <Button inverted color="yellow">
+        <Segment textAlign="center" inverted basic>
+          <StyledHeader fontSize='large'>Shopping Cart
+          <StyledButton>
             <Icon name="shopping cart" />
             Continue Shopping
-          </Button>
-          <Header floated="left" as="h1">Shopping Cart</Header>
+          </StyledButton>
+          </StyledHeader>
         </Segment>
         <h1>Tickets</h1>
         <Divider/>
         <Container>
-        <Table inverted celled>
+        <Table basic="very" inverted collapsing celled>
           <Table.Header>
             <Table.Row textAlign="center">
-              <Table.Cell width={1} content="Date" />
-              <Table.Cell width={4} content="Event" />
-              <Table.Cell width={2} content="QTY." />
-              <Table.Cell width={2} content="Price" />
-              <Table.Cell width={2} content="Amount" />
-              {/* <Table.Cell width={1}/> */}
+              <Table.HeaderCell width={1} content="Date">
+                <Header inverted>Date</Header>
+              </Table.HeaderCell>
+              <Table.HeaderCell width={2} content="Event">
+                <Header inverted>Event</Header>
+              </Table.HeaderCell>
+              <Table.HeaderCell width={1} content="QTY.">
+                <Header inverted>QTY.</Header>
+              </Table.HeaderCell>
+              <Table.HeaderCell width={1} content="Price">
+                <Header inverted>Price</Header>
+              </Table.HeaderCell>
+              <Table.HeaderCell width={1} content="Amount">
+                <Header inverted>Amount</Header>
+              </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -126,9 +137,9 @@ class Cart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Button fluid inverted color="yellow">
+        <StyledButton fluid>
           <Icon inverted name="check"/> Checkout
-        </Button>
+        </StyledButton>
         </Container>
       </StyledSegment>
     )
