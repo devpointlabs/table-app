@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :hero_images
     resources :settings
     resources :r_tickets
+    resources :rsvps, only: :create
 
     get '/braintree_token', to: 'braintree#token'
     post '/payment', to: 'braintree#payment'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     resources :users, only: :update do
       resource :cart
     end
+    
     get '*other', to: 'static#index'
   end
   get '*other', to: 'static#index'

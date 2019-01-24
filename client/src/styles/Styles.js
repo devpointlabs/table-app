@@ -38,6 +38,8 @@ export const StyledButton = styled(Button)`
 
 const fontSize = (size) => {
   switch(size) {
+    case 'huge':
+      return '60px';
     case 'large':
       return '30px';
     case 'small':

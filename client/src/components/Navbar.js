@@ -1,9 +1,10 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { withRouter, } from 'react-router-dom'
-import { Dropdown, Menu } from 'semantic-ui-react';
+import { Dropdown, Menu, Image } from 'semantic-ui-react';
 import { StyledMenu, StyledItem, StyledDrop, StyledImg } from '../styles/navbarstyle';
 import axios from 'axios';
+import Cart from '../images/shopping-cart.svg'
 import '../App.css'
 
 class Navbar extends React.Component {
@@ -137,11 +138,11 @@ class Navbar extends React.Component {
           <StyledItem href="/" id='navButton4'>
             PRIVATE EVENTS
           </StyledItem>
-          <StyledItem href="/" id='navButton5'>
+          <StyledItem href="/viptables" id='navButton5'>
             VIP TABLES
           </StyledItem>
           <StyledItem href="/cart" id='navButton6'>
-            CART
+            <Image src={Cart} style={{width: '15px'}} />
           </StyledItem>
 
         { this.NavItems() }
