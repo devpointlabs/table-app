@@ -28,6 +28,7 @@ import Reviews from './components/Reviews';
 import VenueForm from './components/VenueForm'
 import MobileNavbar from './components/MobileNavbar';
 import axios from 'axios';
+import VipTables from './components/VipTables';
 
 class App extends React.Component {
   state = { venue: [], }
@@ -76,6 +77,7 @@ class App extends React.Component {
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/virtual_tour' component={VirtualTour} />
             <Route exact path='/reviews' component={Reviews} />
+            <Route exact path='/viptables' component={VipTables} />
             <Route component={NoMatch} />
           </Switch>
         </Container>

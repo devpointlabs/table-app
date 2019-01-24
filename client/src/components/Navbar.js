@@ -137,7 +137,7 @@ class Navbar extends React.Component {
           <StyledItem href="/" id='navButton4'>
             PRIVATE EVENTS
           </StyledItem>
-          <StyledItem href="/" id='navButton5'>
+          <StyledItem href="/viptables" id='navButton5'>
             VIP TABLES
           </StyledItem>
           <StyledItem href="/cart" id='navButton6'>
