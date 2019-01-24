@@ -89,12 +89,12 @@ class AdminDashboard extends React.Component {
           value={email}
           onChange={this.handleChange}
           />
-          <Button inverted color='green' onClick={this.promoteToAdmin}>
+          <StyledButton onClick={this.promoteToAdmin}>
             + Add user as admin
-          </Button>
-          <Button inverted color='red' onClick={this.removeAsAdmin}>
+          </StyledButton>
+          <StyledButton onClick={this.removeAsAdmin}>
             - Remove as admin
-          </Button>
+          </StyledButton>
         </Form>
         <h2>Admins</h2>
         { admins.map( admin => 

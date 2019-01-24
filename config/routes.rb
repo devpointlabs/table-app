@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     post '/payment', to: 'braintree#payment'
     get '/comingartists', to: 'events#comingartists'
     get '/heroimages', to: 'hero_images#all'
-    get '*other', to: 'static#index'
     put '/promote_to_admin', to: 'users#promote_to_admin'
     put '/remove_as_admin', to: 'users#remove_as_admin'
     get '/view_all_admins', to: 'users#view_all_admins'
@@ -20,4 +19,5 @@ Rails.application.routes.draw do
       resource :cart
     end
   end
+  get '*other', to: 'static#index'
 end
