@@ -154,10 +154,16 @@ class Ticketing extends React.Component {
                         </Grid.Column>
 
                         <Grid.Column mobile={4} computer={4}>
-                          <StyledButton onClick={() => this.add_to_cart1()}>
-                          <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                        {tier1 == 0 ?
+                          <StyledButton disabled>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>
-                        </Grid.Column>
+                        :
+                          <StyledButton onClick={() => this.add_to_cart1()}>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        }
+                      </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row>
@@ -169,9 +175,15 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        <StyledButton onClick={() => this.add_to_cart2()}>
-                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
-                        </StyledButton>
+                        {tier2 == 0 ?
+                          <StyledButton disabled>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        :
+                          <StyledButton onClick={() => this.add_to_cart2()}>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        }
                       </Grid.Column>
                     </Grid.Row>
 
@@ -184,9 +196,15 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        <StyledButton onClick={() => this.add_to_cart3()}>
-                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
-                        </StyledButton>
+                        {tier3 == 0 ?
+                          <StyledButton disabled>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        :
+                          <StyledButton onClick={() => this.add_to_cart3()}>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        }
                       </Grid.Column>
                     </Grid.Row>
 
@@ -199,13 +217,19 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        <StyledButton onClick={() => this.add_to_cart4()}>
-                        <StyledHeader fSize='small'>Add to cart</StyledHeader>
-                        </StyledButton>
+                        {tier4 == 0 ?
+                          <StyledButton disabled>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        :
+                          <StyledButton onClick={() => this.add_to_cart4()}>
+                            <StyledHeader fSize='small'>Add to cart</StyledHeader>
+                          </StyledButton>
+                        }
                       </Grid.Column>
                     </Grid.Row>
 
-                    <Grid.Row>
+                    {/* <Grid.Row>
                       <Grid.Column width={16}>
                         <Form>
                           <Form.Group width="equal">
@@ -221,7 +245,7 @@ class Ticketing extends React.Component {
                           </Form.Group>
                         </Form>
                       </Grid.Column>
-                    </Grid.Row>
+                    </Grid.Row> */}
                 </Grid>
               </Grid.Column>
             </Grid>
