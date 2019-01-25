@@ -9,18 +9,45 @@ import { format } from 'date-fns'
 
 class Cart extends React.Component {
 
-  state = { tickets : [
-    // {date: "Jan 1st" , event_date: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
-  ] }
+  state = { 
+    tickets : [
+      {event_date: "Jan 1st" , host: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
+    ],
+    subtotal: 0,
+    surcharge: 2,
+    IETax: 3,
+    salesTax: 4,
+    venueFee: 5,
+    total: 0, 
+  }
 
   componentDidMount() {
     axios.get(`/api/users/${this.props.auth.user.id}/cart`)
     .then( res => {
       this.setState({ tickets: [...res.data] }, () => this.dateFormat());
     })
+        .then ( res => {
+          this.calculate()
+    })
     .catch( err => {
       console.log(err);
     })
+  }
+
+  calculate = () => {
+    this.setState({subtotal: 0, surcharge: 2, IETax: 3, salesTax: 4, venueFee: 5, total: 0, })
+    this.state.tickets.map( t => (
+      this.setState({ subtotal: this.state.subtotal + (t.price * t.quantity)}),
+      this.setState({ 
+        surcharge: this.state.subtotal * 0.05,
+        IETax: this.state.subtotal * 0.05,
+        salesTax: this.state.subtotal * 0.08,
+        venueFee: this.state.subtotal * 0.1
+      }),
+      this.setState({ total: this.state.subtotal + this.state.surcharge + this.state.IETax + this.state.salesTax + this.state.venueFee})
+
+
+    ))
   }
 
   dateFormat = () => {
@@ -66,11 +93,6 @@ class Cart extends React.Component {
   }
 
   render () {
-    let subtotal = 0
-    this.state.tickets.map( t => {
-      const { quantity, price } = t
-      subtotal = subtotal + (quantity * price)
-    })
 
     return(
       <StyledSegment basic>
@@ -113,27 +135,27 @@ class Cart extends React.Component {
           <Grid.Row > 
             <Grid.Column textAlign="center">
               <h4>Subtotal:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.subtotal}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Surcharge:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.surcharge}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Inc. Ent. Tax:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.IETax}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Sales Tax:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.salesTax}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h4>Venue Fee:</h4>
-              <h4>$0.00</h4>
+              <h4>${this.state.venueFee}</h4>
             </Grid.Column>
             <Grid.Column textAlign="center">
               <h3>Total:</h3>
-              <h3>$0.00</h3>
+              <h3>${this.state.total}</h3>
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     resources :users, only: :update do
       resource :cart
     end
-    
-    get '*other', to: 'static#index'
   end
   get '*other', to: 'static#index'
 end
