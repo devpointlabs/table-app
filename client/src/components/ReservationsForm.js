@@ -24,6 +24,7 @@ class ReservationsForm extends React.Component {
     e.preventDefault();
     axios.post(`/api/rsvps`, rsvp)
       .then( res => {
+        window.alert('Request submitted to venue')
         this.props.history.go(`/`)
       })
   }
