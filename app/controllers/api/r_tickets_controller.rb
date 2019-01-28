@@ -21,6 +21,7 @@ class Api::RTicketsController < ApplicationController
   end
 
   def destroy
+    
     event = Event.find(@ticket.event_id)
     quantity = event.available_tickets + @ticket.quantity
     

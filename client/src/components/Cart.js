@@ -16,10 +16,10 @@ class Cart extends React.Component {
     ],
     isOpen: false,
     subtotal: 0,
-    surcharge: 2,
-    IETax: 3,
-    salesTax: 4,
-    venueFee: 5,
+    surcharge: 0,
+    IETax: 0,
+    salesTax: 0,
+    venueFee: 0,
     total: 0, 
   }
 
@@ -37,7 +37,7 @@ class Cart extends React.Component {
   }
 
   calculate = () => {
-    this.setState({subtotal: 0, surcharge: 2, IETax: 3, salesTax: 4, venueFee: 5, total: 0, })
+    this.setState({subtotal: 0, surcharge: 0, IETax: 0, salesTax: 0, venueFee: 0, total: 0, })
     this.state.tickets.map( t => (
       this.setState({ subtotal: this.state.subtotal + (t.price * t.quantity)}),
       this.setState({ 
