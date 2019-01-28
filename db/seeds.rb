@@ -7,6 +7,7 @@
     email: "admin@admin.com",
     password: "password",
     password_confirmation: "password",
+    city: "City",
     admin: true
   )
 
@@ -16,6 +17,7 @@
     email: "test@test.com",
     password: "password",
     password_confirmation: "password",
+    city: "City",
     admin: false
   )
 
