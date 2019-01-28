@@ -103,6 +103,10 @@ class Ticketing extends React.Component {
         this.decrement_available(r_ticket.quantity)
       })
 }
+
+  reset = () => {
+    this.setState({ tier1: 0, tier2: 0, tier3: 0, tier4: 0})
+  }
   
   render () {
     const { host, image_url, date, time, tier1, tier2, tier3, tier4, available_tickets, t1_price, t2_price, t3_price, t4_price} = this.state
@@ -140,7 +144,7 @@ class Ticketing extends React.Component {
                       </Grid.Column>
                       <Grid.Column mobile={4} computer={4}>
                         <GridText large gold gray>
-                        <StyledHeader style={{paddingTop: '10px'}}>Reset QTY</StyledHeader>
+                        <StyledButton onClick={() => {this.reset()}} style={{paddingTop: '10px'}}>Reset QTY</StyledButton>
                         </GridText>
                       </Grid.Column>
                     </HeaderRow>

@@ -5,3 +5,4 @@ class Api::MyTicketController < ApplicationController
       current_user.my_tickets.new(quantity:quantity, event_id:event_id)
   end
 end
+
