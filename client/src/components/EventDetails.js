@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, Image, Modal } from 'semantic-ui-react';
+import { Grid, Container, Image, Modal, Button } from 'semantic-ui-react';
 import EventForm from './EventForm';
 import { StyledImage, StyledButton, StyledHeader } from '../styles/Styles'
 import axios from 'axios';
@@ -130,9 +130,10 @@ class EventDetails extends React.Component {
         </Grid.Column>
         <Grid.Column width={8}>
           <Container style={{paddingTop: '150px'}}>
-          {user && user.admin ? this.editButton() : null }
-          {user && user.admin ? this.deleteButton() : null }
-          {user && user.admin ? this.expiredButton() : null }
+          <Button.Group>
+            {user && user.admin ? this.editButton() : null }
+            {user && user.admin ? this.deleteButton() : null }
+            {user && user.admin ? this.expiredButton() : null }
           </Button.Group>
             <StyledHeader fSize='large' underlined>{event.host}</StyledHeader>
             <StyledHeader>{date}</StyledHeader>
