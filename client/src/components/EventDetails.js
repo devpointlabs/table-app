@@ -95,16 +95,16 @@ class EventDetails extends React.Component {
       <div>
       <Modal open={isOpen} centered>
         <Modal.Header>
-          <Header as='h2'>Dress Code</Header>
+          <StyledHeader textAlign='center' black fSize='large'>Dress Code</StyledHeader>
         </Modal.Header>
         <Modal.Content>
-            <Header as='h3'>{event.dress_code}</Header>
+            <StyledHeader black>{event.dress_code}</StyledHeader>
           <StyledButton onClick={() => this.handleOpen()}>Close</StyledButton>
         </Modal.Content>
       </Modal>
       <Modal open={tableOpen} centered>
         <Modal.Header>
-          <Header as='h2'>VIP Table Layout</Header>
+          <StyledHeader black textAlign='center' fSize='large'>VIP Table Layout</StyledHeader>
         </Modal.Header>
         <Modal.Content>
           <Image src={FloorPlan} style={{margin: 'auto'}} />
