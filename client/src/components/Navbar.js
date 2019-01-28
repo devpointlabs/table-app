@@ -26,7 +26,7 @@ class Navbar extends React.Component {
       navButton1 = document.getElementById("navButton1"),
       navButton2 = document.getElementById("navButton2"),
       navButton3 = document.getElementById("navButton3"),
-      navButton4 = document.getElementById("navButton4"),
+      // navButton4 = document.getElementById("navButton4"),
       navButton5 = document.getElementById("navButton5"),
       navButton6 = document.getElementById("navButton6"),
       navButton7 = document.getElementById("navButton7")
@@ -38,7 +38,7 @@ class Navbar extends React.Component {
       this.setState({ solid: true })
       skyImg.style.height = "52px"
       navButton3.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
-      navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      // navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton5.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton6.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton7.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
@@ -51,14 +51,14 @@ class Navbar extends React.Component {
       navButton1.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton2.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton3.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
-      navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      // navButton4.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
       navButton5.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
-      navButton6.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
+      // navButton6.style.cssText = 'border: 3px solid rgba(0, 0, 0, 0.5)'
     } else if (this.props.auth.user && distanceY < shrinkOn) {
       navMenu.style.height = "130px"
       skyImg.style.height = "130px"
       navButton3.style.cssText = 'border: 3px solid #b29d72'
-      navButton4.style.cssText = 'border: 3px solid #b29d72'
+      // navButton4.style.cssText = 'border: 3px solid #b29d72'
       navButton5.style.cssText = 'border: 3px solid #b29d72'
       navButton6.style.cssText = 'border: 3px solid #b29d72'
       navButton7.style.cssText = 'border: 3px solid #b29d72'
@@ -69,9 +69,9 @@ class Navbar extends React.Component {
       navButton1.style.cssText = 'border: 3px solid #b29d72'
       navButton2.style.cssText = 'border: 3px solid #b29d72'
       navButton3.style.cssText = 'border: 3px solid #b29d72'
-      navButton4.style.cssText = 'border: 3px solid #b29d72'
+      // navButton4.style.cssText = 'border: 3px solid #b29d72'
       navButton5.style.cssText = 'border: 3px solid #b29d72'
-      navButton6.style.cssText = 'border: 3px solid #b29d72'
+      // navButton6.style.cssText = 'border: 3px solid #b29d72'
       this.setState({ solid: false })
     }
   }
