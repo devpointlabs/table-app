@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Form, Input, Select, } from 'semantic-ui-react';
+import { Grid, Form, Select, } from 'semantic-ui-react';
 import { GridText, HeaderRow, } from "../styles/ticketingstyle"
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import { StyledButton, StyledImage, StyledHeader } from '../styles/Styles'
@@ -154,7 +154,7 @@ class Ticketing extends React.Component {
                         </Grid.Column>
 
                         <Grid.Column mobile={4} computer={4}>
-                        {tier1 == 0 ?
+                        {tier1 === 0 ?
                           <StyledButton disabled>
                             <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>
@@ -175,7 +175,7 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        {tier2 == 0 ?
+                        {tier2 === 0 ?
                           <StyledButton disabled>
                             <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>
@@ -196,7 +196,7 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        {tier3 == 0 ?
+                        {tier3 === 0 ?
                           <StyledButton disabled>
                             <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>
@@ -217,7 +217,7 @@ class Ticketing extends React.Component {
                       </Grid.Column>
 
                       <Grid.Column mobile={4} computer={4}>
-                        {tier4 == 0 ?
+                        {tier4 === 0 ?
                           <StyledButton disabled>
                             <StyledHeader fSize='small'>Add to cart</StyledHeader>
                           </StyledButton>

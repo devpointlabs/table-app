@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal } from 'semantic-ui-react';
+import { Form, Segment, Modal } from 'semantic-ui-react';
 import { StyledButton, StyledHeader } from '../styles/Styles';
 import Home from './Home';
 
