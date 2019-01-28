@@ -70,6 +70,7 @@ class App extends React.Component {
             <Route exact path='/contacts' component={Contacts} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/login" component={Login} />
+            <ProtectedRoute exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path='/event/:id' component={EventDetails} />
             <Route exact path='/calendar' component={MobileCalendar} />
