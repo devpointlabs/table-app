@@ -21,16 +21,16 @@ class Api::RTicketsController < ApplicationController
   end
 
   def destroy
-    event = Event.find(id: @ticket.event_id)
+    event = Event.find(@ticket.event_id)
     quantity = event.available_tickets + @ticket.quantity
-
-    @ticket.destroy
-
+    
     if event.update(available_tickets: quantity)
       render json: event
     else
       render json: event.errors, status: 422
     end
+    
+    @ticket.destroy
 
   end
 
@@ -41,7 +41,7 @@ class Api::RTicketsController < ApplicationController
     end
 
     def set_ticket
-      @ticket = R_Ticket.find(params[:id])
+      @ticket = RTicket.find(params[:id])
     end
 
     def set_event

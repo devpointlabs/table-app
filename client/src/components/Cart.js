@@ -1,10 +1,11 @@
 import React from 'react';
-import { Table, Grid, Divider, Icon, Segment, Header, Container } from 'semantic-ui-react';
+import { Table, Grid, Divider, Icon, Input, Label, Segment, Header, Container, Modal } from 'semantic-ui-react';
 import { StyledSegment } from '../styles/AdminDashboardStyle'
 import { StyledButton, StyledHeader } from '../styles/Styles'
 import axios from "axios"
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { format } from 'date-fns'
+import BraintreeDrop from './BraintreeDrop';
 
 
 class Cart extends React.Component {
@@ -13,6 +14,7 @@ class Cart extends React.Component {
     tickets : [
       {event_date: "Jan 1st" , host: "NSP Rock Hard Tour" , quantity: 2 , price: 30 , },
     ],
+    isOpen: false,
     subtotal: 0,
     surcharge: 2,
     IETax: 3,
@@ -56,7 +58,7 @@ class Cart extends React.Component {
         new Date(t.event_date),
         'MMM Do'
       ),
-    this.setState({ event_date: t.event_date, },
+    this.setState({ event_date: t.event_date }
       //  () => this.timeFormat()
     )
     ))
@@ -83,7 +85,7 @@ class Cart extends React.Component {
           </Table.Cell>
           <Table.Cell>${t.quantity * t.price}</Table.Cell>  
           <Table.Cell width={1}>
-            <StyledButton icon>
+            <StyledButton icon onClick={() => this.del_tickets(t.id)}>
               <Icon name="times"/>
             </StyledButton>
           </Table.Cell>
@@ -92,10 +94,40 @@ class Cart extends React.Component {
     )
   }
 
+  del_tickets (id) {
+    axios.delete(`/api/r_tickets/${id}`)
+    .then( res => {
+      const {tickets} = this.state;
+      this.setState({ tickets: tickets.filter(t => t.id !== id )})
+    })  }
+
+  checkout () {
+    const { total, isOpen } = this.state;
+    return (
+      <Modal open = {isOpen}>
+          <Modal.Header>
+            <StyledButton icon onClick={() => this.setState({ isOpen: !this.state.isOpen })} >
+              <Icon name="times"/>
+            </StyledButton>
+            <StyledHeader black fSize="large" underlined textAlign = 'center'>Checkout</StyledHeader>
+          </Modal.Header>
+          <Modal.Content>
+            <Segment basic textAlign='center'>
+              <Label color='green'>Payment Amount</Label>
+              <Input value={total} disabled style={{ fontSize: '18px', }} />
+              <Divider />
+              <BraintreeDrop amount={total} />
+            </Segment>
+          </Modal.Content>
+        </Modal>
+    )
+  }
+
   render () {
 
     return(
       <StyledSegment basic>
+        {this.checkout()}
         <Segment textAlign="center" inverted basic>
           <StyledHeader fontSize='large'>Shopping Cart
           <StyledButton>
@@ -159,7 +191,7 @@ class Cart extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <StyledButton fluid>
+        <StyledButton fluid onClick={() => this.setState({ isOpen: !this.state.isOpen })}>
           <Icon inverted name="check"/> Checkout
         </StyledButton>
         </Container>

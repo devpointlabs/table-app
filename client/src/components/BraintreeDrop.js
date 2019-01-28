@@ -17,6 +17,7 @@ class BraintreeDrop extends Component {
   componentDidMount() {
     axios.get('/api/braintree_token')
       .then( res => {
+        // debugger
         const { data: token, } = res;
         this.setState({ token, loaded: true });
       })
