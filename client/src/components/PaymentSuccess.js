@@ -1,16 +1,18 @@
 import React from 'react';
 import { Segment, Header, } from 'semantic-ui-react';
 import { Link, Redirect, } from 'react-router-dom';
+import { StyledSegment, StyledHeader, StyledButton } from '../styles/Styles'
+
 
 const PaymentSuccess = ({ location: { state, }, }) => {
   if(state && state.transactionId)
     return(
-      <Segment basic textAlign='center'>
-        <Header as='h1' color='green'>Thank You For Your Purchase!</Header>
+      <StyledSegment basic textAlign='center'>
+        <StyledHeader as='h1' color='green'>Thank You For Your Purchase!</StyledHeader>
         <p>You have been successfully charged: ${state.amount}</p>
         <p>Your Transcation Id is: {state.transactionId}</p>
-        <Link to='/'>Start Over</Link>
-      </Segment>
+        <StyledButton href='/'>Start Over</StyledButton>
+      </StyledSegment>
     )
   else
     return(<Redirect to='/' />);
