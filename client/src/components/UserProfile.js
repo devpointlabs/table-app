@@ -4,9 +4,9 @@ import { Form, } from 'semantic-ui-react';
 import { UploadText, } from "../styles/profilestyle";
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
-import { StyledButton } from '../styles/Styles';
+import { StyledButton, StyledHeader} from '../styles/Styles';
 import defaultImage from '../images/default-profile.jpg'
-import { LeftDiv, RightDiv, Line, StyledHeader, ComponentContainer} from '../styles/generalitems';
+import { LeftDiv, RightDiv, Line, ComponentContainer} from '../styles/generalitems';
 
 class UserProfile extends React.Component {
   state = { editing: false, formValues: { first_name: '', last_name: '', email: '', city: '', file: '', }, };
@@ -68,7 +68,7 @@ class UserProfile extends React.Component {
         </LeftDiv>
         <Line vertical />
         <RightDiv>
-          <StyledHeader>{user.first_name} {user.last_name}</StyledHeader>
+          <StyledHeader fSize='large' underlined>{user.first_name} {user.last_name}</StyledHeader>
           <StyledHeader>{user.email}</StyledHeader>
           <StyledHeader>{user.date_of_birth}</StyledHeader>
           <StyledHeader>{user.gender}</StyledHeader>

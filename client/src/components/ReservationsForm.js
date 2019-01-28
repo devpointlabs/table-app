@@ -32,18 +32,18 @@ class ReservationsForm extends React.Component {
   render() {
     const { name, email, phone, date, size, notes, } = this.state;
     return(
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} inverted>
           <Form.Group widths='equal'>
-            <label>Name</label>
             <Form.Input
+              label='Name'
               name='name'
               placeholder='John Doe'
               required
               value={name}
               onChange={this.handleChange}
             />
-            <label>Email</label>
             <Form.Input
+              label='Email'
               name='email'
               placeholder='johndoe@email.com'
               required
@@ -52,32 +52,32 @@ class ReservationsForm extends React.Component {
             />
           </Form.Group>
           <Form.Group widths='equal'>
-            <label>Phone #</label>
             <Form.Input 
+              label='Phone #'
               name='phone'
               placeholder='888-888-8888'
               required
               value={phone}
               onChange={this.handleChange}
             />
-            <label>Date</label>
             <Form.Input 
+              label='Date'
               name='date'
               required
               type='date'
               value={date}
               onChange={this.handleChange}
             />
-            <label>Group Size</label>
             <Form.Input 
+              label='Group Size'
               name='size'
               required
               value={size}
               onChange={this.handleChange}
             />
           </Form.Group>
-          <label>Notes</label>
           <Form.TextArea
+            label="Notes"
             name='notes'
             value={notes}
             onChange={this.handleChange}
