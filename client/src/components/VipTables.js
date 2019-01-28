@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledHeader, StyledSegment, StyledButton } from '../styles/Styles';
 import { HeroWrapper, LayoutButton, } from '../styles/VipTableStyles'; 
-import { Container, Modal, Icon, Header, Image, Segment} from 'semantic-ui-react'
+import { Container, Modal, Icon, Image, Segment} from 'semantic-ui-react'
 import FloorPlan from '../images/Logo_Floorplan/Sky_SLC_Floor_Plan.png'
 import ReservationsForm from './ReservationsForm';
 
