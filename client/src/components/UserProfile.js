@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Image, } from 'semantic-ui-react';
-import { ViewDiv, Img, H1, EditDiv, Content, EditCont, UploadText, FormDiv, FormUpload } from "../styles/profilestyle";
+import { Form } from 'semantic-ui-react';
+import { UploadText } from "../styles/profilestyle";
 import '../styles/comingArtist.css';
 import Dropzone from 'react-dropzone';
 import { StyledButton } from '../styles/Styles';
@@ -79,7 +79,7 @@ class UserProfile extends React.Component {
   }
 
   editView = () => {
-    const { formValues: { first_name, last_name, city, file } } = this.state;
+    const { formValues: { first_name, last_name, city } } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <ComponentContainer>
