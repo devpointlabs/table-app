@@ -7,7 +7,6 @@ export const StyledButton = styled(Button)`
   color: white !important;
   border: 3px solid #b29d72 !important;
   border-radius: 0px !important;
-  margin: 0px 10px !important;
   font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   background-color: ${props => props.filled ? '#b29d72' : '#222222' } !important;
   font-size: ${props => props.large ? '20px' : '15px' } !important;
@@ -57,6 +56,7 @@ export const StyledHeader = styled(Header)`
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
   color: ${props => props.gray ? 'gray !important' : 'white !important'}
+  color: ${props => props.black ? 'black !important' : 'white !important'}
   text-align: ${props => props.centered ? 'center !important' : 'none'}
   line-height: ${props => props.spaced ? '30px !important' : 'none' };
 `;

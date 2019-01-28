@@ -42,7 +42,7 @@ class MobileNavbar extends React.Component {
           </Dropdown.Item>
             { this.admin() }
           <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
-           LOGOUT
+            LOGOUT
           </Dropdown.Item>
         </>
       )

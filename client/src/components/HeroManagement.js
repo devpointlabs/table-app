@@ -15,7 +15,7 @@ class HeroManagement extends React.Component {
 
   renderCard = (image) => (
     <Segment basic>
-      <HeroImage src={image.image_url} active={image.active} />
+      <HeroImage src={image.image_url} active={image.active} fluid />
       <br />
       <StyledButton fluid onClick={() => this.handleEdit(image.id)}>{image.active ? 'Deactivate' : 'Activate' }</StyledButton>
       <br />
@@ -27,13 +27,13 @@ class HeroManagement extends React.Component {
     const remove = window.confirm("Are you sure you want to delete this hero image?")
     if (remove)
       axios.delete(`/api/hero_images/${id}`)
-       .then( res => {
-         const images = this.state.heroImages.filter( i => {
-           if (i.id !== id)
+      .then( res => {
+        const images = this.state.heroImages.filter( i => {
+          if (i.id !== id)
             return i;
-         })
-         this.setState({heroImages: images,})
-       })
+        })
+        this.setState({heroImages: images,})
+      })
   }
 
   handleEdit = (id) => {
