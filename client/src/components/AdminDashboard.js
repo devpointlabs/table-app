@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton } from '../styles/Styles'
+import { StyledButton, StyledHeader } from '../styles/Styles'
 import { Icon } from 'semantic-ui-react'
 import { Form, Message, Grid, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -84,7 +84,7 @@ class AdminDashboard extends React.Component {
         <br />
         <Grid columns={2} stackable textAlign='center'>
           <Form>
-            <h1>email</h1>
+            <StyledHeader fSize='large'>email</StyledHeader>
             <Form.Input
             name="email"
             placeholder="email@email.com"
@@ -100,14 +100,13 @@ class AdminDashboard extends React.Component {
             </StyledButton>
           </Form>
           <List>
-            <h2>Admins</h2>
+            <StyledHeader fSize='large' underlined>Admins</StyledHeader>
             { admins.map( admin => 
             <li>
-              <strong>
+              <StyledHeader>
                 { admin.first_name } { admin.last_name }
-              </strong>
-              <br />
-              { admin.email }
+              </StyledHeader>
+              <StyledHeader fSize='small'>{ admin.email }</StyledHeader>
               <br /><br />
             </li>
             )}
