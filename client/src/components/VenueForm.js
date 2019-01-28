@@ -86,7 +86,7 @@ class VenueForm extends React.Component {
   renderForm = () => {
     const { venue_name, contact_us_blurb, street_address, city, state, zip_code, telephone, email, about_us, facebook_url, twitter_url, instagram_url, google_maps, longitude, latitude,} = this.state;
     return(
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} inverted>
           <Dropzone
             onDrop={this.onDrop}
             multiple={false}
@@ -109,113 +109,113 @@ class VenueForm extends React.Component {
           }}
         </Dropzone>
         <br />
-        <label>Venue Name</label>
         <Form.Input
+          label='Venue Name'
           name="venue_name"
           placeholder="Venue Name"
           autofocus
           value={venue_name}
           onChange={this.handleChange}
         />
-        <label>Street Address</label>
         <Form.Input
+          label='Street Address'
           name="street_address"
           placeholder="123 Main St."
           value={street_address}
           onChange={this.handleChange}
         />
         <Form.Group widths='equal'>
-        <label>City</label>
         <Form.Input
+          label='City'
           name="city"
           placeholder="Salt Lake City"
           value={city}
           onChange={this.handleChange}
           />
-        <label>State</label>
         <Form.Input
+          label='State'
           name="state"
           placeholder="UT"
           value={state}
           onChange={this.handleChange}
           />
-        <label>Zip Code</label>
         <Form.Input
-          name="Zip Code"
+          label='Zip Code'
+          name="zip_code"
           placeholder="84101"
           value={zip_code}
           onChange={this.handleChange}
           />
         </Form.Group>
         <Form.Group widths='equal'>
-        <label>Telephone #</label>
         <Form.Input
+          label='Telephone #'
           name="telephone"
           placeholder="888-888-8888"
           value={telephone}
           onChange={this.handleChange}
           />
-        <label>Email</label>
         <Form.Input
+          label='Email'
           name="email"
           placeholder="email@venue.com"
           value={email}
           onChange={this.handleChange}
           />
         </Form.Group>
-        <label>Facebook URL</label>
         <Form.Input
+          label='Facebook URL'
           name="facebook_url"
           placeholder="https://www.facebook.com/venue"
           value={facebook_url}
           onChange={this.handleChange}
           />
-        <label>Twitter URL</label>
         <Form.Input
+          label='Twitter URL'
           name="twitter_url"
           placeholder="https://www.twitter.com/venue"
           value={twitter_url}
           onChange={this.handleChange}
           />
-        <label>Instagram URL</label>
         <Form.Input
+          label='Instagram URL'
           name="instagram_url"
           placeholder="https://www.instagram.com/venue"
           value={instagram_url}
           onChange={this.handleChange}
           />
-        <label>Google Maps URL</label>
         <Form.Input
+          label='Google'
           name="google_maps"
           placeholder="https://www.google.com/maps/place/venue"
           value={google_maps}
           onChange={this.handleChange}
           />
         <Form.Group widths='equal'>
-        <label>Longitude</label>
         <Form.Input
+          label='Longitude (for map)'
           name="longitude"
           placeholder="-111.5"
           value={longitude}
           onChange={this.handleChange}
           />
-        <label>Latitude</label>
         <Form.Input
+          label='Latitude (for map)'
           name="latitude"
           placeholder="42.2"
           value={latitude}
           onChange={this.handleChange}
           />
         </Form.Group>
-        <label>About Us</label>
         <Form.TextArea
+          label='About Us'
           name="about_us"
           placeholder="We are a venue with many things"
           value={about_us}
           onChange={this.handleChange}
           />
-        <label>Contact Us Blurb (as seen on the main page)</label>
         <Form.TextArea
+          label='Contact Us Blurb (as seen on the main page)'
           name="contact_us_blurb"
           placeholder="We love being contacted"
           value={contact_us_blurb}

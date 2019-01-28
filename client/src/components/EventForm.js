@@ -67,9 +67,9 @@ class EventForm extends React.Component {
         { (this.props.id) ? "Edit Event" : "New Event" }
         </StyledHeader>
         <StyledImage centered src={display} />
-        <Form onSubmit={this.handleSubmit}>
-        <label>Host Artist</label>
+        <Form onSubmit={this.handleSubmit} inverted>
           <Form.Input
+            label='Host Artist'
             name="host"
             placeholder="Host"
             required
@@ -78,8 +78,8 @@ class EventForm extends React.Component {
             onChange={this.handleChange}
           />
           <Form.Group widths="equal">
-            <label>Date</label>
             <Form.Input
+              label='Event Date'
               name="event_date"
               placeholder="Pretend this is a Date Picker"
               required
@@ -87,8 +87,8 @@ class EventForm extends React.Component {
               value={event_date}
               onChange={this.handleChange}
               />
-            <label>Time</label>
             <Form.Input
+              label='Event Start Time'
               name="event_time"
               placeholder="Pretend this is a Time Picker"
               required
@@ -118,16 +118,16 @@ class EventForm extends React.Component {
             )
           }}
           </Dropzone>
-          <label>Dress Code</label>
           <Form.TextArea
+            label='Dress Code'
             name="dress_code"
             placeholder="Dress Code"
             required
             value={dress_code}
             onChange={this.handleChange}
           />
-          <label>Description</label>
           <Form.TextArea
+            label='Event Description'
             name="description"
             value={description}
             onChange={this.handleChange}
