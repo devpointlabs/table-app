@@ -16,9 +16,11 @@ Rails.application.routes.draw do
     put '/promote_to_admin', to: 'users#promote_to_admin'
     put '/remove_as_admin', to: 'users#remove_as_admin'
     get '/view_all_admins', to: 'users#view_all_admins'
+    delete '/clear_cart', to: 'carts#clear_cart'
     
     resources :users, only: :update do
       resource :cart
+      resources :my_tickets
     end
   end
   get '*other', to: 'static#index'

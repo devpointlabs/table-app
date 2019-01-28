@@ -1,6 +1,5 @@
 import React from 'react';
-import { Segment, Header, } from 'semantic-ui-react';
-import { Link, Redirect, } from 'react-router-dom';
+import { Redirect, } from 'react-router-dom';
 import { StyledSegment, StyledHeader, StyledButton } from '../styles/Styles'
 
 
