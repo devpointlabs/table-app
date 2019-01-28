@@ -6,12 +6,13 @@ import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
 export const StyledButton = styled(Button)`
   color: white !important;
   border: 3px solid #b29d72 !important;
-  margin: 1 0px !important;
+  border-radius: 0px !important;
+  font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   background-color: ${props => props.filled ? '#b29d72' : '#222222' } !important;
   font-size: ${props => props.large ? '20px' : '15px' } !important;
   height: ${props => props.large ? '60px' : '' } !important;
   width: ${props => props.large ? '175px' : '' } !important;
-  padding: ${props => props.large ? '5px auto' : '' } !important;
+  padding: ${props => props.large ? '5px 5px' : '' } !important;
 
   @keyframes glowing-border {
     from {
@@ -36,6 +37,8 @@ export const StyledButton = styled(Button)`
 
 const fontSize = (size) => {
   switch(size) {
+    case 'huge':
+      return '60px';
     case 'large':
       return '30px';
     case 'small':
@@ -52,6 +55,10 @@ export const StyledHeader = styled(Header)`
   font-family: ${props => props.defaultFont ? 'none' : 'copperplate !important'}
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
+  color: ${props => props.gray ? 'gray !important' : 'white !important'}
+  color: ${props => props.black ? 'black !important' : 'white !important'}
+  text-align: ${props => props.centered ? 'center !important' : 'none'}
+  line-height: ${props => props.spaced ? '30px !important' : 'none' };
 `;
 
 // bordered adds colored border

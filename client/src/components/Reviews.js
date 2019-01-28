@@ -1,10 +1,9 @@
 import React from 'react';
 import Iframe from 'react-iframe'
-import { ComponentContainer, StyledHeader, Line } from '../styles/generalitems';
+import { ComponentContainer, Line } from '../styles/generalitems';
 
 const Reviews = () => (
   <ComponentContainer style = {{paddingBottom: '900px'}}>
-    <StyledHeader centered>REVIEWS</StyledHeader>
     <Line />
     <Iframe url = 'https://gmb.reviewsmaker.com/widget/widget.php?pid=ChIJsUt4_gT1UocROEceDYRK0_U'
       width="1400px"

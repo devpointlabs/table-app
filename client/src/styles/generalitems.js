@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
+import { Button, Header, Image, Segment } from 'semantic-ui-react';
 
 export const StyledButton = styled(Button)`
   color: white !important;
@@ -166,5 +166,20 @@ export const Line = styled.div(
 export const ComponentContainer = styled.div`
   alignItems: center;
   padding-top: 190px;
-  padding-bottom: 600px;
+  padding-bottom: 10px;
+  display: flex;
+`;
+
+export const LeftDiv = styled.div`
+  border: ${props => props.bordered ? '1px dashed #aaa' : 'none'}
+  width: 300px;
+  margin-left: 40px;
+  margin-right: 40px;
+`;
+
+export const RightDiv = styled.div`
+  float: right;
+  border: ${props => props.bordered ? '1px dashed #aaa' : 'none'}
+  margin-left: 40px;
+  margin-right: 40px;
 `;

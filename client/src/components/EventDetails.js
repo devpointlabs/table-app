@@ -1,13 +1,14 @@
 import React from 'react';
-import { Grid, Container, Button, Modal, Header } from 'semantic-ui-react';
+import { Grid, Container, Image, Modal } from 'semantic-ui-react';
 import EventForm from './EventForm';
 import { StyledImage, StyledButton, StyledHeader } from '../styles/Styles'
 import axios from 'axios';
 import { format } from 'date-fns'
 import { AuthConsumer } from '../providers/AuthProvider';
+import FloorPlan from '../images/Logo_Floorplan/Sky_SLC_Floor_Plan.png'
  
 class EventDetails extends React.Component {
-  state = { event: [], editing: false, time: [], date: [], isOpen: false, };
+  state = { event: [], editing: false, time: [], date: [], isOpen: false, tableOpen: false, };
 
   componentDidMount() {
     axios.get(`/api/events/${this.props.match.params.id}`)
@@ -19,6 +20,11 @@ class EventDetails extends React.Component {
   handleOpen = () => {
     const {isOpen} = this.state;
     this.setState({ isOpen: !isOpen});
+  }
+
+  tableOpen = () => {
+    const {tableOpen} = this.state;
+    this.setState({ tableOpen: !tableOpen});
   }
 
   dateFormat = () => {
@@ -97,16 +103,25 @@ class EventDetails extends React.Component {
   
   eventView = () => {
     const { auth: {user, } , } = this.props;
-    const { event, date, time, isOpen } = this.state;
+    const { event, date, time, isOpen, tableOpen } = this.state;
     return (
       <div>
       <Modal open={isOpen} centered>
         <Modal.Header>
-          <Header as='h2'>Dress Code</Header>
+          <StyledHeader textAlign='center' black fSize='large'>Dress Code</StyledHeader>
         </Modal.Header>
         <Modal.Content>
-            <Header as='h3'>{event.dress_code}</Header>
+            <StyledHeader black>{event.dress_code}</StyledHeader>
           <StyledButton onClick={() => this.handleOpen()}>Close</StyledButton>
+        </Modal.Content>
+      </Modal>
+      <Modal open={tableOpen} centered>
+        <Modal.Header>
+          <StyledHeader black textAlign='center' fSize='large'>VIP Table Layout</StyledHeader>
+        </Modal.Header>
+        <Modal.Content>
+          <Image src={FloorPlan} style={{margin: 'auto'}} />
+          <StyledButton onClick={() => this.tableOpen()}>Close</StyledButton>
         </Modal.Content>
       </Modal>
       <Grid style={{ marginTop: '150px', }}>
@@ -115,7 +130,6 @@ class EventDetails extends React.Component {
         </Grid.Column>
         <Grid.Column width={8}>
           <Container style={{paddingTop: '150px'}}>
-          <Button.Group>
           {user && user.admin ? this.editButton() : null }
           {user && user.admin ? this.deleteButton() : null }
           {user && user.admin ? this.expiredButton() : null }
@@ -125,7 +139,7 @@ class EventDetails extends React.Component {
             <StyledHeader>{time}</StyledHeader>
             <StyledHeader fSize='small'>{event.description}</StyledHeader>
               <StyledButton onClick={() => this.handleOpen()}>Dress Code</StyledButton>
-              <StyledButton>VIP Tables</StyledButton>
+              <StyledButton onClick={() => this.tableOpen()}>VIP Tables</StyledButton>
               <StyledButton onClick={() => this.props.history.push(`/ticketing/${event.id}`)}>Tickets</StyledButton>
           </Container>
         </Grid.Column>

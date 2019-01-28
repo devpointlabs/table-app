@@ -5,22 +5,32 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 const AdminRoute = ({ component: Component, ...rest }) => (
 
   <AuthConsumer>
-    { auth => 
-      <Route 
-        {...rest}
-        render={ props => (
-          auth.user.admin ? 
-            <Component { ...props } />
-          :
-            <Redirect 
-              to={{
-                pathname: "/",
-                state: { from: props.location, },
-              }}
-            />
-        )}
-      />
-    }
+    { auth => {
+      if (auth.user === null) 
+        return (
+          <Redirect 
+            to={{
+              pathname: "/",
+            }}
+          />
+        )
+      return (
+        <Route 
+          {...rest}
+          render={ props => (
+            auth.user.admin ? 
+              <Component { ...props } />
+            :
+              <Redirect 
+                to={{
+                  pathname: "/",
+                  state: { from: props.location, },
+                }}
+              />
+            )}
+        />
+      )
+    }}
   </AuthConsumer>
 )
 

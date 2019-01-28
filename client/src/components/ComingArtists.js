@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, } from 'semantic-ui-react';
-import { StyledSegment, StyledHeader, Line, } from '../styles/generalitems';
+import { StyledSegment, Line, } from '../styles/generalitems';
 import axios from 'axios';
+import { StyledHeader } from '../styles/Styles'
 import ComingArtistCard from './ComingArtistCard';
 
 class ComingArtists extends React.Component {

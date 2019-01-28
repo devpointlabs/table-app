@@ -23,6 +23,7 @@ group :development, :test do
   # Seed Databases
   gem "faker"
   gem 'dotenv-rails'
+  gem 'simple_format', '~> 0.0.2'
 end
 
 group :development do

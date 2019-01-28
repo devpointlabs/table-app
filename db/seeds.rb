@@ -1,3 +1,5 @@
+
+
 1.times do
   User.create(
     first_name: "Admin",
@@ -5,6 +7,7 @@
     email: "admin@admin.com",
     password: "password",
     password_confirmation: "password",
+    city: "City",
     admin: true
   )
 
@@ -14,7 +17,16 @@
     email: "test@test.com",
     password: "password",
     password_confirmation: "password",
+    city: "City",
     admin: false
+  )
+
+  Cart.create(
+    user_id: 1,
+  )
+
+  Cart.create(
+    user_id: 2,
   )
 
   Setting.create(
@@ -28,11 +40,17 @@
     telephone: "801.883.8714", 
     email: "contact@skyslc.com",
     about_us: "In 2013, Ken Dinsmore found himself at the world renowned Burning Man.
-    
-    As a temporary metropolis dedicated to community, art, self-expression, and self-reliance, he was impressed by the energy created by the congregation. He wanted to share this with his home of Salt Lake City and this building is his “gift to downtown.” In March of 2015, just a year after breaking ground, SKY was ready to revolutionize the way people view Utah nightlife.
-    
-    SKY is a versatile 3-floor space used for large scale events, weddings, private parties, concerts and nightclub events. The 15.000 sq ft open-air building is complete with the optimum sound, 300′′video screen, glass retractable roof, 20 VIP suites, 14 garage doors and performance lighting unlike anything else available in SLC; rivaling any other renowned entertainment facility in the world! Night Club, Event Space, Lounge and Patio... 
-    
+    \n
+    As a temporary metropolis dedicated to community, art, self-expression, and self-reliance, 
+    he was impressed by the energy created by the congregation. He wanted to share this with his home 
+    of Salt Lake City and this building is his “gift to downtown.” In March of 2015, just a year after breaking 
+    ground, SKY was ready to revolutionize the way people view Utah nightlife.
+    \n              
+    SKY is a versatile 3-floor space used for large scale events, weddings, private parties, concerts and nightclub 
+    events. The 15.000 sq ft open-air building is complete with the optimum sound, 300′′video screen, glass retractable 
+    roof, 20 VIP suites, 14 garage doors and performance lighting unlike anything else available in SLC; rivaling any
+    other renowned entertainment facility in the world! Night Club, Event Space, Lounge and Patio... 
+    \n
     Please come check us out at 149 Pierpont Ave, Downtown Salt Lake. Call or email us to tour the space, we know you’ll love it!",
     facebook_url: "https://www.facebook.com/skysaltlakecity",
     twitter_url: "https://twitter.com/SkyVenueSLC",
@@ -48,7 +66,12 @@
     event_date: "2019-01-15 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -57,7 +80,12 @@
     event_date: "2019-01-18 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -66,7 +94,12 @@
     event_date: "2019-01-24 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -75,7 +108,12 @@
     event_date: "2019-01-27 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -84,7 +122,12 @@
     event_date: "2019-02-01 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
     
   Event.create(
@@ -93,7 +136,12 @@
     event_date: "2019-02-04 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -102,7 +150,12 @@
     event_date: "2019-02-15 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -111,7 +164,12 @@
     event_date: "2019-02-25 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -120,7 +178,12 @@
     event_date: "2019-03-07 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -129,7 +192,12 @@
     event_date: "2019-03-17 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -138,7 +206,12 @@
     event_date: "2019-03-22 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -147,7 +220,12 @@
     event_date: "2019-03-27 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -156,7 +234,12 @@
     event_date: "2019-04-01 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
   
   Event.create(
@@ -165,7 +248,12 @@
     event_date: "2019-04-03 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -174,7 +262,12 @@
     event_date: "2019-04-10 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -183,7 +276,12 @@
     event_date: "2019-04-23 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -192,7 +290,12 @@
     event_date: "2019-05-15 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -201,7 +304,12 @@
     event_date: "2019-05-25 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
     
   Event.create(
@@ -210,7 +318,12 @@
     event_date: "2019-05-26 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -219,7 +332,12 @@
     event_date: "2019-05-27 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -228,7 +346,12 @@
     event_date: "2019-06-04 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -237,7 +360,12 @@
     event_date: "2019-06-05 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -246,7 +374,12 @@
     event_date: "2019-06-14 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -255,7 +388,12 @@
     event_date: "2019-06-15 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -264,7 +402,12 @@
     event_date: "2019-06-22 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -273,7 +416,12 @@
     event_date: "2019-06-23 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -282,7 +430,12 @@
     event_date: "2019-06-24 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -291,7 +444,12 @@
     event_date: "2019-06-27 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   Event.create(
@@ -300,7 +458,12 @@
     event_date: "2019-06-28 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
   
   Event.create(
@@ -309,7 +472,12 @@
     event_date: "2019-06-29 00:00:00",
     dress_code: "Clothing optional",
     description: "Hailing from New York City, and having only been in the scene for less than two years. InsertNameHere has quickly gained attention and support from some of the bigger artists in the underground industry with his unique powerful growl baselines, and heart melting sub-bass. Be on the lookout for this guy stopping in SLC on InsertDateHere!",
-    event_time: "2019-01-14 21:30:00"
+    event_time: "2019-01-14 21:30:00",
+    available_tickets: 200,
+    t1_price: 25,
+    t2_price: 35,
+    t3_price: 60,
+    t4_price: 40
   )
 
   HeroImage.create(
@@ -340,4 +508,4 @@
 end
 
 puts "Event Data Seeded, ADMIN ACCOUNT: admin@admin.com PASSWORD: password, USER ACCOUNT: test@test.com PASSWORD: password"
-puts "2 Users, 30 Events, 5 HeroImages Created"
+puts "2 Users, 2 Carts, 30 Events, 5 HeroImages Created"

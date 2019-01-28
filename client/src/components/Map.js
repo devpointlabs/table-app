@@ -4,7 +4,7 @@ import Pointer from '../images/pointer.png'
 import axios from 'axios';
 
 const accessToken = "pk.eyJ1IjoieGVubW9yZGluIiwiYSI6ImNqcXpzYWM1ZDAxcWQzeXF4dnNzZjhzbjcifQ.8X2foh6zMetsEbVYLPXbUg";
-const style = "mapbox://styles/mapbox/dark-v10";
+const style = "mapbox://styles/mapbox/dark-v10"
 
 const Map = ReactMapboxGl({
   accessToken
