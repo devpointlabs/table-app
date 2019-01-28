@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, } from 'semantic-ui-react';
-import { StyledButton, StyledHeader, StyledImage, StyledSegment } from '../styles/Styles'
+import { StyledButton, StyledHeader, StyledCalImage, StyledCal } from '../styles/Styles'
 import { Link, } from 'react-router-dom';
 import { format } from 'date-fns';
 
@@ -32,20 +32,20 @@ class CalendarCards extends React.Component {
     const { id, host, image_url, } = this.props;
     const { date, time } = this.state;
     return(
-      <StyledSegment bordered auto style={{maxWidth: "700px"}} >
-        <Grid columns={2} stackable>
-          <Grid.Column>
-              <StyledImage small src={image_url} />
+      <StyledCal bordered auto style={{maxWidth: "70%"}} >
+        <Grid columns={2} stackable >
+          <Grid.Column width={5}>
+              <StyledCalImage small src={image_url} />
           </Grid.Column>
-          <Grid.Column width={6} style={{ marginTop: "15%"}}>
+          <Grid.Column verticalAlign='middle' width={10}>
               <Grid.Row>
                 <StyledHeader fSize='large' underlined>{host}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledHeader fSize='small'>{date}</StyledHeader>
+                <StyledHeader>{date}</StyledHeader>
               </Grid.Row>
               <Grid.Row>
-                <StyledHeader fSize='small'>{time}</StyledHeader>
+                <StyledHeader>{time}</StyledHeader>
               </Grid.Row>
               <br />
               <Grid.Row>
@@ -60,7 +60,7 @@ class CalendarCards extends React.Component {
               </Grid.Row>
           </Grid.Column>
         </Grid>
-      </StyledSegment>
+      </StyledCal>
     )
   }
 }

@@ -2,7 +2,7 @@ class Api::EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
   def index
-    render json: Event.all.order(event_date: :desc)
+    render json: Event.all.order(event_date: :asc)
   end
 
   def comingartists

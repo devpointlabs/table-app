@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Header, Image, Segment, Divider } from 'semantic-ui-react';
+import { Button, Header, Image, Segment, Divider, } from 'semantic-ui-react';
 
 // Filled puts border color as background
 // Large makes bigger
@@ -71,6 +71,36 @@ export const StyledSegment = styled(Segment)`
   border: ${props => props.bordered ? '3px solid #b29d72' : ''} !important;
 `;
 
+// bordered adds colored border
+// auto moves from 5% margin and a 10px bottom margin
+export const StyledCal = styled(Segment)`
+  margin: ${props => props.auto ? 'auto' : '5%'} !important;
+  margin-bottom: ${props => props.auto ? '10px' : ''} !important;
+  padding: 0px !important;
+  background-color: #000000 !important;
+  border: ${props => props.bordered ? '3px solid #b29d72' : ''} !important;
+
+  @keyframes glowing-border {
+    from {
+      border: 3px solid #b29d72 ;
+    }
+    
+    to {
+      outline: none;
+      border: 3px solid cyan;
+      box-shadow: 1px 1px 10px cyan;
+    }
+  }
+  
+  &:hover {
+    animation-name: glowing-border;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: background 0.2s ease;
+  }
+`;
+
 export const StyledDivider = styled(Divider)`
   width: 60% !important;
   height: 3px !important;
@@ -82,6 +112,11 @@ export const StyledDivider = styled(Divider)`
 // small sets to the smaller bordered image size
 export const StyledImage = styled(Image)`
   border: ${props => props.small ? '1px solid #bdbdbd' : '3px solid #b29d72'} !important;
+  width: ${props => props.small ? '250px' : '400px'} !important;
+  background-color: black !important;
+`;
+
+export const StyledCalImage = styled(Image)`
   width: ${props => props.small ? '250px' : '400px'} !important;
   background-color: black !important;
 `;
