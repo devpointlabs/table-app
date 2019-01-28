@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     
     resources :users, only: :update do
       resource :cart
-      resources :my_tickets
+      resources :my_ticket
     end
   end
   get '*other', to: 'static#index'

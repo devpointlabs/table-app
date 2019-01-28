@@ -15,7 +15,7 @@ class UserDash extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/users/${this.props.auth.user.id}/userdash`)
+    axios.get(`/api/users/${this.props.auth.user.id}/my_ticket`)
     .then( res => {
       this.setState({ tickets: [...res.data] }, () => this.dateFormat());
     })
@@ -43,7 +43,6 @@ class UserDash extends React.Component {
           <Grid.Column mobile={4} computer={4}>{t.event_date}</Grid.Column>
           <Grid.Column mobile={4} computer={4}>{t.host}</Grid.Column>
           <Grid.Column mobile={4} computer={4}>{t.quantity}</Grid.Column>
-          <Grid.Column mobile={4} computer={4}>${t.price}</Grid.Column>
         </Grid.Row>
       ))
     )
@@ -80,11 +79,6 @@ class UserDash extends React.Component {
                 <Grid.Column mobile={4} computer={4}>
                   <GridText gray>
                     QTY
-                  </GridText>
-                </Grid.Column>
-                <Grid.Column mobile={4} computer={4}>
-                  <GridText  gray>
-                    PRICE
                   </GridText>
                 </Grid.Column>
               </HeaderRow>
