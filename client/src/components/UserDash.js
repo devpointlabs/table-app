@@ -1,11 +1,54 @@
 import React from 'react';
+import axios from 'axios';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Image, Grid, } from 'semantic-ui-react';
 import { UserCard, Wrapper, Line, DashContent, } from '../styles/userdashstyle';
 import { HeaderRow, GridText} from '../styles/ticketingstyle';
-import defaultImage from '../images/default-profile.jpg'
+import defaultImage from '../images/default-profile.jpg';
+import { format } from 'date-fns';
 
 class UserDash extends React.Component {
+  state = {
+    tickets : [
+      {},
+    ]
+  }
+
+  componentDidMount() {
+    axios.get(`/api/users/${this.props.auth.user.id}/userdash`)
+    .then( res => {
+      this.setState({ tickets: [...res.data] }, () => this.dateFormat());
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
+
+  dateFormat = () => {
+    this.state.tickets.map( t => (
+      t.event_date = format(
+        new Date(t.event_date),
+        'MMM Do'
+      ),
+      this.setState({ event_date: t.event_date, },
+      )
+    ))
+  }
+
+  renderTickets () {
+    const { tickets } = this.state;
+    return (
+      tickets.map( t => (
+        <Grid.Row>
+          <Grid.Column mobile={4} computer={4}>{t.event_date}</Grid.Column>
+          <Grid.Column mobile={4} computer={4}>{t.host}</Grid.Column>
+          <Grid.Column mobile={4} computer={4}>{t.quantity}</Grid.Column>
+          <Grid.Column mobile={4} computer={4}>${t.price}</Grid.Column>
+        </Grid.Row>
+      ))
+    )
+  }
+
   render() {
     const { user } = this.props.auth;
     return (
@@ -20,18 +63,18 @@ class UserDash extends React.Component {
         </UserCard>
         <Line vertical/>
         <DashContent>
-          <h3>TICKETS</h3>
+          <h3>YOUR TICKETS</h3>
           <Grid.Column width = {8}>
             <Grid style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
               <HeaderRow>
                 <Grid.Column mobile={4} computer={4}>
                   <GridText gray>
-                    TICKET
+                    DATE
                   </GridText>
                 </Grid.Column>
                 <Grid.Column mobile={4} computer={4}>
                   <GridText gray>
-                    DATE
+                    EVENT
                   </GridText>
                 </Grid.Column>
                 <Grid.Column mobile={4} computer={4}>
@@ -45,19 +88,7 @@ class UserDash extends React.Component {
                   </GridText>
                 </Grid.Column>
               </HeaderRow>
-              <Grid.Row>
-                <Grid.Column mobile={4} computer={4}>DJ RAZZ M'TAZZ<br />Pre-Sale Gen.ADM</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>9.5.19</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>2</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>$80</Grid.Column>
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column mobile={4} computer={4}>DJ RAZZ M'TAZZ<br />Pre-Sale Gen.ADM</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>9.5.19</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>2</Grid.Column>
-                <Grid.Column mobile={4} computer={4}>$80</Grid.Column>
-              </Grid.Row>
-              map through purchased tickets here
+              { this.renderTickets() }
             </Grid>
           </Grid.Column>
           <Line />
