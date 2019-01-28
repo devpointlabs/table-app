@@ -61,6 +61,13 @@ class Api::EventsController < ApplicationController
     @event.destroy
   end
 
+  def expired 
+    event = Event.all
+    event.each do |e| 
+      e.event_date <= DateTime.now() ? e.destroy : "event not destroyed"
+    end
+  end
+
   private
     def set_event
       @event = Event.find(params[:id])
