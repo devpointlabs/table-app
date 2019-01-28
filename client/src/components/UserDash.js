@@ -40,9 +40,9 @@ class UserDash extends React.Component {
     return (
       tickets.map( t => (
         <Grid.Row>
-          <Grid.Column mobile={4} computer={4}>{t.event_date}</Grid.Column>
-          <Grid.Column mobile={4} computer={4}>{t.host}</Grid.Column>
-          <Grid.Column mobile={4} computer={4}>{t.quantity}</Grid.Column>
+          <Grid.Column>{t.event_date}</Grid.Column>
+          <Grid.Column>{t.host}</Grid.Column>
+          <Grid.Column>{t.quantity}</Grid.Column>
         </Grid.Row>
       ))
     )
@@ -62,21 +62,21 @@ class UserDash extends React.Component {
         </UserCard>
         <Line vertical/>
         <DashContent>
-          <h3>YOUR TICKETS</h3>
+          <h3>PURCHASED TICKETS</h3>
           <Grid.Column width = {8}>
-            <Grid style = {{paddingTop: '20px', width: '80%', margin: 'auto'}}>
+          <Grid widths = 'equal' columns = {3} style = {{paddingTop: '20px', width: '80%', margin: 'auto',}}>
               <HeaderRow>
-                <Grid.Column mobile={4} computer={4}>
+                <Grid.Column >
                   <GridText gray>
                     DATE
                   </GridText>
                 </Grid.Column>
-                <Grid.Column mobile={4} computer={4}>
+                <Grid.Column >
                   <GridText gray>
                     EVENT
                   </GridText>
                 </Grid.Column>
-                <Grid.Column mobile={4} computer={4}>
+                <Grid.Column >
                   <GridText gray>
                     QTY
                   </GridText>
