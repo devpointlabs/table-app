@@ -57,6 +57,7 @@ export const StyledHeader = styled(Header)`
   font-size: ${props => fontSize(props.fSize)} !important;
   text-decoration: ${props => props.underlined ? 'underline' : ''} !important;
   color: ${props => props.gray ? 'gray !important' : 'white !important'}
+  color: ${props => props.black ? 'black !important' : 'white !important'}
   text-align: ${props => props.centered ? 'center !important' : 'none'}
   line-height: ${props => props.spaced ? '30px !important' : 'none' };
 `;

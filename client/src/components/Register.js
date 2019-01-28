@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal, } from 'semantic-ui-react';
-import { StyledButton } from '../styles/Styles';
+import { Form, Segment, Modal, } from 'semantic-ui-react';
+import { StyledButton, StyledHeader } from '../styles/Styles';
 import Home from './Home';
 
 const genders = () => {
@@ -9,7 +9,6 @@ const genders = () => {
     {text: "Male", value: "Male", key: 1},
     {text: "Female", value: "Female", key: 2},
     {text: "Other", value: "Other", key: 3},
-    {text: "Apache Attack Helicopter", value: "Apache Attack Helicopter", key: 4},
   ]
 }
 
@@ -58,90 +57,81 @@ class Register extends React.Component {
       <div>
         <Modal open = {isOpen}>
           <Modal.Header>
-            <Header as = 'h2' textAlign = 'center'>REGISTER</Header>
+            <StyledHeader black fSize='large' textAlign='center'>REGISTER</StyledHeader>
           </Modal.Header>
           <Modal.Content>
             <Segment basic>
+            <Segment>
+              <StyledHeader textAlign='center' black>Register with Email</StyledHeader>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group widths = {2}>
+                  <StyledHeader fSize='small' black>First Name</StyledHeader>
                   <Form.Input
-                    label="First Name"
                     required
                     autoFocus
                     name='first_name'
                     value={first_name}
                     placeholder='John'
                     onChange={this.handleChange}
-                  />
+                    />
+                  <StyledHeader fSize='small' black>Last Name</StyledHeader>
                   <Form.Input
-                    label="Last Name"
                     required
                     name='last_name'
                     value={last_name}
                     placeholder='Doe'
                     onChange={this.handleChange}
-                  />
-                </Form.Group>
-
-                {/* <Form.Input
-                  label="Gender"
-                  required
-                  name='gender'      
-                  value={gender}
-                  placeholder='Gender'
-                  onChange={this.genderChange}
-                /> */}
-
-                <Form.Select label="Gender" placeholder='' defaultValue="Other" name="gender" value={gender} onChange={this.genderChange} options={genders()} />
-
+                    />
+                <StyledHeader fSize='small' black>Gender</StyledHeader>
+                <Form.Select placeholder='' defaultValue="Other" name="gender" value={gender} onChange={this.genderChange} options={genders()} />
+                <StyledHeader fSize='small' black>Email</StyledHeader>
                 <Form.Input
-                  label="Email"
                   required
                   name='email'
                   value={email}
                   placeholder='Email'
                   onChange={this.handleChange}
-                />
+                  />
+                <StyledHeader fSize='small' black>City</StyledHeader>
                 <Form.Input
-                  label="City"
                   required
                   name="city"
                   value={city}
                   placeholder='City'
                   onChange={this.handleChange}
-                />
+                  />
+                <StyledHeader fSize='small' black>Date of Birth</StyledHeader>
                 <Form.Input
-                  label="Date of Birth"
                   required
                   name='date_of_birth'
                   value={date_of_birth}
                   placeholder='mm/dd/yy'
                   onChange={this.handleChange}
                   type='date'
-                />
+                  />
+                <StyledHeader fSize='small' black>Password</StyledHeader>
                 <Form.Input
-                  label="Password"
                   required
                   name='password'
                   value={password}
                   placeholder='Password'
                   type='password'
                   onChange={this.handleChange}
-                />
+                  />
+                <StyledHeader fSize='small' black>Password Confirmation</StyledHeader>
                 <Form.Input
-                  label="Password Confirmation"
                   required
                   name='passwordConfirmation'
                   value={passwordConfirmation}
                   placeholder='Password Confirmation'
                   type='password'
                   onChange={this.handleChange}
-                />
+                  />
                 <Segment textAlign='center' basic>
                   <StyledButton type='submit'>Submit</StyledButton>
                   <StyledButton filled onClick = {this.handleOpen}>Close</StyledButton>
                 </Segment>
               </Form>
+            </Segment>
             </Segment>
           </Modal.Content>
         </Modal>
