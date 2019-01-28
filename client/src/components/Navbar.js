@@ -93,21 +93,25 @@ class Navbar extends React.Component {
     
     if (user) {
       return (
-      <StyledDrop item text={user.email} id='navButton7'>
-        <Dropdown.Menu>
-          <Dropdown.Item href="/profile">
-            PROFILE
-          </Dropdown.Item>
-          <Dropdown.Item href="/userdash">
-            DASHBOARD
-          </Dropdown.Item>
-            {this.admin()}
-          <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
-           LOGOUT
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </StyledDrop>
-      
+        <>
+          <StyledItem href="/cart" id='navButton6'>
+            <Image src={Cart} style={{width: '15px'}} />
+          </StyledItem>
+          <StyledDrop item text={user.email} id='navButton7'>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/profile">
+                PROFILE
+              </Dropdown.Item>
+              <Dropdown.Item href="/userdash">
+                DASHBOARD
+              </Dropdown.Item>
+                {this.admin()}
+              <Dropdown.Item onClick = {() => handleLogout(this.props.history)}>
+                LOGOUT
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </StyledDrop>
+        </>
       )
     } else {
       return (
@@ -141,9 +145,7 @@ class Navbar extends React.Component {
           <StyledItem href="/viptables" id='navButton5'>
             VIP TABLES
           </StyledItem>
-          <StyledItem href="/cart" id='navButton6'>
-            <Image src={Cart} style={{width: '15px'}} />
-          </StyledItem>
+          
 
         { this.NavItems() }
         </Menu.Menu>

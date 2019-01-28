@@ -1,6 +1,6 @@
 import React from 'react';
 import Iframe from 'react-iframe'
-import { ComponentContainer, StyledHeader, Line } from '../styles/generalitems';
+import { ComponentContainer, Line } from '../styles/generalitems';
 
 const Reviews = () => (
   <ComponentContainer style = {{paddingBottom: '900px'}}>

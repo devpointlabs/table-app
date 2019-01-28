@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Form, Segment, Header, Modal } from 'semantic-ui-react';
-import { StyledButton } from '../styles/Styles';
+import { Form, Segment, Modal } from 'semantic-ui-react';
+import { StyledButton, StyledHeader } from '../styles/Styles';
 import Home from './Home';
 
 class Login extends React.Component {
@@ -31,29 +31,29 @@ class Login extends React.Component {
       <div>
         <Modal open = {isOpen}>
           <Modal.Header>
-            <Header as = 'h2' textAlign = 'center'>LOGIN</Header>
+            <StyledHeader black fSize='large' textAlign = 'center'>LOGIN</StyledHeader>
           </Modal.Header>
           <Modal.Content>
             <Segment basic>
             <Form onSubmit={this.handleSubmit}>
+            <StyledHeader fSize='small' black>Email</StyledHeader>
               <Form.Input
-                label="Email"
                 required
                 autoFocus
                 name='email'
                 value={email}
                 placeholder='Email'
                 onChange={this.handleChange}
-              />
+                />
+            <StyledHeader fSize='small' black>Password</StyledHeader>
               <Form.Input
-                label="Password"
                 required
                 name='password'
                 value={password}
                 placeholder='Password'
                 type='password'
                 onChange={this.handleChange}
-              />
+                />
               <Segment textAlign='center' basic>
                 <StyledButton type='submit'>Submit</StyledButton>
                 <StyledButton filled onClick = {this.handleOpen}>Close</StyledButton>

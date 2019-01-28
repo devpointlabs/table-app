@@ -1,3 +1,5 @@
+
+
 1.times do
   User.create(
     first_name: "Admin",
@@ -38,11 +40,17 @@
     telephone: "801.883.8714", 
     email: "contact@skyslc.com",
     about_us: "In 2013, Ken Dinsmore found himself at the world renowned Burning Man.
-    
-    As a temporary metropolis dedicated to community, art, self-expression, and self-reliance, he was impressed by the energy created by the congregation. He wanted to share this with his home of Salt Lake City and this building is his “gift to downtown.” In March of 2015, just a year after breaking ground, SKY was ready to revolutionize the way people view Utah nightlife.
-    
-    SKY is a versatile 3-floor space used for large scale events, weddings, private parties, concerts and nightclub events. The 15.000 sq ft open-air building is complete with the optimum sound, 300′′video screen, glass retractable roof, 20 VIP suites, 14 garage doors and performance lighting unlike anything else available in SLC; rivaling any other renowned entertainment facility in the world! Night Club, Event Space, Lounge and Patio... 
-    
+    \n
+    As a temporary metropolis dedicated to community, art, self-expression, and self-reliance, 
+    he was impressed by the energy created by the congregation. He wanted to share this with his home 
+    of Salt Lake City and this building is his “gift to downtown.” In March of 2015, just a year after breaking 
+    ground, SKY was ready to revolutionize the way people view Utah nightlife.
+    \n              
+    SKY is a versatile 3-floor space used for large scale events, weddings, private parties, concerts and nightclub 
+    events. The 15.000 sq ft open-air building is complete with the optimum sound, 300′′video screen, glass retractable 
+    roof, 20 VIP suites, 14 garage doors and performance lighting unlike anything else available in SLC; rivaling any
+    other renowned entertainment facility in the world! Night Club, Event Space, Lounge and Patio... 
+    \n
     Please come check us out at 149 Pierpont Ave, Downtown Salt Lake. Call or email us to tour the space, we know you’ll love it!",
     facebook_url: "https://www.facebook.com/skysaltlakecity",
     twitter_url: "https://twitter.com/SkyVenueSLC",
