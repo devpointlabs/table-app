@@ -5,7 +5,7 @@ import { StyledButton, StyledHeader } from '../styles/Styles'
 import axios from "axios"
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { format } from 'date-fns'
-import BriantreeDrop from './BraintreeDrop';
+import BraintreeDrop from './BraintreeDrop';
 
 
 class Cart extends React.Component {
@@ -109,14 +109,14 @@ class Cart extends React.Component {
             <StyledButton icon onClick={() => this.setState({ isOpen: !this.state.isOpen })} >
               <Icon name="times"/>
             </StyledButton>
-            <StyledHeader black textAlign = 'center'>Checkout</StyledHeader>
+            <StyledHeader black fSize="large" underlined textAlign = 'center'>Checkout</StyledHeader>
           </Modal.Header>
           <Modal.Content>
             <Segment basic textAlign='center'>
               <Label color='green'>Payment Amount</Label>
               <Input value={total} disabled style={{ fontSize: '18px', }} />
               <Divider />
-              <BriantreeDrop amount={total} />
+              <BraintreeDrop amount={total} />
             </Segment>
           </Modal.Content>
         </Modal>

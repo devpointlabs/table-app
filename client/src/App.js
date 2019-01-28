@@ -20,7 +20,6 @@ import AdminDashboard from './components/AdminDashboard';
 import Contacts from './components/Contacts';
 import MobileCalendar from './components/MobileCalendar';
 import PaymentSuccess from './components/PaymentSuccess';
-import Checkout from './components/Checkout';
 import HeroForm from './components/HeroForm';
 import HeroManagement from './components/HeroManagement';
 import VirtualTour from './components/VirtualTour';
@@ -70,12 +69,10 @@ class App extends React.Component {
             <Route exact path='/contacts' component={Contacts} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/login" component={Login} />
-            <ProtectedRoute exact path="/checkout" component={Checkout} />
             <Route exact path="/register" component={Register} />
             <Route exact path='/event/:id' component={EventDetails} />
             <Route exact path='/calendar' component={MobileCalendar} />
             <Route exact path='/payment_success' component={PaymentSuccess} />
-            <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/virtual_tour' component={VirtualTour} />
             <Route exact path='/reviews' component={Reviews} />
             <Route exact path='/viptables' component={VipTables} />
