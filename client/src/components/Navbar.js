@@ -139,9 +139,9 @@ class Navbar extends React.Component {
           <StyledItem href="/calendar" id='navButton3'>
             CALENDAR
           </StyledItem>
-          <StyledItem href="/" id='navButton4'>
+          {/* <StyledItem href="/" id='navButton4'>
             PRIVATE EVENTS
-          </StyledItem>
+          </StyledItem> */}
           <StyledItem href="/viptables" id='navButton5'>
             VIP TABLES
           </StyledItem>

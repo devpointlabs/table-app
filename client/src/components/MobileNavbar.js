@@ -73,9 +73,9 @@ class MobileNavbar extends React.Component {
             <Dropdown.Item href='/calendar'>
               CALENDAR
             </Dropdown.Item>
-            <Dropdown.Item href='/'>
+            {/* <Dropdown.Item href='/'>
               PRIVATE EVENTS
-            </Dropdown.Item>
+            </Dropdown.Item> */}
             <Dropdown.Item href='/'>
               VIP TABLES
             </Dropdown.Item>
