@@ -58,6 +58,19 @@ class EventDetails extends React.Component {
         })
   }
 
+  expiredButton = () => (
+    <StyledButton onClick={() => this.expiredEvent()}>Remove Expired Events</StyledButton>
+  )
+
+    expiredEvent = (id) => {
+      const remove = window.confirm("Are you sure you would like to remove all expired events")
+      if (remove)
+        axios.delete(`/api/expired`)
+          .then( res => {
+            this.props.history.push('/')
+          })
+    }
+
   editDate = () => {
     var result = format(
       new Date(this.state.event.event_date),
@@ -105,6 +118,7 @@ class EventDetails extends React.Component {
           <Button.Group>
           {user && user.admin ? this.editButton() : null }
           {user && user.admin ? this.deleteButton() : null }
+          {user && user.admin ? this.expiredButton() : null }
           </Button.Group>
             <StyledHeader fSize='large' underlined>{event.host}</StyledHeader>
             <StyledHeader>{date}</StyledHeader>

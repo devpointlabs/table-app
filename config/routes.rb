@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     post '/payment', to: 'braintree#payment'
     get '/comingartists', to: 'events#comingartists'
     get '/heroimages', to: 'hero_images#all'
-    
+    delete '/expired', to: 'events#expired' 
+
     resources :users, only: :update do
       resource :cart
     end
