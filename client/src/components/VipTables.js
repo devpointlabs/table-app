@@ -16,7 +16,7 @@ class VipTables extends React.Component {
   renderModal = () => (
     <Modal open={this.state.isOpen}>
       <Modal.Header>
-        <Header as='h2' textAlign='center'>Table Layout</Header>
+        <StyledHeader black fSize='large' textAlign='center'>Table Layout</StyledHeader>
       </Modal.Header>
       <Segment basic textAlign='center'>
         <Image src={FloorPlan} style={{margin: 'auto'}} />
