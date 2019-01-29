@@ -1,11 +1,18 @@
-require "whenever/capistrano"
-
-require 'capistrano/rails'
-
+# Must Be In This Order!
+# require 'capistrano/setup'
+# require 'capistrano/deploy'
+# require 'capistrano/bundler'
+# require 'capistrano/rails'
+# require 'capistrano/rvm
 require "capistrano/setup"
-
-# Include default deployment tasks
 require "capistrano/deploy"
+require "capistrano/bundler"
+require 'capistrano/rails'
+require 'rvm1/capistrano3'
+
+require "whenever/capistrano"
+# Include default deployment tasks
+
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -29,10 +36,9 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
-# require "capistrano/rvm"
 # require "capistrano/rbenv"
 # require "capistrano/chruby"
-# require "capistrano/bundler"
+
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"

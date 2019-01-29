@@ -1,18 +1,10 @@
 require 'whenever/capistrano'
 
-set :whenever_environment, defer { stage }
-set :whenever_command, 'bundle exec whenever'
-
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
-
-set :migration_role, :app
-
 # If the environment differs from the stage name
 set :rails_env, 'staging'
 
 # Defaults to :db role
-set :migration_role, :db
+set :migration_role, :app
 
 # Defaults to the primary :db server
 set :migration_servers, -> { primary(fetch(:migration_role)) }
@@ -42,3 +34,6 @@ set :normalize_asset_timestamps, %w{public/images public/javascripts public/styl
 # If you use Rails 4+ and you'd like to clean up old assets after each deploy,
 # set this to the number of versions to keep
 set :keep_assets, 2
+
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+append :linked_files, 'config/database.yml', 'config/secrets.yml'
